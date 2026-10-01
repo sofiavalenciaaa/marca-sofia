@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marca Sofía Valencia</title>
+<meta name="description" content="Marca personal de Sofía Valencia: explotar, explorar, experimentar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat+Brush&family=Familjen+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Silkscreen:wght@400;700&display=swap">
+<style>
+/* Layout: cada sección es un afiche a sangre de un color distinto, con stickers pegados encima y olas de cerámica entre una y otra. */
+:root{
+  --cobalto:#1F3BE0; --rosa:#FF5CA8; --sol:#FFC933; --pasto:#17A14B; --tomate:#F2462B;
+  --tinta:#14102A; --loza:#FFFDF7; --lila:#B9A6FF;
+  --f-grito:"Bagel Fat One","Arial Black",Impact,sans-serif;
+  --f-texto:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-mano:"Caveat Brush","Comic Sans MS","Bradley Hand",cursive;
+  --f-pixel:"Silkscreen","Courier New",monospace;
+  --gutter:clamp(16px,4vw,56px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--tinta);color:var(--tinta);font-family:var(--f-texto);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-grito);font-weight:400;line-height:.92;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sol);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--gutter)}
+.sec{padding-block:clamp(56px,9vw,120px);position:relative}
+.pix{font-family:var(--f-pixel);font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.mano{font-family:var(--f-mano);font-weight:400}
+.lead{font-size:clamp(18px,1.6vw,22px);max-width:56ch}
+.head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+.head h2{font-size:clamp(44px,8vw,112px)}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--tinta);color:var(--loza);width:max-content;max-width:100%}
+
+/* stickers */
+.st{position:relative;border-radius:14px;box-shadow:0 3px 0 rgba(20,16,42,.18),0 14px 30px -12px rgba(20,16,42,.45);background:var(--loza);padding:8px;transform:rotate(var(--r,0deg))}
+.st img{border-radius:8px}
+.st.round,.st.round img{border-radius:50%}
+@media (prefers-reduced-motion:no-preference){
+  .slap{animation:slap .7s cubic-bezier(.2,1.6,.4,1) both;animation-delay:var(--d,0s)}
+  @keyframes slap{from{transform:rotate(calc(var(--r,0deg) - 14deg)) scale(1.25)}to{transform:rotate(var(--r,0deg)) scale(1)}}
+  .st:hover{transform:rotate(calc(var(--r,0deg) * -1)) scale(1.03);transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+}
+
+/* olas de cerámica entre secciones */
+.ola{height:30px;margin-top:-1px;background:var(--c);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom/80px 30px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom/80px 30px}
+
+/* ticker */
+.ticker{background:var(--tinta);color:var(--sol);overflow:hidden;white-space:nowrap;padding-block:14px;border-block:3px solid var(--tinta)}
+.ticker .row{display:inline-flex;gap:28px;font-family:var(--f-grito);font-size:clamp(24px,3vw,40px);line-height:1}
+.ticker .row span:nth-child(3n+2){color:var(--rosa)}
+.ticker .row span:nth-child(3n){color:var(--loza)}
+@media (prefers-reduced-motion:no-preference){.ticker .row{animation:corre 28s linear infinite}@keyframes corre{to{transform:translateX(-50%)}}}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--tinta);color:var(--loza)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
+.bar nav{display:flex;gap:4px;flex-wrap:wrap}
+.bar nav a{text-decoration:none;padding:5px 8px;border-radius:6px}
+.bar nav a:hover{background:var(--rosa);color:var(--tinta)}
+.bar .firma{width:84px;color:var(--sol)}
+
+/* HERO */
+.hero{background:var(--cobalto);color:var(--loza);overflow:hidden}
+.hero .sec{padding-block:clamp(40px,6vw,80px) clamp(64px,8vw,110px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.lema{font-family:var(--f-grito);font-size:clamp(38px,11vw,150px);line-height:.86;display:grid}
+.lema span:nth-child(1){color:var(--sol)}
+.lema span:nth-child(2){color:var(--rosa);padding-left:.4em}
+.lema span:nth-child(3){color:var(--loza)}
+.hero .firma-big{width:min(100%,520px);color:var(--loza);margin-top:clamp(18px,3vw,36px)}
+.nota{font-family:var(--f-mano);font-size:clamp(22px,2.2vw,30px);color:var(--sol);display:flex;align-items:center;gap:10px;transform:rotate(-3deg);width:max-content;max-width:100%}
+.hero-stick{position:relative;min-height:clamp(380px,46vw,620px)}
+.hero-stick .neon{position:absolute;right:0;top:0;width:78%;--r:5deg}
+.hero-stick .plato{position:absolute;left:0;bottom:0;width:58%;--r:-9deg;--d:.15s;padding:6px}
+.hero-stick .chip{position:absolute;right:6%;bottom:10%;--r:-6deg;--d:.3s;background:var(--sol);color:var(--tinta);padding:12px 16px;font-family:var(--f-pixel);font-size:13px;border-radius:10px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hero-meta .tag{background:var(--loza);color:var(--cobalto)}
+.hero p.lead{margin-top:22px;color:var(--loza)}
+
+@media (min-width:981px){.lema{font-size:clamp(40px,5.9vw,112px)}}
+.nota{margin-top:18px}
+/* REGISTROS */
+.reg{display:grid;grid-template-columns:1fr 1fr}
+.reg>div{padding:clamp(40px,6vw,88px) var(--gutter);display:grid;gap:20px;align-content:start;min-width:0}
+.dia{background:var(--loza);color:var(--cobalto)}
+.noche{background:var(--tinta);color:var(--loza)}
+.reg h3{font-size:clamp(44px,6.4vw,96px)}
+.noche h3{color:var(--rosa);text-shadow:0 0 18px rgba(255,92,168,.55),0 0 2px var(--rosa)}
+.reg dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:8px 0 0}
+.reg dt{font-family:var(--f-pixel);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
+.reg dd{margin:0}
+.noche dt{color:var(--sol)}
+.reg .pf{width:min(240px,60%);--r:-4deg}
+.noche .pf{--r:5deg;background:var(--rosa)}
+
+/* E's */
+.es{background:var(--sol)}
+.es-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.5vw,32px)}
+.e{border-radius:28px;padding:clamp(22px,3vw,36px);display:grid;gap:14px;align-content:start;--r:-2deg}
+.e:nth-child(1){background:var(--tomate);color:var(--loza)}
+.e:nth-child(2){background:var(--cobalto);color:var(--loza);--r:1.5deg}
+.e:nth-child(3){background:var(--pasto);color:var(--loza);--r:-1deg}
+.e h3{font-size:clamp(40px,4.6vw,68px)}
+.e .q{font-family:var(--f-mano);font-size:24px;line-height:1.2}
+
+/* FIRMA */
+.firma-sec{background:var(--loza)}
+.firma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ft{border-radius:20px;aspect-ratio:16/10;display:grid;place-items:center;padding:12%;position:relative;max-width:100%}
+.ft svg{width:100%;height:auto}
+.ft .pix{position:absolute;left:14px;bottom:12px}
+.ft.foto{background:center/cover;}
+.reglas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.regla{border:3px solid var(--tinta);border-radius:18px;padding:20px 22px;display:grid;gap:10px;align-content:start}
+.regla.no{border-color:var(--tomate)}
+.regla ul{margin:0;padding-left:20px;display:grid;gap:8px}
+.regla .pix{color:var(--cobalto)}
+.regla.no .pix{color:var(--tomate)}
+
+/* COLOR */
+.color{background:var(--pasto);color:var(--loza)}
+.platos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.5vw,32px)}
+.platos button{all:unset;cursor:pointer;display:grid;gap:12px;justify-items:center;text-align:center}
+.platos button:focus-visible .disco{outline:3px solid var(--sol);outline-offset:6px}
+.disco{width:100%;aspect-ratio:1;border-radius:50%;background:var(--loza);display:grid;place-items:center;box-shadow:0 10px 0 rgba(20,16,42,.25);transition:transform .25s}
+.disco i{display:block;width:72%;aspect-ratio:1;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 10px color-mix(in srgb,var(--sw) 70%,#fff),inset 0 0 0 16px var(--sw)}
+.platos button:hover .disco{transform:rotate(-12deg) translateY(-4px)}
+.platos b{font-family:var(--f-grito);font-weight:400;font-size:26px;line-height:1}
+.platos small{font-family:var(--f-pixel);font-size:11px;letter-spacing:.06em}
+.platos em{font-style:normal;font-size:14px;opacity:.9;max-width:24ch}
+.prop{display:flex;height:56px;border-radius:14px;overflow:hidden;margin-top:44px;border:3px solid var(--tinta)}
+.prop span{display:grid;place-items:center;font-family:var(--f-pixel);font-size:11px;color:var(--tinta);min-width:0;overflow:hidden}
+.combos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.combo{border-radius:16px;padding:18px;font-family:var(--f-grito);font-size:28px;line-height:1;display:grid;gap:8px}
+.combo .pix{font-size:10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--sol);padding:10px 16px;border-radius:999px;z-index:40}
+
+/* TIPO */
+.tipo{background:var(--rosa)}
+.especimen{display:grid;gap:16px}
+.esp{background:var(--loza);border-radius:24px;padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px;align-items:center}
+.esp .muestra{min-width:0;overflow-wrap:break-word}
+.esp .info{display:grid;gap:8px}
+.esp .info .pix{color:var(--cobalto)}
+.m-grito{font-family:var(--f-grito);font-size:clamp(48px,8vw,120px);line-height:.9;color:var(--cobalto)}
+.m-mano{font-family:var(--f-mano);font-size:clamp(40px,6vw,84px);line-height:1;color:var(--tomate)}
+.m-pixel{font-family:var(--f-pixel);font-size:clamp(22px,3vw,40px);line-height:1.15;color:var(--tinta)}
+.m-texto{font-family:var(--f-texto);font-size:clamp(22px,2.4vw,32px);line-height:1.25}
+.escala{margin-top:24px;overflow-x:auto}
+.escala table{width:100%;border-collapse:collapse;min-width:520px}
+.escala td{padding:12px 10px;border-top:2px solid var(--tinta);vertical-align:baseline}
+.escala td:last-child{text-align:right;font-family:var(--f-pixel);font-size:11px;white-space:nowrap}
+
+/* VOZ */
+.voz{background:var(--loza)}
+.rasgos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rasgo{border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start;background:var(--c);color:var(--fc,var(--tinta))}
+.rasgo .q{font-family:var(--f-grito);font-size:clamp(24px,2.4vw,32px);line-height:1}
+.sino{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.sino>div{border-radius:20px;padding:24px;display:grid;gap:14px;align-content:start}
+.ss{background:var(--cobalto);color:var(--loza)}
+.sn{background:var(--tinta);color:var(--loza)}
+.sino p{font-size:19px;padding-bottom:12px;border-bottom:1px dashed currentColor}
+.sino p:last-child{border:0;padding:0}
+.sn p{text-decoration:line-through;text-decoration-color:var(--tomate);text-decoration-thickness:3px;opacity:.85}
+.ss mark{background:var(--sol);color:var(--tinta);padding:0 .2em;border-radius:4px}
+
+/* ARTE */
+.arte{background:var(--tinta);color:var(--loza)}
+.reglas-foto{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:44px}
+.rf{border:2px solid var(--lila);border-radius:18px;padding:18px;display:grid;gap:8px;align-content:start}
+.rf .pix{color:var(--sol)}
+.polas{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.6vw,22px);align-items:start}
+.pola{background:var(--loza);color:var(--tinta);padding:8px 8px 10px;border-radius:6px;transform:rotate(var(--r));display:grid;gap:6px}
+.pola img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:3px}
+.pola span{font-family:var(--f-mano);font-size:18px;line-height:1;text-align:center}
+.objetos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:56px}
+.obj{display:grid;gap:10px}
+.obj img{border-radius:18px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.obj p{font-size:15px;color:var(--lila)}
+.obj b{color:var(--loza);font-weight:600}
+
+/* REFERENTES */
+.refs{background:var(--sol)}
+.cuenta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.cuenta .tag{background:var(--tinta);color:var(--sol)}
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filtros button{font:inherit;font-family:var(--f-pixel);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border:3px solid var(--tinta);background:var(--loza);color:var(--tinta);padding:8px 14px;border-radius:999px;cursor:pointer}
+.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--sol)}
+.familias{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:28px}
+.fam{background:var(--loza);border-radius:16px;padding:16px;display:grid;gap:8px;align-content:start;border:3px solid transparent}
+.fam.on{border-color:var(--tinta)}
+.fam b{font-family:var(--f-grito);font-weight:400;font-size:22px;line-height:1}
+.fam p{font-size:14px}
+.fam .pix{font-size:10px;color:var(--cobalto)}
+.muro{columns:6 170px;column-gap:12px}
+.pin{break-inside:avoid;margin:0 0 12px;position:relative;border-radius:12px;overflow:hidden;background:var(--loza)}
+.pin img{width:100%}
+.pin figcaption{position:absolute;left:8px;top:8px;background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:999px}
+.behance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
+.beh{background:var(--loza);border-radius:18px;overflow:hidden;display:grid;align-content:start}
+.beh img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.beh div{padding:16px;display:grid;gap:6px}
+.beh b{font-family:var(--f-grito);font-weight:400;font-size:22px;line-height:1}
+.beh .pix{font-size:10px;color:var(--tomate)}
+.tableros{margin-top:48px;overflow-x:auto;background:var(--loza);border-radius:20px;padding:8px 20px}
+.tableros table{width:100%;border-collapse:collapse;min-width:640px;font-size:15px}
+.tableros th{font-family:var(--f-pixel);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:14px 10px 10px;color:var(--cobalto)}
+.tableros td{padding:9px 10px;border-top:1px solid color-mix(in srgb,var(--tinta) 18%,transparent);vertical-align:top}
+.tableros td.n{font-variant-numeric:tabular-nums;text-align:right;font-family:var(--f-pixel);font-size:12px}
+.tableros th.n{text-align:right}
+.priv{font-family:var(--f-pixel);font-size:10px;background:var(--rosa);padding:2px 6px;border-radius:999px;white-space:nowrap}
+.bar-mini{display:block;height:8px;border-radius:4px;background:var(--tomate);min-width:3px}
+
+/* APLICACIONES */
+.apps{background:var(--cobalto);color:var(--loza)}
+.apps-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.app{display:grid;gap:10px;align-content:start;min-width:0}
+.app .pix{color:var(--sol)}
+.app .m{border-radius:16px;overflow:hidden;position:relative;container-type:inline-size;max-width:100%}
+.a-banner{grid-column:1/-1}
+.a-banner .m{aspect-ratio:1584/396;background:var(--rosa);color:var(--tinta);display:grid;grid-template-columns:1.3fr 1fr;align-items:center}
+.a-banner .t{padding:0 0 0 6cqw;display:grid;gap:1.2cqw}
+.a-banner h4{font-family:var(--f-grito);font-weight:400;font-size:5.6cqw;line-height:.9;margin:0}
+.a-banner .pix{font-size:1.1cqw;color:var(--tinta)}
+.a-banner .img{height:100%;background:url(img/hf-neon.jpg) center/cover}
+.a-banner .avatar{position:absolute;left:2.6cqw;bottom:-14cqw;width:20cqw;aspect-ratio:1;border-radius:50%;border:2px dashed var(--tinta);opacity:.6}
+.a-carr{grid-column:span 2}
+.a-carr .m{aspect-ratio:1080/1350;background:var(--tomate);color:var(--loza);padding:8cqw;display:grid;align-content:space-between}
+.a-carr h4{font-family:var(--f-grito);font-weight:400;font-size:13cqw;line-height:.9;margin:0}
+.a-carr h4 span{color:var(--sol)}
+.a-carr .pix{font-size:3.6cqw;color:var(--loza)}
+.a-carr .firma{width:34cqw;color:var(--loza)}
+.a-story{grid-column:span 2}
+.a-story .m{aspect-ratio:9/16;background:url(img/foto-11.jpg) center/cover;color:var(--loza)}
+.a-story .s1{position:absolute;left:7cqw;top:10cqw;background:var(--sol);color:var(--tinta);font-family:var(--f-pixel);font-size:4.4cqw;padding:2cqw 3cqw;border-radius:2cqw;transform:rotate(-5deg);line-height:1.2}
+.a-story .s2{position:absolute;right:6cqw;bottom:22cqw;font-family:var(--f-mano);font-size:11cqw;color:var(--rosa);transform:rotate(-6deg);text-shadow:0 0 4cqw rgba(255,92,168,.6)}
+.a-story .s3{position:absolute;left:7cqw;bottom:8cqw;font-family:var(--f-pixel);font-size:3.6cqw}
+.a-story .s4{position:absolute;right:8cqw;top:34cqw;width:26cqw;transform:rotate(12deg)}
+.a-slide{grid-column:span 2}
+.a-slide .m{aspect-ratio:16/9;background:var(--tinta);display:grid;grid-template-columns:1.25fr 1fr}
+.a-slide .t{padding:7cqw 0 6cqw 7cqw;display:grid;align-content:space-between}
+.a-slide h4{font-family:var(--f-grito);font-weight:400;font-size:9cqw;line-height:.9;margin:0;color:var(--loza)}
+.a-slide h4 span{color:var(--rosa)}
+.a-slide .pix{font-size:2.2cqw;color:var(--sol)}
+.a-slide .img{background:url(img/foto-09.jpg) center 20%/cover}
+.a-web{grid-column:span 4}
+.a-web .m{aspect-ratio:16/9;background:var(--loza);color:var(--tinta);display:grid;grid-template-rows:auto 1fr}
+.a-web .nav{display:flex;justify-content:space-between;align-items:center;padding:2.4cqw 4cqw;font-family:var(--f-pixel);font-size:1.5cqw}
+.a-web .nav .firma{width:13cqw;color:var(--cobalto)}
+.a-web .body{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;padding:0 4cqw 4cqw;gap:3cqw}
+.a-web h4{font-family:var(--f-grito);font-weight:400;font-size:6cqw;line-height:.92;margin:0 0 2cqw;color:var(--cobalto)}
+.a-web h4 span{color:var(--rosa)}
+.a-web p{font-size:1.8cqw;max-width:40ch}
+.a-web .btns{display:flex;gap:1.2cqw;margin-top:2.4cqw}
+.a-web .btns span{background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:1.4cqw;padding:1.2cqw 2cqw;border-radius:99px}
+.a-web .btns span+span{background:var(--sol);color:var(--tinta)}
+.a-web .pic{position:relative;height:100%}
+.a-web .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:2cqw}
+.a-web .pic .pl{position:absolute;width:38%;left:-12%;bottom:-6%;border-radius:50%;transform:rotate(-10deg);box-shadow:0 1cqw 2cqw rgba(0,0,0,.3)}
+.a-mail{grid-column:span 2}
+.a-mail .m{background:var(--loza);color:var(--tinta);padding:7cqw;display:grid;gap:3cqw;font-size:4.4cqw;line-height:1.35}
+.a-mail .firma{width:44cqw;color:var(--tomate)}
+.a-mail .pix{font-size:3.2cqw;color:var(--cobalto)}
+.a-mail hr{border:0;border-top:2px dashed var(--tinta);margin:0}
+
+.pie{background:var(--tinta);color:var(--lila)}
+.pie .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:36px}
+.pie .firma{width:120px;color:var(--rosa)}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-stick{min-height:clamp(320px,80vw,520px)}
+  .reg{grid-template-columns:1fr}
+  .es-grid,.rasgos{grid-template-columns:1fr}
+  .platos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .combos,.reglas-foto,.objetos,.behance{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .familias{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .polas{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .firma-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .esp{grid-template-columns:1fr}
+  .apps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .a-banner,.a-web{grid-column:1/-1}
+  .a-carr,.a-story,.a-slide,.a-mail{grid-column:span 1}
+  .a-slide{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .reglas,.sino,.combos,.objetos,.firma-grid,.behance,.familias{grid-template-columns:1fr}
+  .reglas-foto{grid-template-columns:1fr}
+  .polas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .apps-grid{grid-template-columns:1fr}
+  .a-carr,.a-story,.a-mail{grid-column:1/-1}
+  .bar nav{display:none}
+  .muro{columns:2;column-gap:8px}
+  .pin{margin-bottom:8px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="firma" viewBox="0 0 2300 964"><g transform="translate(0.000000,964.000000) scale(0.100000,-0.100000)"
+fill="currentColor" stroke="none">
+<path d="M12155 8944 c-164 -25 -269 -74 -526 -245 -51 -34 -76 -53 -191 -146
+-54 -43 -223 -209 -281 -275 -68 -77 -131 -154 -165 -199 -90 -120 -121 -165
+-122 -173 0 -5 -12 -25 -27 -44 -15 -20 -41 -63 -58 -96 -17 -34 -39 -74 -47
+-91 -42 -78 -108 -223 -114 -250 -4 -16 -19 -55 -34 -85 -15 -30 -33 -80 -40
+-110 -7 -30 -24 -79 -37 -108 -13 -29 -34 -105 -47 -170 -14 -64 -31 -133 -39
+-152 -8 -19 -23 -87 -32 -150 -9 -63 -27 -160 -41 -216 -13 -55 -33 -185 -44
+-287 -10 -103 -26 -226 -34 -274 -36 -207 -56 -751 -56 -1524 0 -452 6 -415
+-80 -473 -100 -68 -125 -85 -160 -111 -46 -34 -95 -68 -150 -104 -25 -17 -58
+-39 -75 -51 -189 -130 -183 -127 -245 -111 -36 9 -67 10 -117 3 -42 -6 -367
+-7 -845 -3 -733 6 -778 7 -795 24 -17 18 -17 19 12 43 57 47 118 99 156 134
+21 19 73 67 115 105 42 39 123 124 180 190 57 66 117 136 133 155 17 19 62 69
+101 110 107 114 121 157 66 214 -62 66 -89 50 -382 -240 -93 -93 -228 -223
+-300 -289 -254 -236 -314 -305 -322 -370 -7 -69 -29 -77 -242 -87 -157 -7
+-404 -33 -421 -44 -21 -13 -312 -32 -341 -22 -30 11 -30 11 -24 76 4 36 15 88
+26 116 10 28 33 89 50 135 16 46 38 94 48 106 11 13 27 44 36 69 13 35 30 54
+69 80 63 43 74 36 102 -56 24 -80 51 -108 104 -108 74 0 95 65 61 186 -63 225
+-202 310 -356 218 -74 -44 -95 -65 -142 -132 -46 -68 -127 -215 -143 -262 -6
+-19 -23 -58 -36 -87 -13 -29 -32 -90 -43 -136 -25 -106 -57 -203 -77 -233 -20
+-32 -57 -41 -208 -54 -71 -5 -172 -15 -223 -21 -128 -14 -139 -8 -157 91 -4
+19 -20 70 -36 112 -16 43 -29 86 -29 97 0 10 -18 46 -40 79 -22 33 -40 65 -40
+71 0 10 -20 34 -90 106 -33 34 -112 95 -123 95 -7 0 -41 14 -77 31 -80 39
+-249 48 -305 17 -16 -9 -52 -24 -79 -33 -26 -10 -70 -37 -97 -61 -27 -24 -54
+-44 -60 -44 -5 0 -17 -16 -24 -35 -8 -19 -24 -39 -35 -45 -11 -6 -34 -39 -51
+-73 -17 -34 -37 -69 -44 -77 -7 -8 -21 -42 -30 -75 -10 -33 -28 -94 -41 -137
+-13 -42 -28 -121 -33 -176 -12 -113 -16 -129 -41 -142 -9 -5 -102 -16 -206
+-25 -104 -9 -214 -20 -244 -25 -201 -33 -243 -39 -310 -45 -41 -3 -129 -13
+-194 -21 -145 -18 -176 -14 -291 40 -50 23 -112 48 -139 55 -27 6 -67 21 -89
+33 -23 11 -82 32 -132 45 -49 14 -100 31 -112 39 -12 7 -59 23 -105 35 -46 12
+-101 32 -123 44 -22 13 -65 30 -95 39 -30 9 -68 25 -85 36 -16 12 -52 32 -80
+46 -135 66 -288 202 -353 314 -37 65 -37 65 -37 195 0 130 0 130 39 215 53
+116 119 209 219 310 108 109 264 238 328 271 21 10 41 23 44 29 4 6 27 21 53
+34 26 13 55 33 65 44 10 11 33 26 50 33 18 7 46 22 62 34 17 12 50 32 75 45
+25 12 52 29 61 36 8 8 47 30 85 49 38 20 85 44 104 55 175 94 335 142 408 124
+31 -8 41 -17 62 -60 48 -99 95 -123 160 -80 64 42 73 62 60 141 -18 111 -62
+182 -145 230 -68 39 -71 40 -165 39 -78 0 -106 -5 -160 -27 -36 -14 -85 -31
+-110 -37 -25 -6 -61 -22 -80 -34 -19 -12 -62 -33 -95 -46 -33 -13 -69 -31 -80
+-41 -11 -10 -42 -27 -70 -39 -27 -12 -59 -30 -70 -40 -11 -11 -38 -26 -59 -35
+-21 -9 -60 -31 -86 -48 -66 -44 -135 -87 -185 -117 -23 -14 -55 -35 -71 -48
+-28 -23 -56 -42 -139 -99 -145 -100 -391 -350 -454 -463 -114 -203 -142 -293
+-142 -455 0 -138 6 -170 57 -281 80 -175 287 -366 520 -478 40 -19 75 -39 78
+-45 4 -6 33 -18 64 -27 31 -9 82 -29 112 -45 30 -15 75 -33 100 -39 24 -7 70
+-25 102 -41 32 -16 84 -35 116 -43 148 -34 134 -59 -51 -92 -50 -8 -116 -24
+-146 -34 -31 -11 -111 -31 -178 -44 -67 -14 -138 -32 -158 -41 -21 -8 -78 -25
+-129 -36 -50 -12 -111 -32 -136 -44 -25 -12 -70 -30 -100 -40 -30 -10 -66 -26
+-80 -35 -14 -10 -44 -27 -67 -38 -57 -29 -152 -114 -180 -162 -103 -173 -78
+-310 90 -486 l97 -103 0 -200 c0 -416 53 -597 215 -737 127 -110 205 -134 428
+-134 183 0 258 10 397 51 213 63 364 167 551 377 43 48 50 52 90 52 51 0 245
+-22 409 -46 91 -14 193 -17 490 -18 375 0 375 0 665 37 160 21 319 46 355 57
+36 10 119 28 184 39 65 12 153 32 195 45 42 13 115 31 162 40 47 9 119 28 160
+42 94 33 176 41 204 21 18 -14 20 -29 23 -146 4 -130 4 -130 43 -166 56 -51
+115 -51 154 1 40 53 55 114 62 257 8 171 22 187 197 231 37 9 89 27 115 40 25
+13 73 31 106 41 33 9 78 27 100 40 22 13 66 30 97 40 31 9 68 25 83 37 14 11
+52 28 85 38 32 10 72 27 87 38 39 28 128 55 155 49 16 -4 28 -21 41 -56 55
+-156 182 -109 208 76 5 43 12 87 14 99 5 23 119 96 189 120 22 8 57 25 76 38
+19 13 51 28 71 35 20 6 56 24 81 40 25 16 56 32 69 36 13 4 58 27 100 51 42
+24 80 44 84 44 5 0 26 12 46 26 70 48 88 24 89 -116 2 -154 14 -231 49 -301
+77 -151 202 -229 383 -237 108 -4 108 -4 206 37 85 36 107 50 163 108 147 153
+169 173 190 173 13 0 23 -8 27 -23 10 -40 112 -226 162 -296 149 -210 283
+-273 432 -204 74 35 93 59 84 108 -9 47 -46 68 -113 66 -95 -3 -122 11 -173
+87 -96 144 -161 278 -230 477 -64 185 -64 187 -41 274 28 108 39 200 47 409 7
+178 8 184 30 194 15 7 102 7 275 0 336 -14 306 13 338 -297 11 -104 29 -229
+40 -277 11 -47 30 -157 41 -245 11 -87 30 -190 40 -229 11 -38 29 -133 41
+-210 11 -76 29 -165 40 -197 10 -32 28 -113 39 -180 11 -67 29 -145 40 -174
+11 -29 28 -92 39 -140 11 -48 29 -110 41 -138 12 -27 30 -79 41 -115 10 -37
+32 -92 48 -124 17 -32 31 -65 31 -73 0 -9 18 -48 39 -87 21 -39 42 -81 46 -93
+3 -13 21 -45 38 -72 18 -27 46 -71 62 -97 86 -136 134 -199 273 -355 28 -32
+52 -63 52 -69 0 -6 77 -10 215 -10 220 0 235 3 195 38 -46 39 -69 62 -140 141
+-41 46 -89 99 -107 118 -18 19 -42 49 -53 68 -12 19 -25 35 -30 35 -8 0 -75
+98 -122 179 -14 25 -31 52 -38 59 -18 20 -116 213 -130 257 -7 22 -23 58 -36
+80 -12 22 -30 69 -39 105 -9 36 -27 90 -40 120 -13 30 -31 91 -40 135 -9 44
+-25 105 -35 136 -11 31 -29 112 -40 180 -12 68 -32 167 -45 219 -13 52 -31
+147 -40 210 -9 63 -25 149 -36 191 -20 80 -43 239 -54 372 -4 45 -16 99 -28
+125 -28 63 -32 251 -5 278 24 24 37 -7 53 -127 10 -78 17 -104 37 -127 16 -20
+32 -61 46 -120 12 -50 32 -113 45 -139 13 -26 30 -73 37 -103 7 -30 23 -75 35
+-100 13 -25 32 -75 43 -112 12 -37 32 -84 46 -105 14 -21 30 -53 37 -71 19
+-54 123 -202 189 -267 83 -83 198 -145 267 -145 102 0 209 84 239 189 62 218
+84 678 49 1023 -23 223 -33 211 178 203 219 -8 244 -12 261 -38 11 -17 15 -81
+18 -277 3 -219 6 -261 22 -295 10 -22 29 -73 42 -114 13 -41 32 -83 41 -93 9
+-10 28 -38 42 -63 31 -53 119 -130 181 -159 66 -30 245 -30 310 1 46 21 121
+88 153 136 33 49 97 26 150 -53 115 -170 327 -319 488 -342 78 -11 232 -4 275
+13 15 5 52 29 83 54 32 25 62 45 68 45 24 0 45 -42 54 -111 16 -112 77 -337
+109 -404 48 -98 130 -132 206 -84 56 34 59 47 56 231 -2 181 -8 209 -52 249
+-35 32 -45 69 -65 225 -15 121 -55 750 -55 869 l0 65 58 0 c126 -2 357 -27
+388 -43 32 -16 32 -16 39 -129 9 -153 30 -264 64 -356 16 -42 33 -88 37 -102
+4 -14 24 -63 46 -110 132 -291 241 -454 438 -650 175 -175 262 -224 400 -224
+83 -1 87 0 145 39 83 56 130 129 182 285 84 252 80 350 -14 350 -52 0 -70 -15
+-88 -72 -112 -348 -155 -404 -268 -347 -192 97 -599 656 -503 692 7 3 67 2
+132 -2 66 -5 168 -4 227 0 103 7 111 9 191 54 135 76 241 221 296 403 22 75
+30 82 90 82 30 0 44 -6 63 -30 28 -32 26 -19 48 -445 18 -380 39 -667 49 -686
+31 -56 104 -85 159 -63 76 30 84 54 92 249 10 254 62 670 100 797 37 125 33
+124 266 109 193 -12 271 -20 401 -42 106 -19 102 -3 102 -398 0 -760 41 -890
+291 -917 72 -8 99 13 99 79 0 53 -6 61 -60 90 -81 42 -81 46 -62 417 7 129 12
+325 12 436 0 278 -8 270 252 244 163 -17 171 -25 183 -185 8 -118 66 -306 121
+-397 19 -31 34 -60 34 -66 0 -28 159 -206 262 -293 116 -99 163 -127 293 -179
+104 -41 116 -44 210 -44 96 0 103 1 170 37 103 54 221 174 249 254 7 21 25 61
+39 88 15 29 35 98 47 164 21 112 21 115 3 139 -31 41 -47 47 -92 33 -46 -13
+-64 -40 -75 -111 -10 -68 -92 -239 -134 -283 -55 -58 -126 -90 -182 -82 -54 8
+-210 82 -266 127 -23 18 -60 47 -82 64 -84 64 -182 187 -240 299 -51 101 -61
+137 -69 256 -9 139 -32 131 342 114 165 -8 422 -19 570 -25 325 -13 450 -23
+468 -39 11 -8 15 -83 21 -352 10 -482 34 -618 126 -710 63 -63 105 -67 153
+-17 46 50 67 89 67 128 0 35 -6 48 -48 111 -23 34 -23 34 -20 415 3 366 4 383
+23 404 20 22 23 22 195 16 257 -10 449 -25 470 -36 10 -5 26 -33 36 -62 18
+-57 109 -243 130 -268 6 -8 24 -37 40 -65 30 -55 44 -75 123 -173 85 -106 141
+-160 216 -211 94 -64 131 -75 250 -75 108 0 139 10 202 65 50 43 95 47 160 15
+64 -31 97 -33 141 -6 117 71 103 233 -39 441 -58 84 -59 92 -59 457 0 365 -16
+528 -77 772 -14 58 -32 132 -40 165 -8 33 -37 130 -64 216 -49 153 -51 157
+-99 198 -90 76 -151 45 -210 -107 -33 -86 -62 -93 -153 -38 -86 52 -258 74
+-359 45 -53 -14 -123 -89 -175 -186 -69 -129 -86 -246 -89 -603 -3 -277 -4
+-285 -24 -294 -19 -9 -98 -3 -468 34 -131 13 -126 -1 -119 280 3 129 11 277
+17 327 11 92 11 93 -15 138 -24 41 -31 45 -64 45 -20 0 -45 -6 -54 -12 -15
+-12 -74 -124 -98 -186 -20 -50 -59 -297 -65 -402 -7 -124 -17 -158 -52 -167
+-42 -10 -786 7 -952 22 -260 25 -328 33 -349 45 -78 41 45 271 177 331 112 52
+316 72 393 37 64 -28 61 -81 -7 -127 -61 -42 -75 -97 -42 -158 15 -26 33 -49
+42 -51 19 -4 123 60 187 116 27 23 54 42 59 42 5 0 12 9 15 21 4 11 20 36 37
+54 25 29 30 45 35 107 5 73 5 73 -29 108 -19 19 -39 43 -44 52 -14 26 -150 79
+-229 90 -38 5 -142 8 -230 5 -171 -4 -169 -3 -320 -78 -101 -50 -203 -145
+-245 -229 -12 -25 -31 -57 -41 -71 -10 -15 -28 -64 -38 -109 -23 -95 -31 -106
+-81 -120 -41 -11 -289 9 -374 31 -53 13 -58 26 -107 252 -24 113 -124 246
+-239 320 -62 40 -366 42 -440 3 -139 -74 -158 -87 -238 -168 -35 -36 -85 -99
+-117 -148 -109 -171 -145 -160 -145 43 0 131 -16 328 -31 374 -12 39 -43 63
+-80 63 -83 0 -104 -57 -119 -311 -17 -291 -21 -302 -96 -283 -38 9 -38 9 -51
+94 -28 201 -38 236 -104 353 -48 87 -164 219 -213 243 -17 9 -42 26 -56 39
+-14 12 -76 42 -139 66 -115 43 -115 43 -255 44 -141 0 -141 0 -233 -44 -80
+-38 -99 -52 -144 -108 -82 -101 -159 -330 -159 -473 0 -23 -8 -48 -22 -65 -22
+-28 -22 -28 -197 -21 -201 8 -297 18 -311 32 -5 5 -19 131 -30 279 -11 149
+-27 312 -35 362 -32 199 -36 236 -44 493 -8 233 -12 273 -31 325 -12 33 -31
+93 -43 134 -26 90 -70 143 -135 160 -63 17 -134 -22 -159 -88 -31 -80 -16
+-313 32 -486 8 -27 23 -124 35 -215 11 -91 29 -217 40 -280 34 -201 65 -629
+47 -647 -22 -22 -583 6 -622 31 -25 16 -25 16 -25 301 0 389 -15 473 -100 550
+-45 41 -190 18 -206 -32 -3 -10 -12 -34 -19 -53 -7 -19 -23 -63 -35 -98 -27
+-75 -38 -80 -149 -62 -193 32 -361 -65 -449 -259 -14 -31 -33 -66 -43 -79 -10
+-13 -25 -55 -34 -95 -27 -122 -20 -117 -198 -116 -83 1 -194 4 -246 8 -128 8
+-126 6 -141 221 -6 91 -18 210 -25 265 -19 136 -38 569 -30 680 8 112 19 157
+46 181 11 10 41 49 66 86 24 38 57 75 72 83 15 7 43 27 62 44 19 16 68 57 109
+92 134 110 302 263 373 337 6 7 41 42 77 78 36 35 72 72 81 82 9 9 23 24 32
+32 9 8 37 40 63 70 25 30 61 73 79 95 89 104 116 139 129 163 8 15 24 36 36
+47 12 11 29 33 37 50 9 16 29 46 45 65 52 62 105 136 122 168 9 17 22 35 29
+39 8 4 30 33 51 63 65 98 103 151 124 173 11 12 27 38 37 57 10 19 26 44 36
+56 63 68 232 389 285 539 52 147 62 185 74 293 14 123 14 403 -1 490 -11 70
+-81 228 -128 292 -14 19 -32 46 -40 60 -33 59 -208 244 -271 286 -19 13 -46
+32 -60 43 -35 26 -159 104 -195 123 -16 9 -85 45 -152 82 -67 36 -124 66 -127
+66 -3 0 -36 14 -73 31 -118 54 -397 93 -528 73z m256 -274 c101 -15 244 -75
+494 -208 197 -105 366 -246 440 -367 10 -16 27 -39 37 -50 10 -12 37 -66 60
+-120 43 -100 43 -100 43 -265 0 -158 -2 -171 -39 -315 -21 -82 -51 -175 -67
+-205 -15 -30 -37 -75 -48 -100 -19 -42 -49 -94 -144 -252 -21 -34 -59 -90 -83
+-123 -24 -33 -52 -73 -62 -89 -9 -15 -32 -47 -51 -70 -19 -22 -45 -57 -58 -76
+-34 -50 -87 -123 -175 -241 -43 -57 -90 -121 -105 -142 -15 -21 -42 -55 -58
+-75 -17 -20 -37 -47 -45 -58 -83 -122 -586 -629 -666 -672 -12 -6 -37 -26 -57
+-44 -74 -68 -116 -102 -141 -115 -14 -8 -26 -18 -26 -22 0 -5 -22 -23 -48 -40
+-27 -17 -59 -42 -73 -57 -13 -14 -40 -34 -60 -45 -20 -10 -39 -25 -42 -33 -3
+-8 -21 -23 -39 -32 -18 -9 -50 -31 -71 -48 -92 -77 -115 -95 -159 -125 -27
+-17 -48 -36 -48 -41 0 -5 -18 -19 -40 -30 -23 -12 -43 -27 -46 -35 -3 -8 -25
+-26 -50 -40 -24 -14 -47 -31 -51 -38 -4 -7 -26 -25 -48 -42 -22 -16 -49 -38
+-60 -48 -11 -11 -36 -29 -55 -42 -19 -12 -46 -34 -59 -49 -47 -51 -82 -31 -96
+54 -6 33 -17 53 -43 77 l-35 32 6 493 c7 498 15 660 41 843 8 55 22 177 31
+270 9 94 25 208 36 255 11 47 31 153 44 235 13 83 31 170 40 195 9 25 27 96
+40 158 14 62 31 125 39 140 8 15 26 67 41 115 15 49 35 103 45 120 10 18 25
+55 34 83 25 77 158 331 206 394 15 19 35 49 44 65 22 40 83 117 205 259 93
+108 287 284 386 349 22 15 51 35 65 46 94 72 258 160 320 171 64 11 174 11
+251 0z m-943 -4397 c0 -131 8 -357 17 -503 18 -278 16 -373 -7 -397 -13 -12
+-33 -12 -149 1 -74 8 -204 20 -289 26 -105 8 -163 16 -178 27 -32 20 -55 76
+-88 208 -14 61 -33 122 -40 137 -18 35 -46 167 -38 180 3 5 20 18 36 28 30 18
+70 50 152 121 22 20 56 44 74 55 17 10 32 22 32 26 0 5 25 24 55 43 30 20 55
+40 55 45 0 5 13 16 30 25 16 8 45 30 63 48 60 57 160 130 194 142 18 6 36 14
+39 18 4 4 15 7 25 7 16 0 17 -18 17 -237z m-6411 -467 c146 -51 278 -251 308
+-468 9 -61 -8 -73 -145 -93 -58 -8 -148 -24 -200 -35 -150 -31 -321 -42 -342
+-23 -25 22 -23 45 12 113 59 118 60 179 3 257 -32 44 -29 69 15 114 20 21 42
+43 47 49 19 21 117 80 148 89 48 14 110 13 154 -3z m7803 -197 c87 -63 90 -70
+90 -163 0 -87 -12 -145 -32 -158 -29 -18 -307 0 -349 22 -41 22 -36 75 17 177
+27 52 58 99 69 105 11 6 30 22 42 35 37 38 96 32 163 -18z m2675 17 c28 -12
+68 -29 90 -36 96 -32 232 -208 261 -339 33 -145 25 -167 -64 -165 -227 4 -689
+41 -709 57 -41 31 -33 173 18 315 40 113 41 116 102 156 51 35 54 36 152 36
+84 0 108 -4 150 -24z m5775 -96 c145 -73 291 -238 310 -350 6 -36 19 -103 30
+-150 10 -47 26 -136 34 -198 18 -126 43 -278 52 -305 12 -39 -50 -57 -91 -27
+-5 5 -49 22 -97 39 -48 17 -100 37 -115 45 -16 7 -73 24 -128 35 -143 31 -223
+60 -245 89 -19 23 -20 42 -20 296 0 312 8 387 51 473 55 114 83 121 219 53z
+m-11106 34 c18 -7 21 -49 6 -88 -8 -23 -15 -26 -59 -26 -58 0 -71 11 -37 33
+13 9 27 28 31 44 9 38 27 49 59 37z m7120 -319 c56 -29 135 -174 136 -248 0
+-58 -18 -63 -216 -48 -299 21 -339 31 -350 88 -6 28 -1 38 47 88 30 31 71 66
+92 78 21 12 53 30 70 39 41 23 179 25 221 3z m-8506 -48 c40 -22 42 -51 5 -80
+-49 -40 -124 -121 -170 -185 -25 -34 -59 -70 -77 -78 -17 -9 -40 -24 -51 -34
+-11 -9 -51 -34 -90 -55 -162 -87 -217 -116 -355 -187 -80 -41 -156 -82 -170
+-91 -14 -9 -45 -23 -68 -31 -24 -9 -55 -25 -69 -36 -35 -28 -88 -27 -107 3
+-22 36 -43 166 -66 422 -6 66 -18 162 -26 213 -20 113 -15 138 29 151 20 6
+250 9 607 8 526 -2 578 -4 608 -20z m-1478 -17 c11 -11 20 -27 20 -35 0 -25
+-67 -91 -112 -110 -65 -28 -295 -141 -363 -179 -33 -18 -87 -48 -120 -66 -33
+-18 -69 -41 -80 -51 -19 -17 -77 -40 -180 -72 -57 -18 -75 -10 -75 33 0 15 -9
+47 -20 71 -28 63 -24 283 6 324 18 24 271 68 484 84 85 6 171 13 190 15 128
+11 230 6 250 -14z m3930 -81 c252 -13 239 -3 252 -195 6 -77 8 -299 5 -494 -7
+-513 -22 -564 -130 -447 -91 100 -227 334 -227 392 0 11 -14 48 -30 82 -17 34
+-39 95 -49 135 -10 40 -27 91 -38 113 -11 22 -30 82 -42 133 -11 51 -30 110
+-41 132 -27 52 -37 125 -20 145 15 18 54 19 320 4z m-5145 -19 c24 -9 26 -14
+20 -38 -5 -15 -11 -305 -14 -645 -6 -619 -6 -619 -28 -637 -29 -23 -218 -83
+-346 -110 -53 -12 -112 -27 -130 -35 -18 -7 -82 -23 -144 -34 -61 -12 -139
+-30 -174 -41 -35 -11 -145 -34 -244 -51 -99 -17 -216 -37 -260 -45 -263 -46
+-1332 -31 -1382 18 -13 14 38 172 73 225 8 13 28 62 45 110 17 47 37 96 44
+107 29 46 75 286 75 393 0 110 -36 287 -75 366 -19 39 -35 77 -35 84 0 18 59
+31 175 38 178 11 307 25 449 47 179 29 180 28 189 -148 7 -129 62 -320 105
+-367 11 -12 28 -38 37 -57 23 -45 95 -131 165 -196 157 -146 368 -204 546
+-151 79 23 204 170 237 277 8 25 26 72 40 105 14 33 30 94 36 135 7 42 23 116
+37 165 17 63 28 137 35 245 8 107 15 160 25 171 11 12 48 20 134 28 65 7 161
+20 212 31 113 22 120 23 153 10z m6725 -76 c84 -11 100 -37 100 -163 0 -42 5
+-117 10 -167 11 -105 -8 -184 -69 -278 -17 -28 -31 -55 -31 -60 0 -6 -21 -32
+-47 -58 -45 -46 -50 -48 -101 -48 -50 0 -57 3 -88 37 -107 117 -145 246 -151
+523 -6 214 -6 214 52 223 36 5 261 -1 325 -9z m-7498 -46 c16 -30 13 -127 -7
+-213 -9 -39 -25 -121 -35 -182 -11 -62 -30 -139 -44 -170 -13 -32 -31 -82 -41
+-112 -19 -58 -74 -127 -113 -142 -68 -26 -205 34 -301 132 -110 112 -155 189
+-197 334 -15 51 -19 222 -6 241 21 31 153 63 367 89 72 9 175 22 230 29 136
+19 133 19 147 -6z m8571 -17 c65 -5 102 -12 107 -21 17 -27 23 -226 12 -371
+-30 -380 -136 -578 -298 -555 -146 20 -366 205 -418 353 -8 22 -23 58 -35 81
+-53 103 -54 210 -3 352 10 30 22 76 26 102 12 83 7 82 276 74 129 -4 279 -11
+333 -15z m-4664 -30 c13 -13 21 -40 26 -88 4 -37 17 -114 31 -171 33 -141 31
+-202 -6 -272 -17 -30 -30 -59 -30 -65 0 -15 -83 -144 -127 -197 -113 -137
+-314 -151 -405 -28 -42 58 -46 346 -6 473 17 54 70 112 133 142 30 15 60 34
+66 42 7 8 36 26 63 40 28 14 67 39 86 54 19 16 40 29 46 29 6 0 28 14 49 30
+44 35 49 36 74 11z m-1899 -72 c16 -29 75 -530 66 -563 -5 -21 -18 -32 -54
+-47 -26 -11 -74 -32 -107 -48 -153 -74 -215 -101 -277 -124 -36 -14 -77 -32
+-90 -41 -13 -8 -52 -24 -87 -36 -36 -12 -81 -30 -100 -40 -56 -28 -253 -91
+-276 -88 -36 5 -44 57 -44 289 -1 256 -4 249 95 260 42 5 95 20 136 38 37 17
+73 31 81 31 7 0 44 20 81 45 38 25 74 45 81 45 7 0 18 7 25 15 13 15 123 93
+186 131 18 11 44 30 56 41 13 11 45 33 73 48 27 15 60 36 74 46 31 25 67 24
+81 -2z m7925 6 c39 -4 122 -13 185 -20 63 -8 170 -19 237 -24 174 -14 194 -30
+149 -120 -63 -124 -140 -195 -228 -211 -185 -35 -392 22 -501 138 -47 51 -47
+51 -47 132 0 103 17 125 88 116 26 -3 79 -8 117 -11z m-12085 -160 c17 -9 30
+-20 30 -25 0 -5 14 -16 30 -25 27 -14 47 -38 105 -129 18 -28 20 -48 20 -201
+0 -164 -1 -172 -28 -235 -16 -36 -36 -94 -47 -129 -10 -35 -27 -75 -37 -90
+-11 -14 -25 -44 -32 -66 -27 -86 -113 -246 -137 -256 -25 -9 -96 1 -147 20
+-15 6 -73 20 -129 31 -55 12 -113 27 -128 35 -15 8 -74 26 -131 41 -57 15
+-120 35 -139 44 -19 9 -66 27 -104 39 -38 12 -91 33 -117 47 -27 13 -54 24
+-60 24 -6 0 -62 25 -124 55 -63 30 -117 55 -122 55 -12 1 -80 66 -93 90 -9 16
+-7 40 6 101 17 78 17 80 -3 107 -78 105 -73 141 23 172 37 12 85 31 107 42 22
+11 88 30 146 43 58 13 126 31 151 40 24 9 94 25 155 36 60 11 137 28 170 39
+33 11 123 29 200 40 77 12 172 30 210 40 124 33 182 37 225 15z m18098 -334
+c21 -11 67 -27 103 -36 35 -9 89 -32 121 -51 31 -19 61 -34 67 -34 6 0 25 -13
+43 -28 18 -16 50 -39 71 -51 20 -13 42 -32 49 -44 18 -35 14 -127 -10 -179
+-73 -166 -195 -125 -396 132 -20 25 -45 62 -57 84 -11 21 -34 57 -50 79 -16
+22 -29 49 -29 59 0 11 -5 29 -11 40 -24 44 36 61 99 29z m-19598 -86 c0 -8 -9
+-15 -20 -15 -11 0 -20 7 -20 15 0 8 9 15 20 15 11 0 20 -7 20 -15z m220 -625
+c28 -17 78 -39 110 -50 32 -11 74 -29 94 -41 20 -11 61 -28 93 -36 31 -8 77
+-25 102 -38 26 -12 81 -32 123 -44 43 -12 97 -30 120 -41 24 -10 84 -28 134
+-39 134 -29 224 -78 224 -121 0 -15 -101 -110 -165 -155 -142 -101 -313 -145
+-570 -145 -192 0 -266 44 -346 205 -37 76 -40 88 -50 219 -24 309 1 363 131
+286z M19679 4741 c-44 -39 -44 -39 -44 -142 0 -100 1 -107 38 -180 20 -41 37
+-79 37 -83 0 -19 114 -162 138 -173 36 -16 76 -16 115 1 63 26 75 149 22 226
+-22 31 -24 41 -15 66 9 26 7 39 -15 85 -13 30 -25 67 -25 82 0 41 -44 120 -78
+140 -55 32 -122 23 -173 -22z"/>
+</g></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <svg class="firma" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
+    <nav class="pix" aria-label="Secciones">
+      <a href="#registros">Registros</a><a href="#firma-uso">Firma</a><a href="#color">Color</a><a href="#tipo">Tipo</a><a href="#voz">Voz</a><a href="#arte">Arte</a><a href="#referentes">Referentes</a><a href="#apps">Aplicaciones</a>
+    </nav>
+    <span class="pix">Brand book v3 · 01 oct 2026</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap sec">
+    <div class="hero-grid">
+      <div>
+        <h1 class="lema" aria-label="Explotar, explorar, experimentar."><span>Explotar,</span><span>explorar,</span><span>experimentar.</span></h1>
+        <p class="nota"><svg width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M46 4C34 20 18 22 4 12M4 12l9-1M4 12l3 8"/></svg>esto lo escribí yo en 2021, en Miami</p>
+        <svg class="firma-big" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
+        <p class="lead">Una marca energética, hecha con mi propia letra y con el color que guardo en Pinterest desde 2020. De día firmo Sofía Valencia. Para los close friends soy Sofisticashion.</p>
+        <div class="hero-meta pix"><span class="tag">Medellín → donde haga falta</span><span class="tag">Partnerships &amp; Expansion</span></div>
+      </div>
+      <div class="hero-stick" aria-hidden="true">
+        <div class="st neon slap"><img src="img/hf-neon.jpg" alt=""></div>
+        <div class="st plato round slap"><img src="img/hf-plato.jpg" alt="" style="aspect-ratio:1;object-fit:cover"></div>
+        <div class="st chip slap">+1000 AURA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="row" id="tk"></div></div>
+
+<section id="registros" class="reg">
+  <div class="dia">
+    <span class="pix">De día · loza y cobalto</span>
+    <h3>Sofía Valencia</h3>
+    <p class="lead">La que llega a la reunión con el mapa hecho. Cálida, directa y rápida.</p>
+    <dl><dt>Dónde</dt><dd>LinkedIn, escenario, web, email</dd><dt>Fondo</dt><dd>Loza o cobalto, con rosa como acento</dd><dt>Voz</dt><dd>Frases cortas, una idea por párrafo</dd></dl>
+    <div class="st pf"><img src="img/foto-02.jpg" alt="Sofía con blazer beige en la ciudad"></div>
+  </div>
+  <div class="noche">
+    <span class="pix">De noche · tinta y neón</span>
+    <h3>Sofisticashion</h3>
+    <p class="lead">Mi nombre artístico. Se ríe de sí misma, grita en mayúsculas y firma con pose.</p>
+    <dl><dt>Dónde</dt><dd>Instagram, stories, close friends</dd><dt>Fondo</dt><dd>Tinta, con rosa neón y sol</dd><dt>Voz</dt><dd>"NOT APPROVED BY SOFISTICASHION"</dd></dl>
+    <div class="st pf"><img src="img/foto-11.jpg" alt="Sofía de noche"></div>
+  </div>
+</section>
+
+<section class="es">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">Las tres E</span><h2>Energética, con dirección.</h2></div>
+    <div class="es-grid">
+      <article class="e st"><span class="pix">01 · Explotar</span><h3>Pólvora</h3><p class="q">"TU TIENES ESA PÓLVORA que LA GENTE DISFRUTA VIENDO EXPLOTAR."</p><p>La energía es lo primero que se nota.</p></article>
+      <article class="e st"><span class="pix">02 · Explorar</span><h3>Multi-país</h3><p class="q">CDMX, Bogotá, Miami, Caracas.</p><p>La marca viaja y no se queda en un solo acento.</p></article>
+      <article class="e st"><span class="pix">03 · Experimentar</span><h3>Arder o iluminar</h3><p class="q">"El fuego puede o arder o iluminar. ¿Cómo lo voy a usar?"</p><p>La energía siempre va a algún lado.</p></article>
+    </div>
+  </div>
+</section>
+<div class="ola" style="--c:var(--loza);background-color:var(--loza);margin-top:-30px;position:relative"></div>
+
+<section id="firma-uso" class="firma-sec">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">El logo</span><h2>El logo es mi firma.</h2><p class="lead">Vectorizada de mi firma real: la tilde de la í, la V que sube hasta arriba y la raya que lo cruza todo. No lleva monograma ni tipografía al lado.</p></div>
+    <div class="firma-grid" id="firmas"></div>
+    <div class="reglas">
+      <div class="regla"><span class="pix">Así sí</span><ul><li>Área de respeto: el alto de la "S" mayúscula alrededor.</li><li>Mínimo 90 px de ancho en pantalla y 25 mm impresa.</li><li>Un solo color por aparición, del set de la marca.</li><li>Sobre foto, en loza o sol.</li></ul></div>
+      <div class="regla no"><span class="pix">Así no</span><ul><li>Estirarla, inclinarla, ponerle sombra, contorno o degradado.</li><li>Escribir "Sofía Valencia" en tipografía al lado. La firma ya lo dice.</li><li>Usar el escaneo original. Solo va el vector.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="row tk2"></div></div>
+
+<section id="color" class="color">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">Color</span><h2>Cerámica pintada, a sangre.</h2><p class="lead">Ocho colores sacados de los platos de HOME, los afiches de ART, el Matisse de BEDROOM y el neón de URBAN SPOT. Toca un plato para copiar el hex.</p></div>
+    <div class="platos" id="platos"></div>
+    <div class="prop" id="prop" aria-label="Proporción de color en una pieza típica"></div>
+    <p class="pix" style="margin-top:10px">Proporción en una pieza típica: un fondo a sangre, una tinta y máximo dos acentos.</p>
+    <div class="combos" id="combos"></div>
+    <div class="reglas" style="color:var(--loza)">
+      <div class="regla" style="border-color:var(--loza)"><span class="pix" style="color:var(--sol)">Reglas</span><ul><li>El fondo es un color entero: cobalto, rosa, sol, pasto o tinta. Nada de crema ni gris.</li><li>Un color fuerte por fondo y máximo dos acentos encima.</li><li>Sobre fotos de piel o madera, el texto va en loza o sol.</li></ul></div>
+      <div class="regla" style="border-color:var(--loza)"><span class="pix" style="color:var(--sol)">Con 30X</span><ul><li>El amarillo de 30X (#E9FF7B, lima) no entra en piezas tuyas. Tu amarillo es sol, más cálido.</li><li>30X aparece solo en la firma de email.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="tipo" class="tipo">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">Tipografía</span><h2>Cuatro voces.</h2><p class="lead">La que grita, la que habla, la que anota y la que etiqueta. Salen de los afiches de QUOTES ("Que Cosas Bonitas", "+1000 AURA") y de las notas a mano de SCHOOL NOTES.</p></div>
+    <div class="especimen">
+      <div class="esp"><div class="info"><span class="pix">Bagel Fat One · el grito</span><p>Titulares, lemas y la palabra que importa. Siempre en caja baja con mayúscula inicial, y grande.</p></div><div class="muestra m-grito">Abro puertas.</div></div>
+      <div class="esp"><div class="info"><span class="pix">Familjen Grotesk · la que habla</span><p>Texto corrido, bios y posts. Regular 400 y Semibold 600.</p></div><div class="muestra m-texto">Partnerships y expansión en cuatro países. Si hay una puerta cerrada, la quiero conocer.</div></div>
+      <div class="esp"><div class="info"><span class="pix">Caveat Brush · la que anota</span><p>Notas al margen, flechas y frases dichas por mí. Nunca en párrafos.</p></div><div class="muestra m-mano">ojo con esto →</div></div>
+      <div class="esp"><div class="info"><span class="pix">Silkscreen · la que etiqueta</span><p>Etiquetas, fechas, stickers y el humor de pose. Siempre en mayúsculas.</p></div><div class="muestra m-pixel">NOT APPROVED BY SOFISTICASHION</div></div>
+    </div>
+    <div class="escala"><table>
+      <tr><td style="font-family:var(--f-grito);font-size:64px;line-height:1">Aa</td><td>Display</td><td>72–168 px · Bagel</td></tr>
+      <tr><td style="font-family:var(--f-grito);font-size:40px;line-height:1">Aa</td><td>Titular</td><td>40–112 px · Bagel</td></tr>
+      <tr><td style="font-size:22px">Aa — subtítulo</td><td>Subtítulo</td><td>20–22 px · Familjen 400</td></tr>
+      <tr><td style="font-size:17px">Aa — cuerpo de lectura</td><td>Texto</td><td>17 px · 1.5 · Familjen 400</td></tr>
+      <tr><td class="pix">AA · etiqueta</td><td>Etiqueta</td><td>11–13 px · Silkscreen</td></tr>
+    </table></div>
+  </div>
+</section>
+<div class="ola" style="background-color:var(--loza);margin-top:-30px;position:relative"></div>
+
+<section id="voz" class="voz">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">Voz y tono</span><h2>Me hablo a mí misma y dejo que los demás escuchen.</h2><p class="lead">Sale de cómo escribes de verdad: tus notas, tus DMs y lo que escribes cuando nadie te va a leer.</p></div>
+    <div class="rasgos">
+      <div class="rasgo" style="--c:var(--tomate);--fc:var(--loza)"><span class="pix">Mayúsculas para el clímax</span><p class="q">"QUITATE LAS MÁSCARAS Y PERMITETE EXPLOTAR"</p><p>Empiezas en minúscula y subes. El grito llega una vez, al final.</p></div>
+      <div class="rasgo" style="--c:var(--sol)"><span class="pix">Segunda persona</span><p class="q">"Desaparecerte? No, ENFRÉNTALO"</p><p>Te arengas a ti misma y el lector se siente incluido.</p></div>
+      <div class="rasgo" style="--c:var(--cobalto);--fc:var(--loza)"><span class="pix">Fuego con dirección</span><p class="q">"El fuego puede o arder o iluminar."</p><p>Pólvora, explotar, iluminar. La energía nunca es caos.</p></div>
+      <div class="rasgo" style="--c:var(--rosa)"><span class="pix">Preguntas cortas</span><p class="q">"Quien soy. Que me permito hacer."</p><p>Frases de cinco palabras. El inglés entra cuando suena mejor: "now is all I have".</p></div>
+      <div class="rasgo" style="--c:var(--tinta);--fc:var(--loza)"><span class="pix" style="color:var(--sol)">Humor de pose</span><p class="q">"NOT APPROVED BY SOFISTICASHION"</p><p>Alargas palabras ("muyyy", "graciasss") y casi no usas emojis, salvo corazones al agradecer.</p></div>
+      <div class="rasgo" style="--c:var(--pasto);--fc:var(--loza)"><span class="pix">De par a par</span><p class="q">"Esto es lo que hacemos ahora."</p><p>En LinkedIn, de founder a founder. Nada de motivación blanda ni jerga corporativa.</p></div>
+    </div>
+    <div class="sino">
+      <div class="ss"><span class="pix" style="color:var(--sol)">Así sí</span><p>La alianza no se cerró en la reunión. Se cerró en el café de después.</p><p>No tengo todo resuelto. Tengo <mark>pólvora</mark> y un mapa.</p><p>Medellín, CDMX, Miami. Misma semana, mismo nivel.</p></div>
+      <div class="sn"><span class="pix" style="color:var(--tomate)">Así no</span><p>Emocionada de anunciar que tuve el honor de…</p><p>En un mundo cada vez más cambiante, las alianzas estratégicas…</p><p>🚀✨ Nuevos retos, nuevas oportunidades 💪</p></div>
+    </div>
+    <p class="pix" style="margin-top:14px;color:var(--cobalto)">Los ejemplos de "así sí" muestran el registro. No son hechos para publicar tal cual.</p>
+  </div>
+</section>
+
+<section id="arte" class="arte">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix" style="background:var(--rosa);color:var(--tinta)">Dirección de arte</span><h2 style="color:var(--loza)">Foto real con luz de hora dorada, y el color lo pone el diseño.</h2><p class="lead" style="color:var(--lila)">Tus fotos ya cumplen las reglas, así que no inventamos un look. Encima van stickers, objetos de cerámica y neón.</p></div>
+    <div class="reglas-foto">
+      <div class="rf"><span class="pix">Luz ámbar</span><p>Contraluz o luz lateral cálida, entre las 4 y las 6 p. m. Nada de flash ni luz de oficina.</p></div>
+      <div class="rf"><span class="pix">Sonrisa abierta</span><p>Con dientes y mirando a cámara. La energía tiene que verse en la cara.</p></div>
+      <div class="rf"><span class="pix">Ropa en tierras</span><p>Crema, beige, café, oliva y negro. El color fuerte lo pone el fondo, no la ropa.</p></div>
+      <div class="rf"><span class="pix">Recorte tipo sticker</span><p>La foto va con borde de loza, girada entre 3 y 8 grados y pegada sobre un color entero.</p></div>
+    </div>
+    <div class="polas">
+      <figure class="pola" style="--r:-4deg;margin:0"><img src="img/foto-02.jpg" alt="Retrato con blazer beige"><span>LinkedIn</span></figure>
+      <figure class="pola" style="--r:3deg;margin:0"><img src="img/foto-01.jpg" alt="Retrato en jardín"><span>Bio · web</span></figure>
+      <figure class="pola" style="--r:-2deg;margin:0"><img src="img/foto-04.jpg" alt="Retrato cercano con aretes"><span>Detalle</span></figure>
+      <figure class="pola" style="--r:5deg;margin:0"><img src="img/foto-09.jpg" alt="Cuerpo entero, vestido negro"><span>Speaker</span></figure>
+      <figure class="pola" style="--r:-6deg;margin:0"><img src="img/foto-11.jpg" alt="Foto de noche"><span>Sofisticashion</span></figure>
+      <figure class="pola" style="--r:2deg;margin:0"><img src="img/foto-10.jpg" alt="Viaje en la nieve"><span>Viaje</span></figure>
+    </div>
+    <div class="objetos">
+      <div class="obj"><img src="img/hf-plato.jpg" alt="Plato de cerámica pintado con un sol y SOFI"><p><b>El plato.</b> Sale de HOME y sus platos de cerámica. Va como sticker redondo en portadas.</p></div>
+      <div class="obj"><img src="img/hf-neon.jpg" alt="Neón ondulado rosa sobre pared cobalto"><p><b>La onda de neón.</b> Sale del neón de BEDROOM y URBAN SPOT. Es "energética" hecha luz, para el registro de noche.</p></div>
+      <div class="obj"><img src="img/hf-taza.jpg" alt="Taza de cerámica pintada a rayas"><p><b>La taza.</b> Sale de "Claro que puedo con todo" de INSPO. Para piezas de calma y de mañana.</p></div>
+      <div class="obj"><img src="img/hf-stickers.jpg" alt="Hoja de stickers: rayo, sol, mariquita, bola disco, sombrero y fresa"><p><b>Los stickers.</b> Rayo, sol, mariquita, bola disco, sombrero y fresa: uno por tablero. Se pegan sobre fotos y slides.</p></div>
+    </div>
+    <p class="pix" style="margin-top:16px;color:var(--lila)">Objetos generados con Higgsfield Soul 2, sin personas. Tu cara sale solo de fotos reales.</p>
+  </div>
+</section>
+
+<section id="referentes" class="refs">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix">Referentes</span><h2>Todo lo que guardaste, y lo que tomamos de cada cosa.</h2><p class="lead">Tus 35 tableros de Pinterest, más cuatro casos de Behance. Filtra por familia para ver de dónde sale cada decisión.</p></div>
+    <div class="cuenta pix" id="cuenta"></div>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar referentes por familia"></div>
+    <div class="familias" id="familias"></div>
+    <div class="muro" id="muro"></div>
+    <div class="behance">
+      <div class="beh"><img src="img/beh-04.jpg" alt="Caso SOL en Behance"><div><span class="pix">Behance</span><b>SOL</b><p>Un logo escrito a mano y puesto directo sobre la foto. Así usamos tu firma.</p></div></div>
+      <div class="beh"><img src="img/beh-03.jpg" alt="Caso Cool Cat's en Behance"><div><span class="pix">Behance</span><b>Cool Cat's</b><p>Cobalto con letra pesada. De ahí sale el fondo del hero y de Aplicaciones.</p></div></div>
+      <div class="beh"><img src="img/beh-00.jpg" alt="Caso Kokkōpi en Behance"><div><span class="pix">Behance</span><b>Kokkōpi</b><p>Color saturado sin pedir permiso, con fondos a sangre.</p></div></div>
+      <div class="beh"><img src="img/beh-07.jpg" alt="Caso Studio Zarach en Behance"><div><span class="pix">Behance</span><b>Studio Zarach</b><p>Self-branding con un trazo propio como protagonista.</p></div></div>
+    </div>
+    <div class="tableros"><table>
+      <thead><tr><th>Tablero</th><th class="n">Pines</th><th style="width:22%"></th><th>Familia</th><th>Lo que tomamos</th></tr></thead>
+      <tbody id="tabla"></tbody>
+    </table></div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="row tk3"></div></div>
+
+<section id="apps" class="apps">
+  <div class="wrap sec">
+    <div class="head"><span class="tag pix" style="background:var(--sol);color:var(--tinta)">Aplicaciones</span><h2 style="color:var(--loza)">Listo para usar, en los cinco frentes.</h2><p class="lead">LinkedIn, escenario, Instagram, web y email. Cada pieza muestra un registro, y el logo de 30X aparece solo en la firma de email.</p></div>
+    <div class="apps-grid">
+      <div class="app a-banner"><span class="pix">LinkedIn · banner 1584×396</span>
+        <div class="m"><div class="t"><span class="pix">[Partnerships &amp; Expansion]</span><h4>Abro puertas entre países.</h4><span class="pix">Medellín · CDMX · Miami · Bogotá</span></div><div class="img"></div><span class="avatar" aria-hidden="true"></span></div>
+        <p class="pix" style="color:var(--lila)">El círculo punteado es donde cae la foto de perfil. Ahí no va nada.</p></div>
+      <div class="app a-carr"><span class="pix">LinkedIn · carrusel 1080×1350</span>
+        <div class="m"><span class="pix">01/06 · Partnerships</span><h4>El fuego puede o arder o <span>iluminar.</span></h4><div style="display:flex;justify-content:space-between;align-items:end"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><span class="pix">Desliza →</span></div></div></div>
+      <div class="app a-story"><span class="pix">Instagram · story 1080×1920</span>
+        <div class="m"><span class="s1">NOT APPROVED BY<br>SOFISTICASHION</span><img class="s4" src="img/hf-plato.jpg" alt="" style="border-radius:50%"><span class="s2">now is all I have.</span><span class="s3">@sofisticashion</span></div></div>
+      <div class="app a-mail"><span class="pix">Email · firma</span>
+        <div class="m"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><hr><div><b>Sofía Valencia</b><br>Head of Partnerships &amp; Expansion · 30X</div><span class="pix">Medellín · CDMX · Miami</span></div></div>
+      <div class="app a-slide"><span class="pix">Speaker · slide 16:9</span>
+        <div class="m"><div class="t"><span class="pix">[Sofía Valencia] · Partnerships, 30X</span><h4>Quítate las <span>máscaras.</span></h4><span class="pix">001 · 002 · 003 · 004</span></div><div class="img"></div></div></div>
+      <div class="app a-web"><span class="pix">Web · hero de portafolio</span>
+        <div class="m"><div class="nav"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><span>sofiavalencia.co</span></div>
+          <div class="body"><div><h4>Partnerships y expansión en <span>cuatro países.</span></h4><p>Si hay una puerta cerrada, la quiero conocer.</p><div class="btns"><span>Hablemos</span><span>Charlas</span></div></div><div class="pic"><img src="img/foto-06.jpg" alt=""><img class="pl" src="img/hf-plato.jpg" alt=""></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="wrap">
+    <svg class="firma" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
+    <p class="pix">Marca personal · v3 · 01 oct 2026 · Los pines y los casos de Behance son referencia interna, no se publican en piezas.</p>
+  </div>
+</footer>
+
+<div class="toast pix" id="toast" hidden></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  // tickers
+  const lema=["EXPLOTAR","✺","EXPLORAR","✺","EXPERIMENTAR","✺"];
+  const fill=(el,words)=>{const w=words.concat(words,words,words);el.innerHTML=w.concat(w).map(x=>`<span>${x}</span>`).join("")};
+  fill($("#tk"),lema);
+  fill($(".tk2"),["SOFÍA VALENCIA","✺","DE DÍA","✺","SOFISTICASHION","✺","DE NOCHE","✺"]);
+  fill($(".tk3"),["+1000 AURA","✺","NOW IS ALL I HAVE","✺","YO PUDE","✺"]);
+
+  // firma sobre colores
+  const F='<svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg>';
+  const firmas=[["cobalto","loza","Principal · loza sobre cobalto"],["loza","cobalto","Día · cobalto sobre loza"],["tinta","rosa","Noche · rosa neón sobre tinta"],["rosa","tinta","Pop · tinta sobre rosa"],["sol","tomate","Energía · tomate sobre sol"]];
+  $("#firmas").innerHTML=firmas.map(([bg,fg,l])=>`<div class="ft" style="background:var(--${bg});color:var(--${fg})">${F}<span class="pix">${l}</span></div>`).join("")+
+    `<div class="ft foto" style="background-image:url(img/foto-03.jpg);color:var(--loza)">${F}<span class="pix" style="color:var(--loza)">Sobre foto · loza</span></div>`;
+
+  // colores
+  const cols=[["Cobalto","cobalto","#1F3BE0","Fondo de día. El azul de los platos y de Cool Cat's."],["Rosa","rosa","#FF5CA8","Acento y neón de noche. El rosa del Matisse de BEDROOM."],["Sol","sol","#FFC933","Yema de huevo, no lima. Stickers y resaltado."],["Pasto","pasto","#17A14B","El mantel del plato. Fondo de calma."],["Tomate","tomate","#F2462B","La palabra que importa sobre sol o loza."],["Tinta","tinta","#14102A","Negro índigo. Texto y fondo de noche."],["Loza","loza","#FFFDF7","El blanco del esmalte. Respiro, nunca de fondo crema."],["Lila","lila","#B9A6FF","Texto suave sobre tinta. Solo de noche."]];
+  $("#platos").innerHTML=cols.map(([n,t,h,u])=>`<button type="button" data-hex="${h}" aria-label="Copiar ${n} ${h}"><span class="disco"><i style="--sw:var(--${t})"></i></span><b>${n}</b><small>${h}</small><em>${u}</em></button>`).join("");
+  const toast=$("#toast");let tt;
+  const show=m=>{toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1600)};
+  $("#platos").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const h=b.dataset.hex;
+    try{navigator.clipboard.writeText(h).then(()=>show(h+" copiado"),()=>show(h))}catch(_){show(h)}});
+  const prop=[["cobalto",44,"FONDO"],["tinta",24,"TINTA"],["loza",16,"LOZA"],["rosa",9,"ROSA"],["sol",7,"SOL"]];
+  $("#prop").innerHTML=prop.map(([t,p,l])=>`<span style="flex:${p};background:var(--${t});color:${t==="cobalto"||t==="tinta"?"var(--loza)":"var(--tinta)"}">${l} ${p}</span>`).join("");
+  const combos=[["cobalto","loza","Día","Abro puertas."],["tinta","rosa","Noche","now is all I have."],["sol","tomate","Energía","Explotar."],["pasto","loza","Calma","Con criterio."]];
+  $("#combos").innerHTML=combos.map(([bg,fg,l,t])=>`<div class="combo" style="background:var(--${bg});color:var(--${fg})"><span class="pix">${l}</span>${t}</div>`).join("");
+
+  // referentes
+  const FAM={color:["Color y cerámica","Los fondos a sangre, los platos y el Matisse.","Paleta y objetos"],
+    letra:["Letra y frases","El grito en letra gorda y la nota a mano.","Tipografía y voz"],
+    noche:["Noche y fiesta","Neón, bola disco y pose. Es Sofisticashion.","Registro de noche"],
+    luz:["Luz y lugares","Hora dorada, cielos y viaje. Es la dirección de foto.","Fotografía"],
+    vida:["Vida y antojos","Detalles de estilo para los stickers.","Stickers y detalles"]};
+  const B=[
+   ["ART","art",182,"color","Afiches de color sin miedo y el sol pintado en ondas."],
+   ["BEDROOM","bedroom",99,"color","El Matisse en rosa y cobalto, y el neón ondulado."],
+   ["HOME","home",44,"color","Los platos de cerámica pintada. De ahí sale toda la paleta."],
+   ["WALLPAPER","wallpaper",229,"color","\"You are exactly where\": letra de colores sobre loza."],
+   ["NICE","nice",49,"color","El Jenga pintado y \"Every thought multiplies\"."],
+   ["QUOTES","quotes",316,"letra","\"Que Cosas Bonitas\" y \"+1000 AURA\": el grito y la etiqueta pixel."],
+   ["INSPO","inspo",80,"letra","\"Claro que puedo con todo\" en una taza: la voz que se arenga."],
+   ["HELPY IG","helpy-ig",72,"letra","Personajes simples y planos de color, como Mr. Messy."],
+   ["SCHOOL NOTES","school-notes",12,"letra","La nota a mano al margen."],
+   ["Story Template Flashy","story-template-flashy",35,"letra","Plantillas de story. Tomamos el formato, no el rosa pastel."],
+   ["REDES","redes",14,"letra","El humor de \"Me / Also me\" para el registro de noche."],
+   ["PARTY","party",39,"noche","Bola disco, \"Entry fee 1 shot\" y el vinilo de fiesta."],
+   ["FESTIVALES","festivales",18,"noche","Pose y negro con brillo."],
+   ["DISFRACES","disfraces",36,"noche","El permiso de exagerar."],
+   ["DRESS","dress",36,"noche","El sombrero de bola disco y el rosa fuerte."],
+   ["MAKEUP","makeup",90,"noche","El delineado naranja: un acento que se nota."],
+   ["Monza Quantum","monza-quantum",14,"noche","Eventos con luz baja y de noche, para el escenario."],
+   ["PLACES","places",94,"luz","Atardeceres y cielos para el fondo con aire."],
+   ["GOALS","goals",351,"luz","La mano contra el cielo y el corazón de nubes."],
+   ["MANIFEST","manifest",34,"luz","Montañas y lagos azules para las piezas de viaje."],
+   ["Vision board 2026","vision-board-2026",14,"luz","\"Everything I imagine will be my reality soon\" y Girl Boss."],
+   ["Urban Spot","urban-spot",13,"luz","El espejo con neón y los vinilos en la pared."],
+   ["WANT","want",208,"vida","Los tenis de colores y el suéter tejido."],
+   ["CRAFTS","crafts",17,"vida","Lo hecho a mano: cartas, frascos y collage."],
+   ["HAIR","hair",122,"vida","Tonos cobre y caramelo para la ropa en tierras."],
+   ["TATTOO","tattoo",27,"vida","La balanza: equilibrio, como símbolo secundario."],
+   ["Tote Bags","tote-bags",2,"vida","Llamas sobre lona: merch posible."],
+   ["WORKOUTS","workouts",32,"vida","Energía física, sin estética de gym."],
+   ["YUMMY","yummy",291,"vida","Comida de colores para los stickers de fresa."],
+   ["COWGIRL","",13,"noche","El sombrero de los stickers.",1],
+   ["B I C H O T A S","",26,"noche","Privado: no se ve en el RSS.",1],
+   ["Collage Item Pins","",16,"vida","Privado: no se ve en el RSS.",1],
+   ["Crookies","",3,"vida","Privado: no se ve en el RSS.",1],
+   ["Bride","bride",1,"vida","Un solo pin, no entra."],
+   ["Quick Saves","_quick_saves",1,"vida","Un solo pin, no entra."]];
+  const PINS={art:[0,1,7,6,9],bedroom:[2,4,10,5],crafts:[3,7],disfraces:[5,10],dress:[1,6],festivales:[0,6],goals:[5,9],hair:[11],"helpy-ig":[3,5,6,11],home:[0,1,6,10],inspo:[7,11,5],makeup:[3,7],manifest:[2],"monza-quantum":[6,9],nice:[0,3,7,9],party:[1,6,8,11],places:[5,0],quotes:[0,3,6,11,10],redes:[0,9],"school-notes":[1],"story-template-flashy":[0],tattoo:[6],"tote-bags":[0],"urban-spot":[2,5],"vision-board-2026":[2,6,10],wallpaper:[4,9,11,10],want:[0,6],workouts:[4],yummy:[8]};
+  const total=B.reduce((a,b)=>a+b[2],0);
+  const pins=[];B.forEach(b=>{(PINS[b[1]]||[]).forEach(i=>pins.push({b:b[0],s:b[1],f:b[3],i}))});
+  // intercalar por tablero para que el muro no salga en bloques
+  pins.sort((a,b)=>(a.i*7+a.s.length)%13-(b.i*7+b.s.length)%13);
+  $("#cuenta").innerHTML=`<span class="tag">${B.length} tableros</span><span class="tag">${total.toLocaleString("es-CO")} pines</span><span class="tag">${pins.length} en el muro</span><span class="tag">4 casos de Behance</span>`;
+  $("#tabla").innerHTML=B.map(b=>`<tr><td>${b[0]} ${b[5]?'<span class="priv">privado</span>':""}</td><td class="n">${b[2]}</td><td><span class="bar-mini" style="width:${Math.max(2,b[2]/351*100)}%"></span></td><td>${FAM[b[3]][0]}</td><td>${b[4]}</td></tr>`).join("");
+  $("#familias").innerHTML=Object.entries(FAM).map(([k,v])=>`<div class="fam" data-f="${k}"><span class="pix">${v[2]}</span><b>${v[0]}</b><p>${v[1]}</p></div>`).join("");
+  $("#muro").innerHTML=pins.map(p=>`<figure class="pin" data-f="${p.f}"><img loading="lazy" src="img/pin-${p.s}-${String(p.i).padStart(2,"0")}.jpg" alt="Pin del tablero ${p.b}"><figcaption>${p.b}</figcaption></figure>`).join("");
+  const opts=[["todo","Todo"]].concat(Object.entries(FAM).map(([k,v])=>[k,v[0]]));
+  let cur="todo";try{cur=localStorage.getItem("refs-f")||"todo"}catch(_){}
+  const apply=()=>{document.querySelectorAll("#filtros button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===cur));
+    document.querySelectorAll("#muro .pin").forEach(p=>p.hidden=!(cur==="todo"||p.dataset.f===cur));
+    document.querySelectorAll(".fam").forEach(f=>f.classList.toggle("on",f.dataset.f===cur));};
+  $("#filtros").innerHTML=opts.map(([k,l])=>`<button type="button" id="f-${k}" data-f="${k}">${l}</button>`).join("");
+  $("#filtros").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cur=b.dataset.f;try{localStorage.setItem("refs-f",cur)}catch(_){}apply()});
+  $("#familias").addEventListener("click",e=>{const f=e.target.closest(".fam");if(!f)return;cur=f.dataset.f;apply()});
+  if(!opts.some(o=>o[0]===cur))cur="todo";
+  apply();
+})();
+</script>
+
+</body>
+</html>
