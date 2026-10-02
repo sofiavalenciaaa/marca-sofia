@@ -3,302 +3,366 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Marca Sofía Valencia</title>
-<meta name="description" content="Marca personal de Sofía Valencia: explotar, explorar, experimentar.">
+<title>Brandbook Sofía Valencia</title>
+<meta name="description" content="Brandbook de Sofía Valencia: explotar, explorar, experimentar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat+Brush&family=Familjen+Grotesk:ital,wght@0,400;0,600;0,700;1,400&family=Silkscreen:wght@400;700&display=swap">
 <style>
-/* Layout: cada sección es un afiche a sangre de un color distinto, con stickers pegados encima y olas de cerámica entre una y otra. */
+/* Layout: un brandbook en pliegos 16:9 sobre mesa de tinta, como un deck de agencia. Cada capítulo abre con una portada a sangre;
+   todo el tipo escala con el ancho del pliego (cqw), así el libro se lee igual en pantalla grande y en PDF. */
 :root{
-  --cobalto:#1F3BE0; --rosa:#FF5CA8; --sol:#FFC933; --pasto:#17A14B; --tomate:#F2462B;
-  --tinta:#14102A; --loza:#FFFDF7; --lila:#B9A6FF;
+  /* navy, rosado clarito, baby blue, verde militar, rojo, tinta burgundy, beige, plateado */
+  --cobalto:#1B2A5C; --rosa:#F4BFCB; --sol:#A9CFF0; --pasto:#4B5A2E; --tomate:#C8202C;
+  --tinta:#1E0F16; --loza:#F3EBDF; --lila:#C5C9D1; --mesa:#120A0E;
+  --burgundy:#6B1A2B; --beige:#E2D2B8;
+  --g-atardecer:linear-gradient(120deg,#6B1A2B,#C8202C 30%,#F4BFCB 60%,#A9CFF0 85%,#1B2A5C);
+  --g-cielo:linear-gradient(135deg,#A9CFF0,#F4BFCB 50%,#E2D2B8);
+  --g-plata:linear-gradient(135deg,#8E929C,#E9EBEF 30%,#A7ABB4 50%,#F5F6F8 70%,#9599A3);
   --f-grito:"Bagel Fat One","Arial Black",Impact,sans-serif;
   --f-texto:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
   --f-mano:"Caveat Brush","Comic Sans MS","Bradley Hand",cursive;
   --f-pixel:"Silkscreen","Courier New",monospace;
-  --gutter:clamp(16px,4vw,56px);
-  color-scheme:light;
+  --gutter:clamp(16px,3vw,40px);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--tinta);color:var(--tinta);font-family:var(--f-texto);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--mesa);color:var(--tinta);font-family:var(--f-texto);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-h1,h2,h3{font-family:var(--f-grito);font-weight:400;line-height:.92;margin:0;text-wrap:balance;letter-spacing:-.01em}
-p{margin:0}
-a{color:inherit}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{font-family:var(--f-grito);font-weight:400;line-height:.9;letter-spacing:-.01em;text-wrap:balance}
 :focus-visible{outline:3px solid var(--sol);outline-offset:3px}
-.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--gutter)}
-.sec{padding-block:clamp(56px,9vw,120px);position:relative}
-.pix{font-family:var(--f-pixel);font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
-.mano{font-family:var(--f-mano);font-weight:400}
-.lead{font-size:clamp(18px,1.6vw,22px);max-width:56ch}
-.head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
-.head h2{font-size:clamp(44px,8vw,112px)}
-.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--tinta);color:var(--loza);width:max-content;max-width:100%}
+.libro{display:grid;gap:clamp(14px,2vw,28px);padding:clamp(16px,3vw,40px) var(--gutter) 80px;justify-items:center}
 
-/* stickers */
-.st{position:relative;border-radius:14px;box-shadow:0 3px 0 rgba(20,16,42,.18),0 14px 30px -12px rgba(20,16,42,.45);background:var(--loza);padding:8px;transform:rotate(var(--r,0deg))}
-.st img{border-radius:8px}
-.st.round,.st.round img{border-radius:50%}
+/* PLIEGO */
+.pg{width:min(1400px,100%);aspect-ratio:16/9;container-type:inline-size;position:relative;background:var(--loza);border-radius:6px;
+  padding:5.2cqw 5cqw 4cqw;display:grid;grid-template-rows:auto 1fr;gap:2.6cqw;scroll-margin-top:60px;
+  --t:max(13.5px,1.18cqw); font-size:var(--t); line-height:1.45}
+.pg>.cab{position:absolute;inset:1.8cqw 2.4cqw auto;display:flex;justify-content:space-between;gap:12px;pointer-events:none}
+.cab,.px{font-family:var(--f-pixel);font-size:max(9px,.72cqw);letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+.cab .n{font-variant-numeric:tabular-nums}
+.pg .cuerpo{min-width:0;display:grid}
+.k{font-family:var(--f-pixel);font-size:max(10px,.85cqw);letter-spacing:.06em;text-transform:uppercase;color:var(--cobalto)}
+.tit{font-size:max(30px,4.6cqw)}
+.tit-xl{font-size:max(40px,7.6cqw)}
+.lead{font-size:max(16px,1.55cqw);line-height:1.35;max-width:46ch}
+.mano{font-family:var(--f-mano)}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2cqw}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6cqw}
+.g6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.2cqw}
+.col{display:grid;gap:1.4cqw;align-content:start;min-width:0}
+.fin{align-self:end}
+.oscuro{background:var(--tinta);color:var(--loza)} .oscuro .k{color:var(--sol)}
+.azul{background:var(--cobalto);color:var(--loza)} .azul .k{color:var(--sol)}
+.rosa{background:var(--rosa)} .rosa .k{color:var(--tinta)}
+.sol{background:var(--sol)} .sol .k{color:var(--tomate)}
+.pasto{background:var(--pasto);color:var(--loza)} .pasto .k{color:var(--sol)}
+.tomate{background:var(--tomate);color:var(--loza)} .tomate .k{color:var(--sol)}
+.firma{color:currentColor} .firma svg,.chispa svg{width:100%;height:auto;display:block}
+svg.fx{width:100%;height:auto;display:block}
+
+/* PORTADA */
+.cap,.portada,.cierre,.reg2{overflow:hidden}
+.portada{grid-template-rows:1fr auto;background:linear-gradient(120deg,#6B1A2B,#C8202C 30%,#6B1A2B 55%,#1B2A5C 80%,#6B1A2B);background-size:240% 240%;color:var(--loza)}
+.cierre{background:linear-gradient(160deg,var(--tinta),var(--burgundy) 55%,var(--cobalto));}
+@media (prefers-reduced-motion:no-preference){.portada,.g-mueve{animation:onda 16s ease-in-out infinite alternate}@keyframes onda{from{background-position:0% 30%}to{background-position:100% 70%}}}
+.burg{background:var(--burgundy);color:var(--loza)} .burg .k{color:var(--rosa)}
+.plata-txt{background:var(--g-plata);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2cqw}
+.grads>div{border-radius:1cqw;height:6cqw;min-height:56px;background-size:220% 220%;display:flex;align-items:end;padding:.8cqw 1cqw;font-family:var(--f-pixel);font-size:max(9px,.72cqw);text-transform:uppercase}
+.portada .centro{display:grid;place-items:center;align-content:center;gap:2cqw;position:relative}
+.portada .firma{width:58cqw;color:var(--loza)}
+.portada .chispa{position:absolute;width:13cqw;right:12cqw;top:4cqw;color:var(--loza);transform:rotate(-8deg)}
+.portada .pie{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.portada .lema{font-family:var(--f-grito);font-size:max(20px,2.6cqw);line-height:.95}
+.portada .lema span:nth-child(1){color:var(--loza)} .portada .lema span:nth-child(2){color:var(--loza)}
 @media (prefers-reduced-motion:no-preference){
-  .slap{animation:slap .7s cubic-bezier(.2,1.6,.4,1) both;animation-delay:var(--d,0s)}
-  @keyframes slap{from{transform:rotate(calc(var(--r,0deg) - 14deg)) scale(1.25)}to{transform:rotate(var(--r,0deg)) scale(1)}}
-  .st:hover{transform:rotate(calc(var(--r,0deg) * -1)) scale(1.03);transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+  .portada .chispa{animation:gira 22s linear infinite}
+  @keyframes gira{to{transform:rotate(352deg)}}
 }
 
-/* olas de cerámica entre secciones */
-.ola{height:30px;margin-top:-1px;background:var(--c);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom/80px 30px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z' fill='%23000'/%3E%3C/svg%3E") repeat-x bottom/80px 30px}
+/* INDICE */
+.indice ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4cqw 3cqw}
+.indice li a{display:grid;gap:.6cqw;text-decoration:none;color:inherit;border-top:3px solid var(--tinta);padding-top:1cqw}
+.indice li b{font-family:var(--f-grito);font-weight:400;font-size:max(26px,3.2cqw);line-height:.9}
+.indice li span{font-size:max(12px,.95cqw);color:color-mix(in srgb,var(--tinta) 70%,transparent)}
+.indice li a:hover b{color:var(--rosa)}
 
-/* ticker */
-.ticker{background:var(--tinta);color:var(--sol);overflow:hidden;white-space:nowrap;padding-block:14px;border-block:3px solid var(--tinta)}
-.ticker .row{display:inline-flex;gap:28px;font-family:var(--f-grito);font-size:clamp(24px,3vw,40px);line-height:1}
-.ticker .row span:nth-child(3n+2){color:var(--rosa)}
-.ticker .row span:nth-child(3n){color:var(--loza)}
-@media (prefers-reduced-motion:no-preference){.ticker .row{animation:corre 28s linear infinite}@keyframes corre{to{transform:translateX(-50%)}}}
+/* PORTADA DE CAPITULO */
+.cap{grid-template-rows:1fr;align-content:end}
+.cap .num{font-family:var(--f-grito);font-size:34cqw;line-height:.75;position:absolute;right:-1cqw;bottom:-4cqw;opacity:.95}
+.cap .t{position:relative;display:grid;gap:1.2cqw;align-self:end;max-width:54cqw}
+.cap h2{font-size:max(44px,9cqw)}
+.cap p{font-size:max(15px,1.5cqw);max-width:40ch}
+.cap.azul .num{color:var(--sol)} .cap.burg .num{color:var(--rosa)} .cap.rosa .num{color:var(--burgundy)} .cap.sol .num{color:var(--tomate)} .cap.pasto .num{color:var(--sol)} .cap.tomate .num{color:var(--tinta)} .cap.oscuro .num{color:var(--rosa)}
 
-/* top bar */
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--tinta);color:var(--loza)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
-.bar nav{display:flex;gap:4px;flex-wrap:wrap}
-.bar nav a{text-decoration:none;padding:5px 8px;border-radius:6px}
-.bar nav a:hover{background:var(--rosa);color:var(--tinta)}
-.bar .firma{width:84px;color:var(--sol)}
+/* ADN */
+.creo{display:grid;align-content:center;gap:2.2cqw;justify-items:center;text-align:center}
+.creo p{font-family:var(--f-grito);font-size:max(26px,4.4cqw);line-height:.95}
+.creo p:nth-child(2){color:var(--rosa)} .creo p:nth-child(3){color:var(--sol)} .creo p:nth-child(4){background:var(--g-plata);-webkit-background-clip:text;background-clip:text;color:transparent}
+.creo .k{margin-bottom:1cqw}
+.prob{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1cqw;margin-top:1cqw}
+.prob span{border:2px solid currentColor;border-radius:999px;padding:.6cqw 1cqw;text-align:center;font-family:var(--f-pixel);font-size:max(9px,.75cqw);text-transform:uppercase}
+.manif{font-family:var(--f-grito);font-size:max(22px,3.1cqw);line-height:1.02;max-width:30ch}
+.manif em{font-style:normal;color:var(--tomate)}
+.manif u{text-decoration:none;color:var(--rosa)}
+.idea{font-family:var(--f-grito);font-size:max(64px,17cqw);line-height:.8;color:var(--tomate)}
+.def{border-left:4px solid var(--tomate);padding-left:1.4cqw;display:grid;gap:.8cqw}
+.slider{display:grid;grid-template-columns:9cqw 1fr 9cqw;gap:1cqw;align-items:center;font-size:max(11px,.9cqw)}
+.slider .barra{height:6px;background:color-mix(in srgb,var(--tinta) 15%,transparent);border-radius:3px;position:relative}
+.slider .barra i{position:absolute;top:50%;width:1.6cqw;min-width:12px;aspect-ratio:1;border-radius:50%;background:var(--tomate);transform:translate(-50%,-50%);left:var(--v)}
+.slider span:last-child{text-align:right}
+.adj{display:grid;gap:.7cqw}
+.adj div{display:grid;grid-template-columns:1fr 1fr;gap:1cqw;padding:.7cqw 0;border-top:1px solid color-mix(in srgb,var(--tinta) 18%,transparent);font-size:max(13px,1.1cqw)}
+.adj b{font-weight:600}
+.adj s{text-decoration-color:var(--tomate);text-decoration-thickness:2px;opacity:.6}
+.circ{display:grid;place-items:center}
+.circ svg{width:min(100%,30cqw)}
+.circ text{font-family:var(--f-grito);fill:var(--tinta)}
+.gc{display:grid;gap:1.4cqw}
+.gc div{display:grid;grid-template-columns:7cqw 1fr;gap:1.2cqw;align-items:baseline}
+.gc b{font-family:var(--f-grito);font-weight:400;font-size:max(18px,1.9cqw);color:var(--cobalto)}
+.aud{display:grid;gap:1cqw}
+.aud div{background:var(--sol);border-radius:1.2cqw;padding:1.2cqw 1.4cqw;display:grid;gap:.3cqw}
+.aud div:nth-child(2){background:var(--rosa)} .aud div:nth-child(3){background:var(--lila)}
+.aud b{font-weight:600}
+.reg2{grid-template-columns:1fr 1fr;padding:0;gap:0}
+.reg2>div:not(.cab){padding:5.2cqw 4cqw 4cqw;display:grid;gap:1.3cqw;align-content:start}
+.reg2 h3{font-size:max(30px,5cqw)}
+.reg2 .noche h3{color:var(--rosa);text-shadow:0 0 1.6cqw rgba(255,92,168,.6)}
+.reg2 dl{display:grid;grid-template-columns:auto 1fr;gap:.6cqw 1.4cqw;margin:0}
+.reg2 dt{font-family:var(--f-pixel);font-size:max(9px,.72cqw);text-transform:uppercase;padding-top:.25em}
+.reg2 dd{margin:0}
+.reg2 .noche dt{color:var(--sol)} .reg2 .dia dt{color:var(--cobalto)}
+.haria{display:grid;gap:.6cqw;margin-top:.6cqw}
+.haria p{font-family:var(--f-mano);font-size:max(17px,1.7cqw);line-height:1.1;color:var(--sol)}
 
-/* HERO */
-.hero{background:var(--cobalto);color:var(--loza);overflow:hidden}
-.hero .sec{padding-block:clamp(40px,6vw,80px) clamp(64px,8vw,110px)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
-.lema{font-family:var(--f-grito);font-size:clamp(38px,11vw,150px);line-height:.86;display:grid}
-.lema span:nth-child(1){color:var(--sol)}
-.lema span:nth-child(2){color:var(--rosa);padding-left:.4em}
-.lema span:nth-child(3){color:var(--loza)}
-.hero .firma-big{width:min(100%,520px);color:var(--loza);margin-top:clamp(18px,3vw,36px)}
-.nota{font-family:var(--f-mano);font-size:clamp(22px,2.2vw,30px);color:var(--sol);display:flex;align-items:center;gap:10px;transform:rotate(-3deg);width:max-content;max-width:100%}
-.hero-stick{position:relative;min-height:clamp(380px,46vw,620px)}
-.hero-stick .neon{position:absolute;right:0;top:0;width:78%;--r:5deg}
-.hero-stick .plato{position:absolute;left:0;bottom:0;width:58%;--r:-9deg;--d:.15s;padding:6px}
-.hero-stick .chip{position:absolute;right:6%;bottom:10%;--r:-6deg;--d:.3s;background:var(--sol);color:var(--tinta);padding:12px 16px;font-family:var(--f-pixel);font-size:13px;border-radius:10px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.hero-meta .tag{background:var(--loza);color:var(--cobalto)}
-.hero p.lead{margin-top:22px;color:var(--loza)}
+/* IDENTIDAD */
+.sis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2cqw;align-items:stretch}
+.sis>div{border-radius:1.4cqw;padding:2cqw;display:grid;grid-template-rows:12cqw auto auto;gap:1cqw}
+.sis .vis{display:grid;place-items:center}
+.sis b{font-family:var(--f-grito);font-weight:400;font-size:max(20px,2.2cqw);line-height:1}
+.cons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto minmax(0,1fr);gap:1.2cqw;align-items:start;margin-top:1.4cqw}
+.pz{display:grid;gap:.8cqw;justify-items:center;text-align:center}
+.pz svg{width:100%;max-width:7.5cqw;min-width:48px}
+.pz b{font-family:var(--f-grito);font-weight:400;font-size:max(16px,1.6cqw)}
+.pz small{font-size:max(11px,.9cqw);max-width:22ch}
+.op{font-family:var(--f-grito);font-size:max(22px,3cqw);text-align:center;color:var(--tomate)}
+.ret{position:relative}
+.ret{display:grid;place-items:center}.ret svg{width:100%;max-width:38cqw}
+.anat{position:relative;margin:0 auto;width:74%}
+.anat .firma{width:100%;color:var(--tinta)}
+.anat .lbl{position:absolute;display:grid;gap:.2cqw;font-size:max(11px,.92cqw);max-width:19cqw}
+.anat .lbl b{font-family:var(--f-pixel);font-weight:400;font-size:max(9px,.72cqw);text-transform:uppercase;color:var(--tomate)}
+.anat .dot{position:absolute;width:1.4cqw;min-width:10px;aspect-ratio:1;border-radius:50%;border:3px solid var(--tomate);background:var(--loza);transform:translate(-50%,-50%)}
+.lock{display:grid;grid-template-columns:1.3fr 1fr;gap:2cqw}
+.lock>div{border-radius:1.4cqw;display:grid;place-items:center;padding:3cqw;position:relative}
+.lock .px{position:absolute;left:1.4cqw;bottom:1.2cqw}
+.lk-h{display:flex;align-items:center;gap:2.4cqw;width:100%}
+.lk-h .chispa{width:18%;flex:none} .lk-h .firma{flex:1}
+.lk-v{display:grid;justify-items:center;gap:1.2cqw;width:70%}
+.lk-v .chispa{width:30%}
+.wm{font-family:var(--f-grito);font-size:max(26px,4.2cqw);line-height:.9;letter-spacing:-.01em}
+.vers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4cqw}
+.vers>div{border-radius:1.2cqw;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;gap:1.6cqw;padding:2cqw 3cqw;position:relative;max-width:100%}
+.vers .chispa{width:16%} .vers .firma{width:58%}
+.vers .px{position:absolute;left:1.2cqw;bottom:1cqw}
+.seg{display:grid;grid-template-columns:1.4fr 1fr;gap:3cqw;align-items:center}
+.zona{position:relative;border:2px dashed var(--cobalto);padding:4.5cqw;border-radius:.6cqw}
+.zona .firma{color:var(--tinta);outline:1px solid color-mix(in srgb,var(--cobalto) 40%,transparent)}
+.zona .x{position:absolute;font-family:var(--f-pixel);font-size:max(9px,.75cqw);color:var(--cobalto);background:var(--loza);padding:0 .4cqw}
+.mins{display:grid;gap:1.6cqw}
+.mins div{display:grid;grid-template-columns:auto 1fr;gap:1.4cqw;align-items:end}
+.mal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4cqw}
+.mal>div{display:grid;gap:.8cqw}
+.mal .m{aspect-ratio:4/3;border-radius:1cqw;background:color-mix(in srgb,var(--tinta) 6%,var(--loza));display:grid;place-items:center;padding:1.6cqw;position:relative;overflow:hidden;max-width:100%}
+.mal .m::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 2px),var(--tomate) calc(50% - 2px),var(--tomate) calc(50% + 2px),transparent calc(50% + 2px))}
+.mal .m .firma{width:86%}
+.mal p{font-size:max(12px,.95cqw)}
 
-@media (min-width:981px){.lema{font-size:clamp(40px,5.9vw,112px)}}
-.nota{margin-top:18px}
-/* REGISTROS */
-.reg{display:grid;grid-template-columns:1fr 1fr}
-.reg>div{padding:clamp(40px,6vw,88px) var(--gutter);display:grid;gap:20px;align-content:start;min-width:0}
-.dia{background:var(--loza);color:var(--cobalto)}
-.noche{background:var(--tinta);color:var(--loza)}
-.reg h3{font-size:clamp(44px,6.4vw,96px)}
-.noche h3{color:var(--rosa);text-shadow:0 0 18px rgba(255,92,168,.55),0 0 2px var(--rosa)}
-.reg dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:8px 0 0}
-.reg dt{font-family:var(--f-pixel);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
-.reg dd{margin:0}
-.noche dt{color:var(--sol)}
-.reg .pf{width:min(240px,60%);--r:-4deg}
-.noche .pf{--r:5deg;background:var(--rosa)}
-
-/* E's */
-.es{background:var(--sol)}
-.es-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.5vw,32px)}
-.e{border-radius:28px;padding:clamp(22px,3vw,36px);display:grid;gap:14px;align-content:start;--r:-2deg}
-.e:nth-child(1){background:var(--tomate);color:var(--loza)}
-.e:nth-child(2){background:var(--cobalto);color:var(--loza);--r:1.5deg}
-.e:nth-child(3){background:var(--pasto);color:var(--loza);--r:-1deg}
-.e h3{font-size:clamp(40px,4.6vw,68px)}
-.e .q{font-family:var(--f-mano);font-size:24px;line-height:1.2}
-
-/* FIRMA */
-.firma-sec{background:var(--loza)}
-.firma-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.ft{border-radius:20px;aspect-ratio:16/10;display:grid;place-items:center;padding:12%;position:relative;max-width:100%}
-.ft svg{width:100%;height:auto}
-.ft .pix{position:absolute;left:14px;bottom:12px}
-.ft.foto{background:center/cover;}
-.reglas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
-.regla{border:3px solid var(--tinta);border-radius:18px;padding:20px 22px;display:grid;gap:10px;align-content:start}
-.regla.no{border-color:var(--tomate)}
-.regla ul{margin:0;padding-left:20px;display:grid;gap:8px}
-.regla .pix{color:var(--cobalto)}
-.regla.no .pix{color:var(--tomate)}
-
-/* COLOR */
-.color{background:var(--pasto);color:var(--loza)}
-.platos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.5vw,32px)}
-.platos button{all:unset;cursor:pointer;display:grid;gap:12px;justify-items:center;text-align:center}
-.platos button:focus-visible .disco{outline:3px solid var(--sol);outline-offset:6px}
-.disco{width:100%;aspect-ratio:1;border-radius:50%;background:var(--loza);display:grid;place-items:center;box-shadow:0 10px 0 rgba(20,16,42,.25);transition:transform .25s}
-.disco i{display:block;width:72%;aspect-ratio:1;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 10px color-mix(in srgb,var(--sw) 70%,#fff),inset 0 0 0 16px var(--sw)}
-.platos button:hover .disco{transform:rotate(-12deg) translateY(-4px)}
-.platos b{font-family:var(--f-grito);font-weight:400;font-size:26px;line-height:1}
-.platos small{font-family:var(--f-pixel);font-size:11px;letter-spacing:.06em}
-.platos em{font-style:normal;font-size:14px;opacity:.9;max-width:24ch}
-.prop{display:flex;height:56px;border-radius:14px;overflow:hidden;margin-top:44px;border:3px solid var(--tinta)}
-.prop span{display:grid;place-items:center;font-family:var(--f-pixel);font-size:11px;color:var(--tinta);min-width:0;overflow:hidden}
-.combos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
-.combo{border-radius:16px;padding:18px;font-family:var(--f-grito);font-size:28px;line-height:1;display:grid;gap:8px}
-.combo .pix{font-size:10px}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--sol);padding:10px 16px;border-radius:999px;z-index:40}
-
-/* TIPO */
-.tipo{background:var(--rosa)}
-.especimen{display:grid;gap:16px}
-.esp{background:var(--loza);border-radius:24px;padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px;align-items:center}
-.esp .muestra{min-width:0;overflow-wrap:break-word}
-.esp .info{display:grid;gap:8px}
-.esp .info .pix{color:var(--cobalto)}
-.m-grito{font-family:var(--f-grito);font-size:clamp(48px,8vw,120px);line-height:.9;color:var(--cobalto)}
-.m-mano{font-family:var(--f-mano);font-size:clamp(40px,6vw,84px);line-height:1;color:var(--tomate)}
-.m-pixel{font-family:var(--f-pixel);font-size:clamp(22px,3vw,40px);line-height:1.15;color:var(--tinta)}
-.m-texto{font-family:var(--f-texto);font-size:clamp(22px,2.4vw,32px);line-height:1.25}
-.escala{margin-top:24px;overflow-x:auto}
-.escala table{width:100%;border-collapse:collapse;min-width:520px}
-.escala td{padding:12px 10px;border-top:2px solid var(--tinta);vertical-align:baseline}
-.escala td:last-child{text-align:right;font-family:var(--f-pixel);font-size:11px;white-space:nowrap}
+/* ESTILOS */
+.platos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.2cqw 1.4cqw}
+.platos button{all:unset;cursor:pointer;display:grid;grid-template-columns:5.4cqw 1fr;gap:1.2cqw;align-items:center}
+.platos button:focus-visible{outline:3px solid var(--cobalto);outline-offset:4px;border-radius:8px}
+.disco{width:100%;aspect-ratio:1;border-radius:50%;background:var(--loza);display:grid;place-items:center;box-shadow:0 .5cqw 0 rgba(20,16,42,.18),inset 0 0 0 1px rgba(20,16,42,.1);transition:transform .25s}
+.disco i{display:block;width:76%;aspect-ratio:1;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(20,16,42,.14)}
+.platos button:hover .disco{transform:rotate(-14deg) translateY(-3px)}
+.platos .inf{display:grid;gap:.2cqw;min-width:0}
+.platos b{font-family:var(--f-grito);font-weight:400;font-size:max(17px,1.7cqw);line-height:1}
+.platos code{font-family:var(--f-pixel);font-size:max(8.5px,.66cqw);line-height:1.45;color:color-mix(in srgb,var(--tinta) 75%,transparent)}
+.platos em{font-style:normal;font-size:max(11px,.85cqw);line-height:1.3}
+.prop{display:flex;height:3cqw;min-height:24px;border-radius:.8cqw;overflow:hidden;border:2px solid var(--tinta)}
+.prop span{display:grid;place-items:center;font-family:var(--f-pixel);font-size:max(8px,.66cqw);min-width:0;overflow:hidden}
+.tipos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4cqw}
+.tp{border-radius:1.2cqw;padding:1.8cqw;display:grid;gap:.8cqw;align-content:start;background:color-mix(in srgb,var(--tinta) 5%,var(--loza))}
+.tp .px{color:var(--cobalto)}
+.tp .mu{min-width:0;overflow-wrap:break-word}
+.t-grito{font-family:var(--f-grito);font-size:max(34px,4.6cqw);line-height:.9;color:var(--cobalto)}
+.t-texto{font-size:max(17px,1.8cqw);line-height:1.25}
+.t-mano{font-family:var(--f-mano);font-size:max(30px,3.6cqw);line-height:1;color:var(--tomate)}
+.t-pix{font-family:var(--f-pixel);font-size:max(16px,1.9cqw);line-height:1.15}
+.tp p:not(.mu){font-size:max(12px,.95cqw)}
+.elem{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4cqw}
+.elem>div{display:grid;gap:.9cqw;align-content:start}
+.elem .v{aspect-ratio:1;border-radius:1.2cqw;position:relative;overflow:hidden;max-width:100%}
+.elem b{font-family:var(--f-grito);font-weight:400;font-size:max(17px,1.7cqw)}
+.elem p{font-size:max(12px,.95cqw)}
+.v-ola{background:var(--rosa);display:grid;align-content:center;gap:1.2cqw;padding:0 0}
+.v-ola i{display:block;height:3.2cqw;background:var(--cobalto);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z'/%3E%3C/svg%3E") repeat-x center/4cqw 100%;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 30V15C10 15 10 3 20 3S30 15 40 15 50 3 60 3 70 15 80 15V30Z'/%3E%3C/svg%3E") repeat-x center/4cqw 100%}
+.v-ola i:nth-child(2){background:var(--sol)} .v-ola i:nth-child(3){background:var(--loza)}
+.v-pat{background:var(--sol);display:grid;grid-template-columns:repeat(4,1fr);place-items:center;padding:1cqw}
+.v-pat .chispa{width:70%;color:var(--tomate)}
+.v-pat .chispa:nth-child(even){color:var(--cobalto);transform:rotate(22deg)}
+.v-st{background:var(--cobalto);display:grid;place-items:center}
+.v-st .s{background:var(--loza);border-radius:1cqw;padding:.5cqw;transform:rotate(-7deg);width:62%;box-shadow:0 .8cqw 1.6cqw -.6cqw rgba(0,0,0,.6)}
+.v-st .s img{border-radius:.6cqw;aspect-ratio:4/5;object-fit:cover}
+.v-neon{background:var(--tinta);display:grid;place-items:center}
+.v-neon .chispa{width:56%;color:transparent}
+.v-neon .chispa svg path{fill:none;stroke:var(--rosa);stroke-width:4;filter:drop-shadow(0 0 4px var(--rosa)) drop-shadow(0 0 12px var(--rosa))}
+.fotos{display:grid;grid-template-columns:1.1fr 1fr;gap:3cqw}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1cqw}
+.fgrid figure{margin:0;display:grid;gap:.5cqw}
+.fgrid img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:.6cqw}
+.fgrid figcaption{font-family:var(--f-mano);font-size:max(14px,1.2cqw);line-height:1}
+.sn{display:grid;gap:1cqw}
+.sn div{display:grid;grid-template-columns:2.4cqw 1fr;gap:1cqw;font-size:max(13px,1.05cqw)}
+.sn i{font-style:normal;font-family:var(--f-pixel);font-size:max(9px,.75cqw);color:var(--pasto)}
+.sn .no i{color:var(--tomate)}
+.objs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1cqw}
+.objs img{aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:.8cqw}
 
 /* VOZ */
-.voz{background:var(--loza)}
-.rasgos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.rasgo{border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start;background:var(--c);color:var(--fc,var(--tinta))}
-.rasgo .q{font-family:var(--f-grito);font-size:clamp(24px,2.4vw,32px);line-height:1}
-.sino{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
-.sino>div{border-radius:20px;padding:24px;display:grid;gap:14px;align-content:start}
-.ss{background:var(--cobalto);color:var(--loza)}
-.sn{background:var(--tinta);color:var(--loza)}
-.sino p{font-size:19px;padding-bottom:12px;border-bottom:1px dashed currentColor}
-.sino p:last-child{border:0;padding:0}
-.sn p{text-decoration:line-through;text-decoration-color:var(--tomate);text-decoration-thickness:3px;opacity:.85}
-.ss mark{background:var(--sol);color:var(--tinta);padding:0 .2em;border-radius:4px}
-
-/* ARTE */
-.arte{background:var(--tinta);color:var(--loza)}
-.reglas-foto{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:44px}
-.rf{border:2px solid var(--lila);border-radius:18px;padding:18px;display:grid;gap:8px;align-content:start}
-.rf .pix{color:var(--sol)}
-.polas{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.6vw,22px);align-items:start}
-.pola{background:var(--loza);color:var(--tinta);padding:8px 8px 10px;border-radius:6px;transform:rotate(var(--r));display:grid;gap:6px}
-.pola img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:3px}
-.pola span{font-family:var(--f-mano);font-size:18px;line-height:1;text-align:center}
-.objetos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:56px}
-.obj{display:grid;gap:10px}
-.obj img{border-radius:18px;aspect-ratio:3/4;object-fit:cover;width:100%}
-.obj p{font-size:15px;color:var(--lila)}
-.obj b{color:var(--loza);font-weight:600}
+.rasgos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2cqw}
+.rasgo{border-radius:1.2cqw;padding:1.4cqw 1.6cqw;display:grid;gap:.6cqw;align-content:start;background:var(--c);color:var(--fc,var(--tinta))}
+.rasgo .q{font-family:var(--f-grito);font-size:max(16px,1.7cqw);line-height:1}
+.rasgo p:last-child{font-size:max(12px,.95cqw)}
+.rasgo .px{opacity:.85}
+.dice{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw;margin-top:1.4cqw}
+.dice>div{border-radius:1.2cqw;padding:1.4cqw 1.6cqw;display:grid;gap:.7cqw;align-content:start}
+.dice p{font-size:max(13px,1.15cqw);padding-bottom:.6cqw;border-bottom:1px dashed currentColor}
+.dice p:last-child{border:0}
+.dice .si{background:var(--cobalto);color:var(--loza)}
+.dice .no{background:var(--tinta);color:var(--loza)}
+.dice .no p{text-decoration:line-through;text-decoration-color:var(--tomate);text-decoration-thickness:2px;opacity:.85}
 
 /* REFERENTES */
-.refs{background:var(--sol)}
-.cuenta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
-.cuenta .tag{background:var(--tinta);color:var(--sol)}
-.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.filtros button{font:inherit;font-family:var(--f-pixel);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border:3px solid var(--tinta);background:var(--loza);color:var(--tinta);padding:8px 14px;border-radius:999px;cursor:pointer}
-.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--sol)}
-.familias{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:28px}
-.fam{background:var(--loza);border-radius:16px;padding:16px;display:grid;gap:8px;align-content:start;border:3px solid transparent}
-.fam.on{border-color:var(--tinta)}
-.fam b{font-family:var(--f-grito);font-weight:400;font-size:22px;line-height:1}
-.fam p{font-size:14px}
-.fam .pix{font-size:10px;color:var(--cobalto)}
-.muro{columns:6 170px;column-gap:12px}
-.pin{break-inside:avoid;margin:0 0 12px;position:relative;border-radius:12px;overflow:hidden;background:var(--loza)}
-.pin img{width:100%}
-.pin figcaption{position:absolute;left:8px;top:8px;background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:999px}
-.behance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
-.beh{background:var(--loza);border-radius:18px;overflow:hidden;display:grid;align-content:start}
-.beh img{aspect-ratio:4/3;object-fit:cover;width:100%}
-.beh div{padding:16px;display:grid;gap:6px}
-.beh b{font-family:var(--f-grito);font-weight:400;font-size:22px;line-height:1}
-.beh .pix{font-size:10px;color:var(--tomate)}
-.tableros{margin-top:48px;overflow-x:auto;background:var(--loza);border-radius:20px;padding:8px 20px}
-.tableros table{width:100%;border-collapse:collapse;min-width:640px;font-size:15px}
-.tableros th{font-family:var(--f-pixel);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:.06em;text-align:left;padding:14px 10px 10px;color:var(--cobalto)}
-.tableros td{padding:9px 10px;border-top:1px solid color-mix(in srgb,var(--tinta) 18%,transparent);vertical-align:top}
-.tableros td.n{font-variant-numeric:tabular-nums;text-align:right;font-family:var(--f-pixel);font-size:12px}
-.tableros th.n{text-align:right}
-.priv{font-family:var(--f-pixel);font-size:10px;background:var(--rosa);padding:2px 6px;border-radius:999px;white-space:nowrap}
-.bar-mini{display:block;height:8px;border-radius:4px;background:var(--tomate);min-width:3px}
+.refs{display:grid;grid-template-columns:1fr 1.25fr;gap:3cqw}
+.muro{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.6cqw;align-content:start}
+.muro figure{margin:0;position:relative;border-radius:.5cqw;overflow:hidden;aspect-ratio:1}
+.muro img{width:100%;height:100%;object-fit:cover}
+.muro figcaption{position:absolute;left:.3cqw;bottom:.3cqw;background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:max(7px,.5cqw);padding:.15cqw .4cqw;border-radius:999px;text-transform:uppercase}
+.apr{display:grid;gap:1cqw}
+.apr div{display:grid;grid-template-columns:8cqw 1fr;gap:1.2cqw;padding-top:.8cqw;border-top:2px solid var(--tinta)}
+.apr b{font-family:var(--f-grito);font-weight:400;font-size:max(14px,1.35cqw);line-height:1}
+.apr p{font-size:max(12px,.98cqw)}
+.tabla{columns:3;column-gap:2cqw;font-size:max(11px,.85cqw)}
+.tabla div{break-inside:avoid;display:grid;grid-template-columns:1fr auto;gap:.6cqw;padding:.35cqw 0;border-bottom:1px solid color-mix(in srgb,var(--tinta) 15%,transparent)}
+.tabla span:last-child{font-family:var(--f-pixel);font-size:max(8px,.65cqw);font-variant-numeric:tabular-nums}
+.tabla em{font-style:normal;font-family:var(--f-pixel);font-size:max(7px,.55cqw);background:var(--rosa);padding:0 .3cqw;border-radius:99px;margin-left:.3cqw}
 
 /* APLICACIONES */
-.apps{background:var(--cobalto);color:var(--loza)}
-.apps-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
-.app{display:grid;gap:10px;align-content:start;min-width:0}
-.app .pix{color:var(--sol)}
-.app .m{border-radius:16px;overflow:hidden;position:relative;container-type:inline-size;max-width:100%}
-.a-banner{grid-column:1/-1}
-.a-banner .m{aspect-ratio:1584/396;background:var(--rosa);color:var(--tinta);display:grid;grid-template-columns:1.3fr 1fr;align-items:center}
-.a-banner .t{padding:0 0 0 6cqw;display:grid;gap:1.2cqw}
-.a-banner h4{font-family:var(--f-grito);font-weight:400;font-size:5.6cqw;line-height:.9;margin:0}
-.a-banner .pix{font-size:1.1cqw;color:var(--tinta)}
-.a-banner .img{height:100%;background:url(img/hf-neon.jpg) center/cover}
-.a-banner .avatar{position:absolute;left:2.6cqw;bottom:-14cqw;width:20cqw;aspect-ratio:1;border-radius:50%;border:2px dashed var(--tinta);opacity:.6}
-.a-carr{grid-column:span 2}
-.a-carr .m{aspect-ratio:1080/1350;background:var(--tomate);color:var(--loza);padding:8cqw;display:grid;align-content:space-between}
-.a-carr h4{font-family:var(--f-grito);font-weight:400;font-size:13cqw;line-height:.9;margin:0}
-.a-carr h4 span{color:var(--sol)}
-.a-carr .pix{font-size:3.6cqw;color:var(--loza)}
-.a-carr .firma{width:34cqw;color:var(--loza)}
-.a-story{grid-column:span 2}
-.a-story .m{aspect-ratio:9/16;background:url(img/foto-11.jpg) center/cover;color:var(--loza)}
-.a-story .s1{position:absolute;left:7cqw;top:10cqw;background:var(--sol);color:var(--tinta);font-family:var(--f-pixel);font-size:4.4cqw;padding:2cqw 3cqw;border-radius:2cqw;transform:rotate(-5deg);line-height:1.2}
-.a-story .s2{position:absolute;right:6cqw;bottom:22cqw;font-family:var(--f-mano);font-size:11cqw;color:var(--rosa);transform:rotate(-6deg);text-shadow:0 0 4cqw rgba(255,92,168,.6)}
-.a-story .s3{position:absolute;left:7cqw;bottom:8cqw;font-family:var(--f-pixel);font-size:3.6cqw}
-.a-story .s4{position:absolute;right:8cqw;top:34cqw;width:26cqw;transform:rotate(12deg)}
-.a-slide{grid-column:span 2}
-.a-slide .m{aspect-ratio:16/9;background:var(--tinta);display:grid;grid-template-columns:1.25fr 1fr}
-.a-slide .t{padding:7cqw 0 6cqw 7cqw;display:grid;align-content:space-between}
-.a-slide h4{font-family:var(--f-grito);font-weight:400;font-size:9cqw;line-height:.9;margin:0;color:var(--loza)}
-.a-slide h4 span{color:var(--rosa)}
-.a-slide .pix{font-size:2.2cqw;color:var(--sol)}
-.a-slide .img{background:url(img/foto-09.jpg) center 20%/cover}
-.a-web{grid-column:span 4}
-.a-web .m{aspect-ratio:16/9;background:var(--loza);color:var(--tinta);display:grid;grid-template-rows:auto 1fr}
-.a-web .nav{display:flex;justify-content:space-between;align-items:center;padding:2.4cqw 4cqw;font-family:var(--f-pixel);font-size:1.5cqw}
-.a-web .nav .firma{width:13cqw;color:var(--cobalto)}
-.a-web .body{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;padding:0 4cqw 4cqw;gap:3cqw}
-.a-web h4{font-family:var(--f-grito);font-weight:400;font-size:6cqw;line-height:.92;margin:0 0 2cqw;color:var(--cobalto)}
-.a-web h4 span{color:var(--rosa)}
-.a-web p{font-size:1.8cqw;max-width:40ch}
-.a-web .btns{display:flex;gap:1.2cqw;margin-top:2.4cqw}
-.a-web .btns span{background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:1.4cqw;padding:1.2cqw 2cqw;border-radius:99px}
-.a-web .btns span+span{background:var(--sol);color:var(--tinta)}
-.a-web .pic{position:relative;height:100%}
-.a-web .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:2cqw}
-.a-web .pic .pl{position:absolute;width:38%;left:-12%;bottom:-6%;border-radius:50%;transform:rotate(-10deg);box-shadow:0 1cqw 2cqw rgba(0,0,0,.3)}
-.a-mail{grid-column:span 2}
-.a-mail .m{background:var(--loza);color:var(--tinta);padding:7cqw;display:grid;gap:3cqw;font-size:4.4cqw;line-height:1.35}
-.a-mail .firma{width:44cqw;color:var(--tomate)}
-.a-mail .pix{font-size:3.2cqw;color:var(--cobalto)}
-.a-mail hr{border:0;border-top:2px dashed var(--tinta);margin:0}
+.mocks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6cqw}
+.mock{display:grid;gap:.8cqw}
+.mock .f{position:relative;aspect-ratio:3/4;border-radius:1cqw;overflow:hidden;max-width:100%}
+.mock .f>img{width:100%;height:100%;object-fit:cover}
+.mock .ov{position:absolute;mix-blend-mode:multiply;transform:translate(-50%,-50%)}
+.mock p{font-size:max(12px,.95cqw)}
+.ov-lema{font-family:var(--f-grito);line-height:.86;font-size:4.1cqw;text-align:left}
+.ov-lema span{display:block}
+.digi{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.4cqw;align-content:start}
+.digi .ap{display:grid;gap:.6cqw;align-content:start;min-width:0}
+.digi .mm{border-radius:.9cqw;overflow:hidden;position:relative;container-type:inline-size;max-width:100%}
+.d-ban{grid-column:1/5}
+.d-ban .mm{aspect-ratio:1584/396;background:var(--g-cielo);display:grid;grid-template-columns:1.25fr 1fr;align-items:center}
+.d-ban .t{padding-left:6cqw;display:grid;gap:1.2cqw}
+.d-ban h4{font-family:var(--f-grito);font-weight:400;font-size:5.4cqw;line-height:.9}
+.d-ban .mm .px{font-size:1.15cqw}
+.d-ban .im{height:100%;background:url(img/hf-neon.jpg) center/cover}
+.d-mail{grid-column:5/7}
+.d-mail .mm{background:var(--loza);border:1px solid color-mix(in srgb,var(--tinta) 15%,transparent);display:grid;grid-template-columns:auto 1fr;gap:5cqw;align-items:center;padding:7cqw}
+.d-mail .firma{width:38cqw;color:var(--tomate)}
+.d-mail .dt{border-left:3px solid var(--rosa);padding-left:4cqw;display:grid;gap:1.6cqw;font-size:5cqw;line-height:1.2}
+.d-mail .dt .px{font-size:3.4cqw;color:var(--cobalto)}
+.d-story{grid-column:1/2}
+.d-story .mm{aspect-ratio:9/16;background:url(img/foto-11.jpg) center/cover;color:var(--loza)}
+.d-story .a{position:absolute;left:8cqw;top:10cqw;background:var(--sol);color:var(--tinta);font-family:var(--f-pixel);font-size:6cqw;padding:3cqw 4cqw;border-radius:3cqw;transform:rotate(-5deg);line-height:1.2}
+.d-story .b{position:absolute;right:6cqw;bottom:16cqw;font-family:var(--f-mano);font-size:14cqw;line-height:.9;color:var(--rosa);transform:rotate(-6deg);text-shadow:0 0 5cqw rgba(255,92,168,.7)}
+.d-story .c{position:absolute;right:8cqw;top:44cqw;width:30cqw;color:var(--sol);transform:rotate(12deg)}
+.d-slide{grid-column:2/4}
+.d-slide .mm{aspect-ratio:9/16;background:var(--tinta);display:grid;grid-template-rows:1fr 1fr}
+.d-slide .t{padding:8cqw;display:grid;align-content:space-between}
+.d-slide h4{font-family:var(--f-grito);font-weight:400;font-size:14cqw;line-height:.9;color:var(--loza)}
+.d-slide h4 span{color:var(--rosa)}
+.d-slide .mm .px{font-size:4cqw;color:var(--sol)}
+.d-slide .im{background:url(img/foto-09.jpg) center 20%/cover}
+.d-web{grid-column:4/7}
+.d-web .mm{aspect-ratio:4/3;background:var(--loza);border:1px solid color-mix(in srgb,var(--tinta) 15%,transparent);display:grid;grid-template-rows:auto 1fr}
+.d-web .nav{display:flex;justify-content:space-between;align-items:center;padding:3cqw 5cqw;font-family:var(--f-pixel);font-size:2.2cqw}
+.d-web .nav .lk-h{width:34cqw;gap:2cqw}
+.d-web .nav .lk-h .chispa{color:var(--rosa)} .d-web .nav .lk-h .firma{color:var(--cobalto)}
+.d-web .bd{display:grid;grid-template-columns:1.15fr 1fr;gap:4cqw;padding:0 5cqw 5cqw;align-items:center}
+.d-web h4{font-family:var(--f-grito);font-weight:400;font-size:8.2cqw;line-height:.92;color:var(--cobalto)}
+.d-web h4 span{color:var(--burgundy)}
+.d-web p{font-size:2.6cqw;margin-top:2cqw}
+.d-web .btn{display:flex;gap:2cqw;margin-top:3cqw}
+.d-web .btn span{background:var(--tinta);color:var(--sol);font-family:var(--f-pixel);font-size:2cqw;padding:1.6cqw 3cqw;border-radius:99px}
+.d-web .btn span+span{background:var(--sol);color:var(--tinta)}
+.d-web .pic{position:relative;height:100%;min-height:40cqw}
+.d-web .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3cqw}
+.d-web .pic .pl{inset:auto;width:44%;height:auto;left:-14%;bottom:-6%;border-radius:50%;transform:rotate(-10deg)}
+.digi .ap>.px{color:var(--lila)}
 
-.pie{background:var(--tinta);color:var(--lila)}
-.pie .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:36px}
-.pie .firma{width:120px;color:var(--rosa)}
+/* CIERRE */
+.cierre{color:var(--loza);grid-template-rows:1fr auto}
+.cierre .c{display:grid;place-items:center;align-content:center;gap:2.4cqw;text-align:center}
+.cierre .chispa{width:10cqw;color:var(--rosa)}
+.cierre .firma{color:#E9EBEF}
+.cierre h2{font-size:max(34px,6.4cqw)}
+.cierre h2 span:nth-child(1){color:var(--sol)} .cierre h2 span:nth-child(2){color:var(--rosa)}
+.cierre .firma{width:30cqw;color:var(--loza)}
+.cierre .pie{display:flex;justify-content:space-between;gap:16px;color:var(--lila)}
 
-@media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-stick{min-height:clamp(320px,80vw,520px)}
-  .reg{grid-template-columns:1fr}
-  .es-grid,.rasgos{grid-template-columns:1fr}
-  .platos{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .combos,.reglas-foto,.objetos,.behance{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .familias{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .polas{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .firma-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .esp{grid-template-columns:1fr}
-  .apps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .a-banner,.a-web{grid-column:1/-1}
-  .a-carr,.a-story,.a-slide,.a-mail{grid-column:span 1}
-  .a-slide{grid-column:1/-1}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--sol);color:var(--tinta);padding:10px 16px;border-radius:999px;z-index:40}
+.nav-top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--mesa);width:100%;display:flex;justify-content:center}
+.nav-top nav{width:min(1400px,100%);display:flex;gap:4px;flex-wrap:wrap;padding:10px 0;color:var(--lila)}
+.nav-top a{text-decoration:none;color:inherit;padding:5px 9px;border-radius:6px}
+.nav-top a:hover{background:var(--rosa);color:var(--tinta)}
+.nav-top .firma{width:70px;color:var(--sol);margin-right:auto}
+
+/* PANTALLA ANGOSTA: el pliego deja de ser 16:9 y todo se apila */
+@media (max-width:860px){
+  .pg{aspect-ratio:auto;padding:56px 20px 28px;gap:20px;--t:15px}
+  .g2,.g3,.g4,.fotos,.refs,.seg,.lock,.reg2,.tipos{grid-template-columns:1fr}
+  .reg2>div{padding:56px 20px 28px}
+  .g6,.muro{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .indice ol,.sis,.vers,.mal,.elem,.mocks,.rasgos,.objs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .platos{grid-template-columns:1fr}
+  .platos button{grid-template-columns:64px 1fr}
+  .cons{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cons .op{display:none}
+  .prob{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .digi{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .d-ban,.d-mail,.d-web{grid-column:1/-1}
+  .d-story{grid-column:1/2} .d-slide{grid-column:2/3}
+  .tabla{columns:2}
+  .dice{grid-template-columns:1fr}
+  .cap{min-height:70vw}
+  .cap .t{max-width:none}
+  .portada{min-height:110vw}
+  .sis>div{grid-template-rows:90px auto auto}
+  .anat .lbl{display:none}
+  .mock .ov-lema{font-size:8vw}
+  .slider{grid-template-columns:70px 1fr 70px}
+  .gc div{grid-template-columns:70px 1fr}
+  .apr div{grid-template-columns:80px 1fr}
+  .platos button .disco{width:64px}
+  .nav-top nav a{display:none}
 }
-@media (max-width:560px){
-  .reglas,.sino,.combos,.objetos,.firma-grid,.behance,.familias{grid-template-columns:1fr}
-  .reglas-foto{grid-template-columns:1fr}
-  .polas{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .apps-grid{grid-template-columns:1fr}
-  .a-carr,.a-story,.a-mail{grid-column:1/-1}
-  .bar nav{display:none}
-  .muro{columns:2;column-gap:8px}
-  .pin{margin-bottom:8px}
+@media (max-width:480px){
+  .indice ol,.vers,.mal,.mocks,.rasgos,.elem,.sis,.objs{grid-template-columns:1fr}
+  .tabla{columns:1}
 }
 </style>
 </head>
@@ -554,303 +618,466 @@ c28 -17 78 -39 110 -50 32 -11 74 -29 94 -41 20 -11 61 -28 93 -36 31 -8 77
 -22 31 -24 41 -15 66 9 26 7 39 -15 85 -13 30 -25 67 -25 82 0 41 -44 120 -78
 140 -55 32 -122 23 -173 -22z"/>
 </g></symbol>
+  <symbol id="chispa" viewBox="0 0 220 220"><path fill="currentColor" fill-rule="evenodd" d="M110.0 18.0 L125.3 73.0 L194.9 25.1 L147.0 94.7 L202.0 110.0 L147.0 125.3 L175.1 175.1 L125.3 147.0 L110.0 202.0 L94.7 147.0 L44.9 175.1 L73.0 125.3 L18.0 110.0 L73.0 94.7 L44.9 44.9 L94.7 73.0Z M110 92 a18 18 0 1 0 0.01 0Z"/></symbol>
 </svg>
 
-<header class="bar">
-  <div class="wrap">
+<div class="nav-top px">
+  <nav aria-label="Capítulos">
     <svg class="firma" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
-    <nav class="pix" aria-label="Secciones">
-      <a href="#registros">Registros</a><a href="#firma-uso">Firma</a><a href="#color">Color</a><a href="#tipo">Tipo</a><a href="#voz">Voz</a><a href="#arte">Arte</a><a href="#referentes">Referentes</a><a href="#apps">Aplicaciones</a>
-    </nav>
-    <span class="pix">Brand book v3 · 01 oct 2026</span>
-  </div>
-</header>
+    <a href="#adn">01 ADN</a><a href="#identidad">02 Identidad</a><a href="#estilos">03 Estilos</a><a href="#voz">04 Voz</a><a href="#referentes">05 Referentes</a><a href="#aplicaciones">06 Aplicaciones</a>
+  </nav>
+</div>
 
-<section class="hero">
-  <div class="wrap sec">
-    <div class="hero-grid">
-      <div>
-        <h1 class="lema" aria-label="Explotar, explorar, experimentar."><span>Explotar,</span><span>explorar,</span><span>experimentar.</span></h1>
-        <p class="nota"><svg width="48" height="24" viewBox="0 0 48 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M46 4C34 20 18 22 4 12M4 12l9-1M4 12l3 8"/></svg>esto lo escribí yo en 2021, en Miami</p>
-        <svg class="firma-big" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
-        <p class="lead">Una marca energética, hecha con mi propia letra y con el color que guardo en Pinterest desde 2020. De día firmo Sofía Valencia. Para los close friends soy Sofisticashion.</p>
-        <div class="hero-meta pix"><span class="tag">Medellín → donde haga falta</span><span class="tag">Partnerships &amp; Expansion</span></div>
+<main class="libro">
+
+<!-- 01 PORTADA -->
+<section class="pg portada" aria-label="Portada">
+  <div class="cab"><span>Brandbook · Marca personal</span><span>v4 · 01 oct 2026</span></div>
+  <div class="centro">
+    <span class="chispa"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span>
+    <span class="firma" role="img" aria-label="Sofía Valencia"><svg viewBox="0 0 2300 964"><use href="#firma"/></svg></span>
+  </div>
+  <div class="pie">
+    <p class="lema"><span>Explotar,</span><br><span>explorar,</span><br><span>experimentar.</span></p>
+    <p class="px" style="text-align:right">Medellín → donde haga falta<br>Head of Partnerships &amp; Expansion</p>
+  </div>
+</section>
+
+<!-- 02 INDICE -->
+<section class="pg indice" aria-label="Índice">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">02</span></div>
+  <div class="col"><span class="k">Índice</span><h1 class="tit">Lo que vas a encontrar.</h1></div>
+  <ol class="fin">
+    <li><a href="#adn"><b>01 ADN</b><span>Contexto · En qué creo · Manifiesto · Pólvora · Personalidad · Golden circle · Dos registros</span></a></li>
+    <li><a href="#identidad"><b>02 Identidad</b><span>Sistema · Isotipo · Logotipo · Imagotipo · Versiones · Área de seguridad · Usos indebidos</span></a></li>
+    <li><a href="#estilos"><b>03 Estilos</b><span>Color · Tipografía · Elementos gráficos · Fotografía y objetos</span></a></li>
+    <li><a href="#voz"><b>04 Voz</b><span>Seis rasgos · Así sí · Así no</span></a></li>
+    <li><a href="#referentes"><b>05 Referentes</b><span>35 tableros · Behance · Seven Seconds · Helpy</span></a></li>
+    <li><a href="#aplicaciones"><b>06 Aplicaciones</b><span>Tote · Tarjetas · Afiche · LinkedIn · Story · Slide · Email · Web</span></a></li>
+  </ol>
+</section>
+
+<!-- CAP 01 -->
+<section class="pg cap burg" id="adn" aria-label="Capítulo 01 ADN">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">03</span></div>
+  <span class="num" aria-hidden="true">01</span>
+  <div class="t"><span class="k">Capítulo 01</span><h2>ADN</h2><p>Antes de un color o una letra, qué es esta marca, a quién le habla y por qué existe.</p></div>
+</section>
+
+<section class="pg oscuro" aria-label="Contexto">
+  <div class="cab"><span>01 ADN · Contexto</span><span class="n">04</span></div>
+  <div class="g2">
+    <div class="col"><span class="k">1.1 · El problema</span><h2 class="tit">LinkedIn está lleno de gente que suena igual.</h2></div>
+    <div class="col fin">
+      <p class="lead">"Emocionada de anunciar." "Nuevos retos." Fotos de oficina con luz blanca. En partnerships todo el mundo promete sinergias y casi nadie se acuerda de con quién habló.</p>
+      <p class="lead" style="color:var(--lila)">La gente no recuerda un cargo. Recuerda cómo la hiciste sentir en el café de después.</p>
+      <div class="prob"><span>Tibio</span><span>Corporativo</span><span>Genérico</span><span>Sin cara</span><span>Olvidable</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg oscuro" aria-label="En qué creo">
+  <div class="cab"><span>01 ADN · En qué creo</span><span class="n">05</span></div>
+  <div class="creo">
+    <span class="k">1.2 · En qué creo</span>
+    <p>La energía abre puertas.</p>
+    <p>Las puertas abiertas se vuelven alianzas.</p>
+    <p>Las alianzas mueven países.</p>
+  </div>
+</section>
+
+<section class="pg sol" aria-label="Manifiesto">
+  <div class="cab"><span>01 ADN · Manifiesto</span><span class="n">06</span></div>
+  <div class="g2" style="grid-template-columns:1.6fr 1fr">
+    <div class="col"><span class="k">1.3 · Manifiesto</span>
+      <p class="manif">Me hablo a mí misma y dejo que los demás escuchen. Tengo <em>pólvora</em>, y la pólvora puede arder o <u>iluminar</u>. Yo elijo iluminar. Llego con el mapa hecho, pregunto lo que nadie pregunta y me río en el camino. Explotar, explorar, experimentar.</p>
+    </div>
+    <div class="col fin">
+      <p class="mano" style="font-size:max(22px,2.4cqw);line-height:1.05;color:var(--burgundy)">"TU TIENES ESA PÓLVORA que LA GENTE DISFRUTA VIENDO EXPLOTAR."</p>
+      <p class="px">De mis notas. El lema lo escribí en Miami, en 2021.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Concepto madre">
+  <div class="cab"><span>01 ADN · Concepto madre</span><span class="n">07</span></div>
+  <div class="g2" style="grid-template-columns:1.5fr 1fr;align-items:end">
+    <div class="col"><span class="k">1.4 · Una sola idea</span><p class="idea">Pólvora.</p></div>
+    <div class="col">
+      <div class="def"><span class="px" style="color:var(--tomate)">pól·vo·ra · sustantivo</span><p class="lead">Energía guardada que necesita una chispa y una dirección. Sin dirección es un incendio. Con dirección es un fuego artificial.</p></div>
+      <p>Cada decisión de este libro se mide contra esa palabra. El color estalla, la letra grita, el isotipo es una chispa con un rayo que apunta hacia adelante. Si algo se ve tibio, no es Pólvora.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Personalidad">
+  <div class="cab"><span>01 ADN · Personalidad</span><span class="n">08</span></div>
+  <div class="g2">
+    <div class="col">
+      <span class="k">1.5 · Personalidad</span>
+      <h2 class="tit">La exploradora con chispa.</h2>
+      <p>Arquetipo principal: <b>Exploradora</b>, porque abre mercados y cruza fronteras. Arquetipo de apoyo: <b>Bufona</b>, porque se ríe de sí misma y desarma la formalidad. La mezcla es lo que la hace recordable.</p>
+      <div class="col" style="gap:1.1cqw;margin-top:.6cqw">
+        <div class="slider"><span>Formal</span><span class="barra"><i style="--v:72%"></i></span><span>Casual</span></div>
+        <div class="slider"><span>Seria</span><span class="barra"><i style="--v:66%"></i></span><span>Divertida</span></div>
+        <div class="slider"><span>Calmada</span><span class="barra"><i style="--v:88%"></i></span><span>Energética</span></div>
+        <div class="slider"><span>Local</span><span class="barra"><i style="--v:84%"></i></span><span>Multi-país</span></div>
+        <div class="slider"><span>Pulida</span><span class="barra"><i style="--v:58%"></i></span><span>Hecha a mano</span></div>
       </div>
-      <div class="hero-stick" aria-hidden="true">
-        <div class="st neon slap"><img src="img/hf-neon.jpg" alt=""></div>
-        <div class="st plato round slap"><img src="img/hf-plato.jpg" alt="" style="aspect-ratio:1;object-fit:cover"></div>
-        <div class="st chip slap">+1000 AURA</div>
+    </div>
+    <div class="col fin">
+      <span class="k">Es · No es</span>
+      <div class="adj">
+        <div><b>Energética</b><s>Acelerada</s></div>
+        <div><b>Directa</b><s>Dura</s></div>
+        <div><b>Cálida</b><s>Melosa</s></div>
+        <div><b>Curiosa</b><s>Dispersa</s></div>
+        <div><b>Con criterio</b><s>Acartonada</s></div>
+        <div><b>Pop</b><s>Infantil</s></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div class="row" id="tk"></div></div>
-
-<section id="registros" class="reg">
-  <div class="dia">
-    <span class="pix">De día · loza y cobalto</span>
-    <h3>Sofía Valencia</h3>
-    <p class="lead">La que llega a la reunión con el mapa hecho. Cálida, directa y rápida.</p>
-    <dl><dt>Dónde</dt><dd>LinkedIn, escenario, web, email</dd><dt>Fondo</dt><dd>Loza o cobalto, con rosa como acento</dd><dt>Voz</dt><dd>Frases cortas, una idea por párrafo</dd></dl>
-    <div class="st pf"><img src="img/foto-02.jpg" alt="Sofía con blazer beige en la ciudad"></div>
+<section class="pg" aria-label="Golden circle y audiencia">
+  <div class="cab"><span>01 ADN · Golden circle</span><span class="n">09</span></div>
+  <div class="g3" style="grid-template-columns:1fr 1.2fr 1fr;align-items:center">
+    <div class="circ"><svg viewBox="0 0 300 300" aria-hidden="true">
+      <circle cx="150" cy="150" r="146" fill="var(--sol)"/><circle cx="150" cy="150" r="98" fill="var(--rosa)"/><circle cx="150" cy="150" r="50" fill="var(--cobalto)"/>
+      <text x="150" y="157" text-anchor="middle" font-size="22" style="fill:var(--loza)">Por qué</text>
+      <text x="150" y="80" text-anchor="middle" font-size="20">Cómo</text>
+      <text x="150" y="30" text-anchor="middle" font-size="20">Qué</text></svg></div>
+    <div class="gc"><span class="k">1.6 · Golden circle</span>
+      <div><b>Por qué</b><p>Porque casi todas las puertas cerradas son puertas que nadie tocó con suficiente energía.</p></div>
+      <div><b>Cómo</b><p>Llego con el mapa hecho, conecto personas que no se conocían y no suelto hasta que la alianza camina.</p></div>
+      <div><b>Qué</b><p>Partnerships y expansión entre países, charlas en escenario y contenido sobre cómo se construyen alianzas de verdad.</p></div>
+    </div>
+    <div class="aud"><span class="k">A quién le hablo</span>
+      <div><b>Founders y líderes</b><span>Empresarios de LATAM que quieren crecer fuera de su ciudad.</span></div>
+      <div><b>Aliados</b><span>Instituciones, gremios y empresas que buscan un socio que ejecute.</span></div>
+      <div><b>Close friends</b><span>Mi gente. A ellas les habla Sofisticashion.</span></div>
+    </div>
   </div>
-  <div class="noche">
-    <span class="pix">De noche · tinta y neón</span>
+</section>
+
+<section class="pg reg2" aria-label="Dos registros">
+  <div class="cab" style="z-index:2;color:var(--tinta)"><span>01 ADN · Dos registros</span><span class="n" style="color:var(--loza)">10</span></div>
+  <div class="dia" style="background:var(--loza)">
+    <span class="k">1.7 · De día</span>
+    <h3 style="color:var(--cobalto)">Sofía Valencia</h3>
+    <p class="lead">La que llega a la reunión con el mapa hecho. Cálida, directa y rápida.</p>
+    <dl><dt>Dónde</dt><dd>LinkedIn, escenario, web, email</dd><dt>Fondo</dt><dd>Loza o cobalto, con rosa de acento</dd><dt>Logo</dt><dd>Firma en cobalto o tinta</dd><dt>Voz</dt><dd>Frases cortas, una idea por párrafo</dd></dl>
+  </div>
+  <div class="noche oscuro">
+    <span class="k">De noche</span>
     <h3>Sofisticashion</h3>
     <p class="lead">Mi nombre artístico. Se ríe de sí misma, grita en mayúsculas y firma con pose.</p>
-    <dl><dt>Dónde</dt><dd>Instagram, stories, close friends</dd><dt>Fondo</dt><dd>Tinta, con rosa neón y sol</dd><dt>Voz</dt><dd>"NOT APPROVED BY SOFISTICASHION"</dd></dl>
-    <div class="st pf"><img src="img/foto-11.jpg" alt="Sofía de noche"></div>
+    <dl><dt>Dónde</dt><dd>Instagram, stories, close friends</dd><dt>Fondo</dt><dd>Tinta, con rosa neón y sol</dd><dt>Logo</dt><dd>La chispa en neón</dd></dl>
+    <div class="haria"><span class="px" style="color:var(--lila)">Qué haría Sofisticashion</span>
+      <p>→ Pondría un sticker de NOT APPROVED encima.</p><p>→ Diría "muyyy" en vez de "muy".</p><p>→ Nunca pediría perdón por estar arreglada.</p></div>
   </div>
 </section>
 
-<section class="es">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">Las tres E</span><h2>Energética, con dirección.</h2></div>
-    <div class="es-grid">
-      <article class="e st"><span class="pix">01 · Explotar</span><h3>Pólvora</h3><p class="q">"TU TIENES ESA PÓLVORA que LA GENTE DISFRUTA VIENDO EXPLOTAR."</p><p>La energía es lo primero que se nota.</p></article>
-      <article class="e st"><span class="pix">02 · Explorar</span><h3>Multi-país</h3><p class="q">CDMX, Bogotá, Miami, Caracas.</p><p>La marca viaja y no se queda en un solo acento.</p></article>
-      <article class="e st"><span class="pix">03 · Experimentar</span><h3>Arder o iluminar</h3><p class="q">"El fuego puede o arder o iluminar. ¿Cómo lo voy a usar?"</p><p>La energía siempre va a algún lado.</p></article>
+<!-- CAP 02 -->
+<section class="pg cap rosa" id="identidad" aria-label="Capítulo 02 Identidad">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">11</span></div>
+  <span class="num" aria-hidden="true">02</span>
+  <div class="t"><span class="k">Capítulo 02</span><h2>Identidad</h2><p>Un isotipo nuevo, mi firma como logotipo y las reglas para que los dos se vean siempre como yo.</p></div>
+</section>
+
+<section class="pg" aria-label="Sistema de marca">
+  <div class="cab"><span>02 Identidad · Sistema</span><span class="n">12</span></div>
+  <div class="col"><span class="k">2.1 · El sistema</span><h2 class="tit">Tres piezas que funcionan solas y juntas.</h2></div>
+  <div class="sis fin">
+    <div style="background:var(--sol)"><div class="vis"><span class="chispa" style="width:9cqw;min-width:70px;color:var(--tomate)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span></div><b>Isotipo</b><p>Solo el símbolo: la chispa. Va en avatar, sellos, stickers y patrones, donde no cabe un nombre.</p></div>
+    <div style="background:var(--cobalto);color:var(--loza)"><div class="vis"><span class="firma" style="width:80%;color:var(--loza)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><b>Logotipo</b><p>Solo el nombre: mi firma real, vectorizada. Es la pieza principal y la que más se ve.</p></div>
+    <div style="background:var(--tinta);color:var(--loza)"><div class="vis"><span class="lk-h" style="width:90%"><span class="chispa" style="color:var(--rosa)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span><span class="firma"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></span></div><b>Imagotipo</b><p>Chispa + firma, separables. Para portadas, web y escenario, cuando hay espacio para las dos.</p></div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Isotipo construcción">
+  <div class="cab"><span>02 Identidad · Isotipo</span><span class="n">13</span></div>
+  <div class="g2" style="grid-template-columns:1fr 1.2fr">
+    <div class="col"><span class="k">2.2 · Isotipo · La chispa</span><h2 class="tit">Tres verbos, un símbolo.</h2>
+      <p class="lead">La chispa junta las tres E en una sola forma: el estallido, el rayo que apunta hacia adelante y el hueco del centro.</p>
+      <div class="cons">
+    <div class="pz"><svg viewBox="0 0 220 220" aria-hidden="true"><path fill="var(--tomate)" d="M110.0 18.0 L125.3 73.0 L175.1 44.9 L147.0 94.7 L202.0 110.0 L147.0 125.3 L175.1 175.1 L125.3 147.0 L110.0 202.0 L94.7 147.0 L44.9 175.1 L73.0 125.3 L18.0 110.0 L73.0 94.7 L44.9 44.9 L94.7 73.0Z"/></svg><b>Explotar</b><small>8 rayos: la energía que se ve primero.</small></div>
+    <div class="pz"><svg viewBox="0 0 220 220" aria-hidden="true"><line x1="40" y1="180" x2="186" y2="34" stroke="var(--cobalto)" stroke-width="16" stroke-linecap="round"/><path d="M186 34 L150 40 M186 34 L180 70" stroke="var(--cobalto)" stroke-width="16" stroke-linecap="round" fill="none"/></svg><b>Explorar</b><small>Un rayo más largo a 45°: la energía con dirección.</small></div>
+    <div class="pz"><svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="40" fill="none" stroke="var(--pasto)" stroke-width="22"/></svg><b>Experimentar</b><small>El hueco del centro: el espacio para probar.</small></div>
+    <div class="op" aria-hidden="true">=</div>
+    <div class="pz"><svg viewBox="0 0 220 220" aria-hidden="true" style="color:var(--rosa)"><use href="#chispa"/></svg><b>La chispa</b><small>Pólvora con dirección.</small></div>
+  </div></div>
+    <div class="ret"><svg class="fx" viewBox="0 0 220 220" aria-label="Retícula de construcción del isotipo">
+      <circle cx="110" cy="110" r="92" fill="none" stroke="var(--cobalto)" stroke-width=".6" stroke-dasharray="3 3"/>
+      <circle cx="110" cy="110" r="120" fill="none" stroke="var(--cobalto)" stroke-width=".6" stroke-dasharray="1 3"/>
+      <circle cx="110" cy="110" r="40" fill="none" stroke="var(--cobalto)" stroke-width=".6" stroke-dasharray="3 3"/>
+      <line x1="0" y1="110" x2="220" y2="110" stroke="var(--cobalto)" stroke-width=".4"/><line x1="110" y1="0" x2="110" y2="220" stroke="var(--cobalto)" stroke-width=".4"/>
+      <line x1="30" y1="190" x2="190" y2="30" stroke="var(--tomate)" stroke-width=".6"/>
+      <use href="#chispa" width="220" height="220" style="color:var(--tinta);opacity:.92"/>
+      <text x="150" y="14" font-size="6" font-family="Silkscreen,monospace" fill="var(--tomate)">r 120 · 45°</text>
+      <text x="160" y="196" font-size="6" font-family="Silkscreen,monospace" fill="var(--cobalto)">r 92</text>
+      <text x="114" y="150" font-size="6" font-family="Silkscreen,monospace" fill="var(--cobalto)">r 40</text>
+      <text x="116" y="106" font-size="6" font-family="Silkscreen,monospace" fill="var(--loza)">r 18</text>
+    </svg></div>
+  </div>
+  </section>
+
+<section class="pg" aria-label="Logotipo">
+  <div class="cab"><span>02 Identidad · Logotipo</span><span class="n">14</span></div>
+  <div class="g2" style="grid-template-columns:1fr 1.1fr"><div class="col"><span class="k">2.3 · Logotipo · La firma</span><h2 class="tit">El logo es mi firma. De verdad.</h2></div>
+  <p class="lead fin">Vectorizada de mi firma real, con todas sus imperfecciones. Nadie más la tiene, y por eso no lleva tipografía al lado. El escaneo original nunca se usa: trae mi cédula.</p></div>
+  <div class="anat">
+    <span class="firma"><svg viewBox="0 0 2300 964" role="img" aria-label="Firma con anotaciones"><use href="#firma"/></svg></span>
+    <span class="dot" style="left:37%;top:56%"></span><span class="lbl" style="left:22%;top:0%"><b>A · La tilde</b>La í con tilde, inclinada hacia adelante como un acelerador.</span>
+    <span class="dot" style="left:53.5%;top:10%"></span><span class="lbl" style="left:60%;top:2%"><b>B · La V que sube</b>Llega hasta arriba y baja hasta el piso: es la altura máxima.</span>
+    <span class="dot" style="left:92%;top:70%"></span><span class="lbl" style="right:0;top:84%;text-align:right"><b>C · La raya</b>Cruza todo el nombre. Es la línea de base de la marca.</span>
+  </div>
+</section>
+
+<section class="pg" aria-label="Imagotipo y logotipo secundario">
+  <div class="cab"><span>02 Identidad · Imagotipo</span><span class="n">15</span></div>
+  <div class="col"><span class="k">2.4 · Imagotipo y versión tipográfica</span><h2 class="tit">Cuando hay espacio, y cuando no lo hay.</h2></div>
+  <div class="lock">
+    <div style="background:var(--cobalto);color:var(--loza)"><span class="lk-h"><span class="chispa" style="color:var(--rosa)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span><span class="firma"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></span><span class="px">Horizontal · web, banners, slides</span></div>
+    <div class="g2" style="padding:0;gap:1.4cqw">
+      <div style="background:var(--sol);border-radius:1.4cqw;display:grid;place-items:center;padding:2cqw;position:relative"><span class="lk-v"><span class="chispa" style="color:var(--tomate)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span><span class="firma" style="width:100%;color:var(--tinta)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></span><span class="px" style="position:absolute;left:1.2cqw;bottom:1cqw">Vertical</span></div>
+      <div style="background:var(--rosa);border-radius:1.4cqw;display:grid;place-items:center;padding:2cqw;position:relative;text-align:center"><span class="wm">Sofía<br>Valencia</span><span class="px" style="position:absolute;left:1.2cqw;bottom:1cqw">Tipográfica · menos de 90 px</span></div>
     </div>
   </div>
 </section>
-<div class="ola" style="--c:var(--loza);background-color:var(--loza);margin-top:-30px;position:relative"></div>
 
-<section id="firma-uso" class="firma-sec">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">El logo</span><h2>El logo es mi firma.</h2><p class="lead">Vectorizada de mi firma real: la tilde de la í, la V que sube hasta arriba y la raya que lo cruza todo. No lleva monograma ni tipografía al lado.</p></div>
-    <div class="firma-grid" id="firmas"></div>
-    <div class="reglas">
-      <div class="regla"><span class="pix">Así sí</span><ul><li>Área de respeto: el alto de la "S" mayúscula alrededor.</li><li>Mínimo 90 px de ancho en pantalla y 25 mm impresa.</li><li>Un solo color por aparición, del set de la marca.</li><li>Sobre foto, en loza o sol.</li></ul></div>
-      <div class="regla no"><span class="pix">Así no</span><ul><li>Estirarla, inclinarla, ponerle sombra, contorno o degradado.</li><li>Escribir "Sofía Valencia" en tipografía al lado. La firma ya lo dice.</li><li>Usar el escaneo original. Solo va el vector.</li></ul></div>
+<section class="pg" aria-label="Versiones sobre color">
+  <div class="cab"><span>02 Identidad · Versiones</span><span class="n">16</span></div>
+  <div class="col"><span class="k">2.5 · Sobre color y sobre imagen</span><h2 class="tit">Un color por aparición.</h2></div>
+  <div class="vers" id="vers"></div>
+</section>
+
+<section class="pg" aria-label="Área de seguridad">
+  <div class="cab"><span>02 Identidad · Área de seguridad</span><span class="n">17</span></div>
+  <div class="seg">
+    <div class="col"><span class="k">2.6 · Área de seguridad</span>
+      <div class="zona"><span class="firma"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span>
+        <span class="x" style="left:50%;top:0;transform:translate(-50%,-50%)">X</span><span class="x" style="left:50%;bottom:0;transform:translate(-50%,50%)">X</span><span class="x" style="left:0;top:50%;transform:translate(-50%,-50%)">X</span><span class="x" style="right:0;top:50%;transform:translate(50%,-50%)">X</span></div>
+      <p>X = el alto de la "S" mayúscula. Alrededor de la firma no entra nada en ese espacio: ni texto, ni bordes, ni otro logo.</p></div>
+    <div class="mins"><span class="k">Tamaños mínimos</span>
+      <div><span class="firma" style="width:90px;color:var(--tinta)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span><p><b>Firma:</b> 90 px en pantalla · 25 mm impresa.</p></div>
+      <div><span class="chispa" style="width:24px;color:var(--tomate)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span><p><b>Chispa:</b> 16 px en pantalla · 6 mm impresa.</p></div>
+      <div><span class="wm" style="font-size:16px;color:var(--cobalto)">Sofía Valencia</span><p><b>Tipográfica:</b> lo que esté por debajo de 90 px usa esta versión.</p></div>
     </div>
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true"><div class="row tk2"></div></div>
+<section class="pg" aria-label="Usos indebidos">
+  <div class="cab"><span>02 Identidad · Usos indebidos</span><span class="n">18</span></div>
+  <div class="col"><span class="k">2.7 · Usos indebidos</span><h2 class="tit">Lo que no le hacemos a la firma.</h2></div>
+  <div class="mal">
+    <div><div class="m"><span class="firma" style="color:var(--cobalto);transform:scaleX(1.5)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Estirarla o aplastarla.</p></div>
+    <div><div class="m"><span class="firma" style="color:var(--cobalto);transform:rotate(-18deg)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Girarla o inclinarla.</p></div>
+    <div><div class="m"><span class="firma" style="color:var(--cobalto);filter:drop-shadow(6px 6px 0 var(--sol)) drop-shadow(2px 2px 2px rgba(0,0,0,.5))"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Sombras, contornos o efectos.</p></div>
+    <div><div class="m" style="background:linear-gradient(90deg,#7b2ff7,#00c2ff)"><span class="firma" style="color:var(--loza)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Degradados o colores fuera de la paleta.</p></div>
+    <div><div class="m" style="background:url(img/pin-wallpaper-04.jpg) center/cover"><span class="firma" style="color:var(--tomate)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Fondos con mucho ruido.</p></div>
+    <div><div class="m"><span style="display:flex;gap:4%;align-items:center;width:100%"><span class="firma" style="width:60%;color:var(--cobalto)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span><span style="font-family:Arial;font-size:max(9px,.9cqw)">Sofía Valencia</span></span></div><p>Escribir el nombre al lado.</p></div>
+    <div><div class="m"><span class="firma" style="color:var(--rosa)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div><p>Rosado sobre papel: no se lee.</p></div>
+    <div><div class="m"><span class="chispa" style="width:40%;color:var(--cobalto);transform:scaleY(.6) rotate(10deg)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span></div><p>Deformar la chispa o tapar su hueco.</p></div>
+  </div>
+</section>
 
-<section id="color" class="color">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">Color</span><h2>Cerámica pintada, a sangre.</h2><p class="lead">Ocho colores sacados de los platos de HOME, los afiches de ART, el Matisse de BEDROOM y el neón de URBAN SPOT. Toca un plato para copiar el hex.</p></div>
+<!-- CAP 03 -->
+<section class="pg cap sol" id="estilos" aria-label="Capítulo 03 Estilos">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">19</span></div>
+  <span class="num" aria-hidden="true">03</span>
+  <div class="t"><span class="k">Capítulo 03</span><h2>Estilos</h2><p>Mis colores favoritos, cuatro voces tipográficas y los objetos que la marca pega encima de todo.</p></div>
+</section>
+
+<section class="pg" aria-label="Color">
+  <div class="cab"><span>03 Estilos · Color</span><span class="n">20</span></div>
+  <div class="g2" style="grid-template-columns:1fr 1.2fr"><div class="col"><span class="k">3.1 · Color</span><h2 class="tit">Mis colores, en su punto.</h2></div>
+  <p class="fin">Son los que siempre escojo: burgundy, verde militar, navy, baby blue, beige, rojo, plateado y un rosado clarito en el punto exacto. Se mueven en gradientes. Toca un plato para copiar el hex. Los Pantone son aproximados y hay que validarlos con la imprenta.</p></div>
+  <div class="col" style="gap:1.6cqw">
     <div class="platos" id="platos"></div>
-    <div class="prop" id="prop" aria-label="Proporción de color en una pieza típica"></div>
-    <p class="pix" style="margin-top:10px">Proporción en una pieza típica: un fondo a sangre, una tinta y máximo dos acentos.</p>
-    <div class="combos" id="combos"></div>
-    <div class="reglas" style="color:var(--loza)">
-      <div class="regla" style="border-color:var(--loza)"><span class="pix" style="color:var(--sol)">Reglas</span><ul><li>El fondo es un color entero: cobalto, rosa, sol, pasto o tinta. Nada de crema ni gris.</li><li>Un color fuerte por fondo y máximo dos acentos encima.</li><li>Sobre fotos de piel o madera, el texto va en loza o sol.</li></ul></div>
-      <div class="regla" style="border-color:var(--loza)"><span class="pix" style="color:var(--sol)">Con 30X</span><ul><li>El amarillo de 30X (#E9FF7B, lima) no entra en piezas tuyas. Tu amarillo es sol, más cálido.</li><li>30X aparece solo en la firma de email.</li></ul></div>
+    <div class="prop" id="prop" aria-label="Proporción de color"></div>
+    <div class="grads"><div class="g-mueve" style="background-image:var(--g-atardecer);color:var(--loza)">Atardecer · portadas y escenario</div><div class="g-mueve" style="background-image:var(--g-cielo);color:var(--tinta)">Cielo · stories y fondos suaves</div><div class="g-mueve" style="background-image:var(--g-plata);color:var(--tinta)">Plata · firma especial, cierres y merch</div></div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Tipografía">
+  <div class="cab"><span>03 Estilos · Tipografía</span><span class="n">21</span></div>
+  <div class="g2" style="grid-template-columns:1fr 1.2fr"><div class="col"><span class="k">3.2 · Tipografía</span><h2 class="tit">Cuatro voces.</h2></div>
+  <p class="fin">La que grita, la que habla, la que anota y la que etiqueta. Salen de los afiches de QUOTES ("Que Cosas Bonitas", "+1000 AURA") y de las notas a mano de SCHOOL NOTES. Las cuatro son gratuitas en Google Fonts.</p></div>
+  <div class="tipos">
+    <div class="tp"><span class="px">Bagel Fat One · el grito · titulares 40–168 px</span><p class="mu t-grito">Abro puertas.</p><p>Titulares, lemas y la palabra que importa. Caja baja con mayúscula inicial, y siempre grande.</p></div>
+    <div class="tp"><span class="px">Familjen Grotesk · la que habla · 16–22 px · 1.45</span><p class="mu t-texto">Partnerships y expansión en cuatro países. Si hay una puerta cerrada, la quiero conocer.</p><p>Texto corrido, bios y posts. Regular 400 y Semibold 600.</p></div>
+    <div class="tp"><span class="px">Caveat Brush · la que anota</span><p class="mu t-mano">ojo con esto →</p><p>Notas al margen, flechas y frases dichas por mí. Nunca en párrafos.</p></div>
+    <div class="tp"><span class="px">Silkscreen · la que etiqueta · 9–13 px</span><p class="mu t-pix">NOT APPROVED BY SOFISTICASHION</p><p>Etiquetas, fechas, stickers y el humor de pose. Siempre en mayúsculas.</p></div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Elementos gráficos">
+  <div class="cab"><span>03 Estilos · Elementos gráficos</span><span class="n">22</span></div>
+  <div class="col"><span class="k">3.3 · Elementos gráficos</span><h2 class="tit">Lo que la marca pega encima.</h2></div>
+  <div class="elem">
+    <div><div class="v v-ola" aria-hidden="true"><i></i><i></i><i></i></div><b>La ola</b><p>El borde festoneado de los platos. Separa secciones y cierra piezas.</p></div>
+    <div><div class="v v-pat" aria-hidden="true" id="pat"></div><b>El patrón chispa</b><p>La chispa repetida y girada 22°. Para fondos de story, merch y empaques.</p></div>
+    <div><div class="v v-st" aria-hidden="true"><span class="s"><img src="img/foto-01.jpg" alt=""></span></div><b>El sticker</b><p>Foto con borde de loza, girada entre 3° y 8°. Así entra cualquier foto a una pieza.</p></div>
+    <div><div class="v v-neon" aria-hidden="true"><span class="chispa"><svg viewBox="0 0 220 220"><path d="M110.0 18.0 L125.3 73.0 L194.9 25.1 L147.0 94.7 L202.0 110.0 L147.0 125.3 L175.1 175.1 L125.3 147.0 L110.0 202.0 L94.7 147.0 L44.9 175.1 L73.0 125.3 L18.0 110.0 L73.0 94.7 L44.9 44.9 L94.7 73.0Z"/></svg></span></div><b>El neón</b><p>La chispa en trazo rosa encendido. Solo de noche, solo para Sofisticashion.</p></div>
+  </div>
+</section>
+
+<section class="pg" aria-label="Fotografía">
+  <div class="cab"><span>03 Estilos · Fotografía</span><span class="n">23</span></div>
+  <div class="fotos">
+    <div class="col"><span class="k">3.4 · Fotografía y objetos</span><h2 class="tit" style="font-size:max(26px,3.6cqw)">Foto real con luz de hora dorada. El color lo pone el diseño.</h2>
+      <div class="sn">
+        <div><i>SÍ</i><span>Luz ámbar lateral o contraluz, entre las 4 y las 6 p. m.</span></div>
+        <div><i>SÍ</i><span>Sonrisa con dientes, mirando a cámara.</span></div>
+        <div><i>SÍ</i><span>Ropa en tierras: crema, beige, café, oliva, negro.</span></div>
+        <div class="no"><i>NO</i><span>Flash, luz de oficina o filtros de app.</span></div>
+        <div class="no"><i>NO</i><span>Caras generadas con IA. Mi cara sale solo de fotos reales.</span></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="fgrid">
+        <figure><img src="img/foto-02.jpg" alt="Retrato con blazer beige"><figcaption>LinkedIn</figcaption></figure>
+        <figure><img src="img/foto-04.jpg" alt="Retrato cercano con aretes"><figcaption>Detalle</figcaption></figure>
+        <figure><img src="img/foto-09.jpg" alt="Cuerpo entero, vestido negro"><figcaption>Speaker</figcaption></figure>
+      </div>
+      <div class="objs"><img src="img/hf-plato.jpg" alt="Plato pintado"><img src="img/hf-neon.jpg" alt="Neón ondulado"><img src="img/hf-taza.jpg" alt="Taza a rayas"><img src="img/hf-stickers.jpg" alt="Hoja de stickers"></div>
+      <p class="px" style="color:var(--cobalto)">Objetos de marca generados con Higgsfield Soul 2, sin personas.</p>
     </div>
   </div>
 </section>
 
-<section id="tipo" class="tipo">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">Tipografía</span><h2>Cuatro voces.</h2><p class="lead">La que grita, la que habla, la que anota y la que etiqueta. Salen de los afiches de QUOTES ("Que Cosas Bonitas", "+1000 AURA") y de las notas a mano de SCHOOL NOTES.</p></div>
-    <div class="especimen">
-      <div class="esp"><div class="info"><span class="pix">Bagel Fat One · el grito</span><p>Titulares, lemas y la palabra que importa. Siempre en caja baja con mayúscula inicial, y grande.</p></div><div class="muestra m-grito">Abro puertas.</div></div>
-      <div class="esp"><div class="info"><span class="pix">Familjen Grotesk · la que habla</span><p>Texto corrido, bios y posts. Regular 400 y Semibold 600.</p></div><div class="muestra m-texto">Partnerships y expansión en cuatro países. Si hay una puerta cerrada, la quiero conocer.</div></div>
-      <div class="esp"><div class="info"><span class="pix">Caveat Brush · la que anota</span><p>Notas al margen, flechas y frases dichas por mí. Nunca en párrafos.</p></div><div class="muestra m-mano">ojo con esto →</div></div>
-      <div class="esp"><div class="info"><span class="pix">Silkscreen · la que etiqueta</span><p>Etiquetas, fechas, stickers y el humor de pose. Siempre en mayúsculas.</p></div><div class="muestra m-pixel">NOT APPROVED BY SOFISTICASHION</div></div>
-    </div>
-    <div class="escala"><table>
-      <tr><td style="font-family:var(--f-grito);font-size:64px;line-height:1">Aa</td><td>Display</td><td>72–168 px · Bagel</td></tr>
-      <tr><td style="font-family:var(--f-grito);font-size:40px;line-height:1">Aa</td><td>Titular</td><td>40–112 px · Bagel</td></tr>
-      <tr><td style="font-size:22px">Aa — subtítulo</td><td>Subtítulo</td><td>20–22 px · Familjen 400</td></tr>
-      <tr><td style="font-size:17px">Aa — cuerpo de lectura</td><td>Texto</td><td>17 px · 1.5 · Familjen 400</td></tr>
-      <tr><td class="pix">AA · etiqueta</td><td>Etiqueta</td><td>11–13 px · Silkscreen</td></tr>
-    </table></div>
-  </div>
+<!-- CAP 04 -->
+<section class="pg cap pasto" id="voz" aria-label="Capítulo 04 Voz">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">24</span></div>
+  <span class="num" aria-hidden="true">04</span>
+  <div class="t"><span class="k">Capítulo 04</span><h2>Voz</h2><p>Sale de cómo escribo de verdad: mis notas, mis DMs y lo que escribo cuando nadie me va a leer.</p></div>
 </section>
-<div class="ola" style="background-color:var(--loza);margin-top:-30px;position:relative"></div>
 
-<section id="voz" class="voz">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">Voz y tono</span><h2>Me hablo a mí misma y dejo que los demás escuchen.</h2><p class="lead">Sale de cómo escribes de verdad: tus notas, tus DMs y lo que escribes cuando nadie te va a leer.</p></div>
+<section class="pg" aria-label="Voz y tono">
+  <div class="cab"><span>04 Voz · Rasgos</span><span class="n">25</span></div>
+  <div class="col"><span class="k">4.1 · Seis rasgos</span><h2 class="tit" style="font-size:max(26px,3.6cqw)">Me hablo a mí misma y dejo que los demás escuchen.</h2></div>
+  <div>
     <div class="rasgos">
-      <div class="rasgo" style="--c:var(--tomate);--fc:var(--loza)"><span class="pix">Mayúsculas para el clímax</span><p class="q">"QUITATE LAS MÁSCARAS Y PERMITETE EXPLOTAR"</p><p>Empiezas en minúscula y subes. El grito llega una vez, al final.</p></div>
-      <div class="rasgo" style="--c:var(--sol)"><span class="pix">Segunda persona</span><p class="q">"Desaparecerte? No, ENFRÉNTALO"</p><p>Te arengas a ti misma y el lector se siente incluido.</p></div>
-      <div class="rasgo" style="--c:var(--cobalto);--fc:var(--loza)"><span class="pix">Fuego con dirección</span><p class="q">"El fuego puede o arder o iluminar."</p><p>Pólvora, explotar, iluminar. La energía nunca es caos.</p></div>
-      <div class="rasgo" style="--c:var(--rosa)"><span class="pix">Preguntas cortas</span><p class="q">"Quien soy. Que me permito hacer."</p><p>Frases de cinco palabras. El inglés entra cuando suena mejor: "now is all I have".</p></div>
-      <div class="rasgo" style="--c:var(--tinta);--fc:var(--loza)"><span class="pix" style="color:var(--sol)">Humor de pose</span><p class="q">"NOT APPROVED BY SOFISTICASHION"</p><p>Alargas palabras ("muyyy", "graciasss") y casi no usas emojis, salvo corazones al agradecer.</p></div>
-      <div class="rasgo" style="--c:var(--pasto);--fc:var(--loza)"><span class="pix">De par a par</span><p class="q">"Esto es lo que hacemos ahora."</p><p>En LinkedIn, de founder a founder. Nada de motivación blanda ni jerga corporativa.</p></div>
+      <div class="rasgo" style="--c:var(--tomate);--fc:var(--loza)"><span class="px">Mayúsculas para el clímax</span><p class="q">"QUITATE LAS MÁSCARAS Y PERMITETE EXPLOTAR"</p><p>Empiezo en minúscula y subo. El grito llega una vez, al final.</p></div>
+      <div class="rasgo" style="--c:var(--sol)"><span class="px">Segunda persona</span><p class="q">"Desaparecerte? No, ENFRÉNTALO"</p><p>Me arengo a mí misma y el lector se siente incluido.</p></div>
+      <div class="rasgo" style="--c:var(--cobalto);--fc:var(--loza)"><span class="px">Fuego con dirección</span><p class="q">"El fuego puede o arder o iluminar."</p><p>Pólvora, explotar, iluminar. La energía nunca es caos.</p></div>
+      <div class="rasgo" style="--c:var(--rosa)"><span class="px">Preguntas cortas</span><p class="q">"Quien soy. Que me permito hacer."</p><p>Frases de cinco palabras. El inglés entra cuando suena mejor.</p></div>
+      <div class="rasgo" style="--c:var(--tinta);--fc:var(--loza)"><span class="px" style="color:var(--sol)">Humor de pose</span><p class="q">"NOT APPROVED BY SOFISTICASHION"</p><p>Alargo palabras ("muyyy", "graciasss"). Casi cero emojis, salvo corazones al agradecer.</p></div>
+      <div class="rasgo" style="--c:var(--pasto);--fc:var(--loza)"><span class="px">De par a par</span><p class="q">"Esto es lo que hacemos ahora."</p><p>En LinkedIn, de founder a founder. Cero motivación blanda.</p></div>
     </div>
-    <div class="sino">
-      <div class="ss"><span class="pix" style="color:var(--sol)">Así sí</span><p>La alianza no se cerró en la reunión. Se cerró en el café de después.</p><p>No tengo todo resuelto. Tengo <mark>pólvora</mark> y un mapa.</p><p>Medellín, CDMX, Miami. Misma semana, mismo nivel.</p></div>
-      <div class="sn"><span class="pix" style="color:var(--tomate)">Así no</span><p>Emocionada de anunciar que tuve el honor de…</p><p>En un mundo cada vez más cambiante, las alianzas estratégicas…</p><p>🚀✨ Nuevos retos, nuevas oportunidades 💪</p></div>
-    </div>
-    <p class="pix" style="margin-top:14px;color:var(--cobalto)">Los ejemplos de "así sí" muestran el registro. No son hechos para publicar tal cual.</p>
-  </div>
-</section>
-
-<section id="arte" class="arte">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix" style="background:var(--rosa);color:var(--tinta)">Dirección de arte</span><h2 style="color:var(--loza)">Foto real con luz de hora dorada, y el color lo pone el diseño.</h2><p class="lead" style="color:var(--lila)">Tus fotos ya cumplen las reglas, así que no inventamos un look. Encima van stickers, objetos de cerámica y neón.</p></div>
-    <div class="reglas-foto">
-      <div class="rf"><span class="pix">Luz ámbar</span><p>Contraluz o luz lateral cálida, entre las 4 y las 6 p. m. Nada de flash ni luz de oficina.</p></div>
-      <div class="rf"><span class="pix">Sonrisa abierta</span><p>Con dientes y mirando a cámara. La energía tiene que verse en la cara.</p></div>
-      <div class="rf"><span class="pix">Ropa en tierras</span><p>Crema, beige, café, oliva y negro. El color fuerte lo pone el fondo, no la ropa.</p></div>
-      <div class="rf"><span class="pix">Recorte tipo sticker</span><p>La foto va con borde de loza, girada entre 3 y 8 grados y pegada sobre un color entero.</p></div>
-    </div>
-    <div class="polas">
-      <figure class="pola" style="--r:-4deg;margin:0"><img src="img/foto-02.jpg" alt="Retrato con blazer beige"><span>LinkedIn</span></figure>
-      <figure class="pola" style="--r:3deg;margin:0"><img src="img/foto-01.jpg" alt="Retrato en jardín"><span>Bio · web</span></figure>
-      <figure class="pola" style="--r:-2deg;margin:0"><img src="img/foto-04.jpg" alt="Retrato cercano con aretes"><span>Detalle</span></figure>
-      <figure class="pola" style="--r:5deg;margin:0"><img src="img/foto-09.jpg" alt="Cuerpo entero, vestido negro"><span>Speaker</span></figure>
-      <figure class="pola" style="--r:-6deg;margin:0"><img src="img/foto-11.jpg" alt="Foto de noche"><span>Sofisticashion</span></figure>
-      <figure class="pola" style="--r:2deg;margin:0"><img src="img/foto-10.jpg" alt="Viaje en la nieve"><span>Viaje</span></figure>
-    </div>
-    <div class="objetos">
-      <div class="obj"><img src="img/hf-plato.jpg" alt="Plato de cerámica pintado con un sol y SOFI"><p><b>El plato.</b> Sale de HOME y sus platos de cerámica. Va como sticker redondo en portadas.</p></div>
-      <div class="obj"><img src="img/hf-neon.jpg" alt="Neón ondulado rosa sobre pared cobalto"><p><b>La onda de neón.</b> Sale del neón de BEDROOM y URBAN SPOT. Es "energética" hecha luz, para el registro de noche.</p></div>
-      <div class="obj"><img src="img/hf-taza.jpg" alt="Taza de cerámica pintada a rayas"><p><b>La taza.</b> Sale de "Claro que puedo con todo" de INSPO. Para piezas de calma y de mañana.</p></div>
-      <div class="obj"><img src="img/hf-stickers.jpg" alt="Hoja de stickers: rayo, sol, mariquita, bola disco, sombrero y fresa"><p><b>Los stickers.</b> Rayo, sol, mariquita, bola disco, sombrero y fresa: uno por tablero. Se pegan sobre fotos y slides.</p></div>
-    </div>
-    <p class="pix" style="margin-top:16px;color:var(--lila)">Objetos generados con Higgsfield Soul 2, sin personas. Tu cara sale solo de fotos reales.</p>
-  </div>
-</section>
-
-<section id="referentes" class="refs">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix">Referentes</span><h2>Todo lo que guardaste, y lo que tomamos de cada cosa.</h2><p class="lead">Tus 35 tableros de Pinterest, más cuatro casos de Behance. Filtra por familia para ver de dónde sale cada decisión.</p></div>
-    <div class="cuenta pix" id="cuenta"></div>
-    <div class="filtros" id="filtros" role="group" aria-label="Filtrar referentes por familia"></div>
-    <div class="familias" id="familias"></div>
-    <div class="muro" id="muro"></div>
-    <div class="behance">
-      <div class="beh"><img src="img/beh-04.jpg" alt="Caso SOL en Behance"><div><span class="pix">Behance</span><b>SOL</b><p>Un logo escrito a mano y puesto directo sobre la foto. Así usamos tu firma.</p></div></div>
-      <div class="beh"><img src="img/beh-03.jpg" alt="Caso Cool Cat's en Behance"><div><span class="pix">Behance</span><b>Cool Cat's</b><p>Cobalto con letra pesada. De ahí sale el fondo del hero y de Aplicaciones.</p></div></div>
-      <div class="beh"><img src="img/beh-00.jpg" alt="Caso Kokkōpi en Behance"><div><span class="pix">Behance</span><b>Kokkōpi</b><p>Color saturado sin pedir permiso, con fondos a sangre.</p></div></div>
-      <div class="beh"><img src="img/beh-07.jpg" alt="Caso Studio Zarach en Behance"><div><span class="pix">Behance</span><b>Studio Zarach</b><p>Self-branding con un trazo propio como protagonista.</p></div></div>
-    </div>
-    <div class="tableros"><table>
-      <thead><tr><th>Tablero</th><th class="n">Pines</th><th style="width:22%"></th><th>Familia</th><th>Lo que tomamos</th></tr></thead>
-      <tbody id="tabla"></tbody>
-    </table></div>
-  </div>
-</section>
-
-<div class="ticker" aria-hidden="true"><div class="row tk3"></div></div>
-
-<section id="apps" class="apps">
-  <div class="wrap sec">
-    <div class="head"><span class="tag pix" style="background:var(--sol);color:var(--tinta)">Aplicaciones</span><h2 style="color:var(--loza)">Listo para usar, en los cinco frentes.</h2><p class="lead">LinkedIn, escenario, Instagram, web y email. Cada pieza muestra un registro, y el logo de 30X aparece solo en la firma de email.</p></div>
-    <div class="apps-grid">
-      <div class="app a-banner"><span class="pix">LinkedIn · banner 1584×396</span>
-        <div class="m"><div class="t"><span class="pix">[Partnerships &amp; Expansion]</span><h4>Abro puertas entre países.</h4><span class="pix">Medellín · CDMX · Miami · Bogotá</span></div><div class="img"></div><span class="avatar" aria-hidden="true"></span></div>
-        <p class="pix" style="color:var(--lila)">El círculo punteado es donde cae la foto de perfil. Ahí no va nada.</p></div>
-      <div class="app a-carr"><span class="pix">LinkedIn · carrusel 1080×1350</span>
-        <div class="m"><span class="pix">01/06 · Partnerships</span><h4>El fuego puede o arder o <span>iluminar.</span></h4><div style="display:flex;justify-content:space-between;align-items:end"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><span class="pix">Desliza →</span></div></div></div>
-      <div class="app a-story"><span class="pix">Instagram · story 1080×1920</span>
-        <div class="m"><span class="s1">NOT APPROVED BY<br>SOFISTICASHION</span><img class="s4" src="img/hf-plato.jpg" alt="" style="border-radius:50%"><span class="s2">now is all I have.</span><span class="s3">@sofisticashion</span></div></div>
-      <div class="app a-mail"><span class="pix">Email · firma</span>
-        <div class="m"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><hr><div><b>Sofía Valencia</b><br>Head of Partnerships &amp; Expansion · 30X</div><span class="pix">Medellín · CDMX · Miami</span></div></div>
-      <div class="app a-slide"><span class="pix">Speaker · slide 16:9</span>
-        <div class="m"><div class="t"><span class="pix">[Sofía Valencia] · Partnerships, 30X</span><h4>Quítate las <span>máscaras.</span></h4><span class="pix">001 · 002 · 003 · 004</span></div><div class="img"></div></div></div>
-      <div class="app a-web"><span class="pix">Web · hero de portafolio</span>
-        <div class="m"><div class="nav"><svg class="firma" viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg><span>sofiavalencia.co</span></div>
-          <div class="body"><div><h4>Partnerships y expansión en <span>cuatro países.</span></h4><p>Si hay una puerta cerrada, la quiero conocer.</p><div class="btns"><span>Hablemos</span><span>Charlas</span></div></div><div class="pic"><img src="img/foto-06.jpg" alt=""><img class="pl" src="img/hf-plato.jpg" alt=""></div></div></div></div>
+    <div class="dice">
+      <div class="si"><span class="px" style="color:var(--sol)">Así sí</span><p>La alianza no se cerró en la reunión. Se cerró en el café de después.</p><p>No tengo todo resuelto. Tengo pólvora y un mapa.</p></div>
+      <div class="no"><span class="px" style="color:var(--tomate)">Así no</span><p>Emocionada de anunciar que tuve el honor de…</p><p>En un mundo cada vez más cambiante, las alianzas estratégicas…</p></div>
     </div>
   </div>
 </section>
 
-<footer class="pie">
-  <div class="wrap">
-    <svg class="firma" viewBox="0 0 2300 964" role="img" aria-label="Firma de Sofía Valencia"><use href="#firma"/></svg>
-    <p class="pix">Marca personal · v3 · 01 oct 2026 · Los pines y los casos de Behance son referencia interna, no se publican en piezas.</p>
-  </div>
-</footer>
+<!-- CAP 05 -->
+<section class="pg cap tomate" id="referentes" aria-label="Capítulo 05 Referentes">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">26</span></div>
+  <span class="num" aria-hidden="true">05</span>
+  <div class="t"><span class="k">Capítulo 05</span><h2>Referentes</h2><p>De dónde sale cada decisión. Nada de este libro es un look inventado.</p></div>
+</section>
 
-<div class="toast pix" id="toast" hidden></div>
+<section class="pg" aria-label="Referentes">
+  <div class="cab"><span>05 Referentes · Lo que tomamos</span><span class="n">27</span></div>
+  <div class="refs">
+    <div class="col">
+      <span class="k">5.1 · Lo que tomamos y de dónde</span>
+      <h2 class="tit" style="font-size:max(26px,3.4cqw)">35 tableros, 2.630 pines y dos libros de marca.</h2>
+      <div class="apr">
+        <div><b>Seven Seconds</b><p>Del deck "The Board": la narrativa antes del diseño (contexto, problema, en qué creemos, concepto) y las etiquetas en mayúscula con número.</p></div>
+        <div><b>Helpy</b><p>Del brandbook de Helpy: el ADN completo (manifiesto, golden circle, propuesta) y el isotipo que se construye desde símbolos con significado.</p></div>
+        <div><b>Behance</b><p>SOL (logo a mano sobre foto), Cool Cat's (cobalto con letra pesada), Kokkōpi (color a sangre) y Studio Zarach (un trazo propio como protagonista).</p></div>
+        <div><b>Pinterest</b><p>Color de cerámica, letra gorda de afiche, neón, stickers y luz de hora dorada.</p></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="muro" id="muro"></div>
+      <div class="tabla" id="tabla"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAP 06 -->
+<section class="pg cap oscuro" id="aplicaciones" aria-label="Capítulo 06 Aplicaciones">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">28</span></div>
+  <span class="num" aria-hidden="true">06</span>
+  <div class="t"><span class="k">Capítulo 06</span><h2>Aplicaciones</h2><p>La marca en la mano, en la pared y en la pantalla. 30X aparece solo en la firma de email.</p></div>
+</section>
+
+<section class="pg" aria-label="Aplicaciones físicas">
+  <div class="cab"><span>06 Aplicaciones · Físico</span><span class="n">29</span></div>
+  <div class="col"><span class="k">6.1 · En la mano y en la pared</span><h2 class="tit" style="font-size:max(26px,3.4cqw)">Tote, tarjetas y afiche.</h2></div>
+  <div class="mocks">
+    <div class="mock"><div class="f"><img src="img/mock_tote.jpg" alt="Tote de lona con la chispa y la firma">
+      <span class="ov chispa" style="left:49%;top:47%;width:24%;color:var(--burgundy)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span>
+      <span class="ov firma" style="left:49%;top:66%;width:40%;color:var(--cobalto)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></div>
+      <p>Tote de lona: chispa burgundy y firma navy, serigrafía a dos tintas.</p></div>
+    <div class="mock"><div class="f"><img src="img/mock_cards.jpg" alt="Tarjetas de presentación con la firma">
+      <span class="ov firma" style="left:50.5%;top:39%;width:36%;color:var(--burgundy)"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span>
+      <span class="ov chispa" style="left:50.5%;top:61%;width:9%;color:var(--tomate)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span></div>
+      <p>Tarjetas en beige: firma burgundy al frente y chispa roja al reverso.</p></div>
+    <div class="mock"><div class="f"><img src="img/mock_poster.jpg" alt="Afiche en la calle con el lema">
+      <span class="ov ov-lema" style="left:48%;top:44%;width:66%"><span style="color:var(--cobalto)">Explotar,</span><span style="color:var(--burgundy)">explorar,</span><span style="color:var(--tomate)">experimentar.</span></span>
+      <span class="ov chispa" style="left:72%;top:72%;width:16%;color:var(--sol)"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span></div>
+      <p>Afiche de calle para charlas: el lema en tres colores y la chispa como sello.</p></div>
+  </div>
+</section>
+
+<section class="pg oscuro" aria-label="Aplicaciones digitales">
+  <div class="cab"><span>06 Aplicaciones · Digital</span><span class="n">30</span></div>
+  <div class="col"><span class="k">6.2 · En la pantalla</span><h2 class="tit" style="font-size:max(26px,3.4cqw)">LinkedIn, story, slide, email y web.</h2></div>
+  <div class="digi">
+    <div class="ap d-ban"><span class="px">LinkedIn · banner 1584×396</span><div class="mm"><div class="t"><span class="px">[Partnerships &amp; Expansion]</span><h4>Abro puertas entre países.</h4><span class="px">Medellín · CDMX · Miami · Bogotá</span></div><div class="im"></div></div></div>
+    <div class="ap d-mail"><span class="px">Email · firma</span><div class="mm"><span class="firma"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span><div class="dt"><b>Sofía Valencia</b><span>Head of Partnerships &amp; Expansion · 30X</span><span class="px">Medellín · CDMX · Miami</span></div></div></div>
+    <div class="ap d-story"><span class="px">Story 9:16</span><div class="mm"><span class="a">NOT APPROVED BY<br>SOFISTICASHION</span><span class="c"><svg viewBox="0 0 220 220" aria-hidden="true" style="width:100%"><use href="#chispa"/></svg></span><span class="b">now is all I have.</span></div></div>
+    <div class="ap d-slide"><span class="px">Speaker · slide vertical</span><div class="mm"><div class="t"><span class="px">[Sofía Valencia] · Partnerships, 30X</span><h4>Quítate las <span>máscaras.</span></h4></div><div class="im"></div></div></div>
+    <div class="ap d-web"><span class="px">Web · hero</span><div class="mm"><div class="nav"><span class="lk-h"><span class="chispa"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span><span class="firma"><svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg></span></span><span>sofiavalencia.co</span></div>
+      <div class="bd"><div><h4>Partnerships y expansión en <span>cuatro países.</span></h4><p>Si hay una puerta cerrada, la quiero conocer.</p><div class="btn"><span>Hablemos</span><span>Charlas</span></div></div><div class="pic"><img src="img/foto-06.jpg" alt=""><img class="pl" src="img/hf-plato.jpg" alt=""></div></div></div></div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="pg cierre" aria-label="Cierre">
+  <div class="cab"><span>Sofía Valencia · Brandbook</span><span class="n">31</span></div>
+  <div class="c">
+    <span class="chispa"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg></span>
+    <h2><span>Explotar.</span> <span>Explorar.</span> <span>Experimentar.</span></h2>
+    <span class="firma" role="img" aria-label="Firma de Sofía Valencia"><svg viewBox="0 0 2300 964"><use href="#firma"/></svg></span>
+  </div>
+  <div class="pie px"><span>Medellín, 2026</span><span>Pines y casos de Behance: referencia interna, no se publican en piezas.</span></div>
+</section>
+
+</main>
+<div class="toast px" id="toast" hidden></div>
 
 <script>
 (function(){
   const $=s=>document.querySelector(s);
-  // tickers
-  const lema=["EXPLOTAR","✺","EXPLORAR","✺","EXPERIMENTAR","✺"];
-  const fill=(el,words)=>{const w=words.concat(words,words,words);el.innerHTML=w.concat(w).map(x=>`<span>${x}</span>`).join("")};
-  fill($("#tk"),lema);
-  fill($(".tk2"),["SOFÍA VALENCIA","✺","DE DÍA","✺","SOFISTICASHION","✺","DE NOCHE","✺"]);
-  fill($(".tk3"),["+1000 AURA","✺","NOW IS ALL I HAVE","✺","YO PUDE","✺"]);
-
-  // firma sobre colores
   const F='<svg viewBox="0 0 2300 964" aria-hidden="true"><use href="#firma"/></svg>';
-  const firmas=[["cobalto","loza","Principal · loza sobre cobalto"],["loza","cobalto","Día · cobalto sobre loza"],["tinta","rosa","Noche · rosa neón sobre tinta"],["rosa","tinta","Pop · tinta sobre rosa"],["sol","tomate","Energía · tomate sobre sol"]];
-  $("#firmas").innerHTML=firmas.map(([bg,fg,l])=>`<div class="ft" style="background:var(--${bg});color:var(--${fg})">${F}<span class="pix">${l}</span></div>`).join("")+
-    `<div class="ft foto" style="background-image:url(img/foto-03.jpg);color:var(--loza)">${F}<span class="pix" style="color:var(--loza)">Sobre foto · loza</span></div>`;
-
-  // colores
-  const cols=[["Cobalto","cobalto","#1F3BE0","Fondo de día. El azul de los platos y de Cool Cat's."],["Rosa","rosa","#FF5CA8","Acento y neón de noche. El rosa del Matisse de BEDROOM."],["Sol","sol","#FFC933","Yema de huevo, no lima. Stickers y resaltado."],["Pasto","pasto","#17A14B","El mantel del plato. Fondo de calma."],["Tomate","tomate","#F2462B","La palabra que importa sobre sol o loza."],["Tinta","tinta","#14102A","Negro índigo. Texto y fondo de noche."],["Loza","loza","#FFFDF7","El blanco del esmalte. Respiro, nunca de fondo crema."],["Lila","lila","#B9A6FF","Texto suave sobre tinta. Solo de noche."]];
-  $("#platos").innerHTML=cols.map(([n,t,h,u])=>`<button type="button" data-hex="${h}" aria-label="Copiar ${n} ${h}"><span class="disco"><i style="--sw:var(--${t})"></i></span><b>${n}</b><small>${h}</small><em>${u}</em></button>`).join("");
-  const toast=$("#toast");let tt;
-  const show=m=>{toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1600)};
-  $("#platos").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const h=b.dataset.hex;
-    try{navigator.clipboard.writeText(h).then(()=>show(h+" copiado"),()=>show(h))}catch(_){show(h)}});
-  const prop=[["cobalto",44,"FONDO"],["tinta",24,"TINTA"],["loza",16,"LOZA"],["rosa",9,"ROSA"],["sol",7,"SOL"]];
-  $("#prop").innerHTML=prop.map(([t,p,l])=>`<span style="flex:${p};background:var(--${t});color:${t==="cobalto"||t==="tinta"?"var(--loza)":"var(--tinta)"}">${l} ${p}</span>`).join("");
-  const combos=[["cobalto","loza","Día","Abro puertas."],["tinta","rosa","Noche","now is all I have."],["sol","tomate","Energía","Explotar."],["pasto","loza","Calma","Con criterio."]];
-  $("#combos").innerHTML=combos.map(([bg,fg,l,t])=>`<div class="combo" style="background:var(--${bg});color:var(--${fg})"><span class="pix">${l}</span>${t}</div>`).join("");
-
+  const C='<svg viewBox="0 0 220 220" aria-hidden="true"><use href="#chispa"/></svg>';
+  // versiones sobre color
+  const V=[["burgundy","loza","rosa","Principal · papel sobre burgundy"],["loza","burgundy","tomate","Día · burgundy sobre papel"],["cobalto","loza","sol","Navy · papel y baby blue"],["rosa","burgundy","tomate","Rosado · burgundy sobre rosado"],["pasto","beige","rosa","Militar · beige sobre verde"]];
+  $("#vers").innerHTML=V.map(([bg,fg,ch,l])=>`<div style="background:var(--${bg});color:var(--${fg});${bg==="loza"?"border:1px solid color-mix(in srgb,var(--tinta) 15%,transparent)":""}"><span class="chispa" style="color:var(--${ch})">${C}</span><span class="firma">${F}</span><span class="px">${l}</span></div>`).join("")+
+   `<div style="background:url(img/foto-03.jpg) center/cover;color:var(--loza)"><span class="chispa" style="color:var(--sol)">${C}</span><span class="firma">${F}</span><span class="px">Sobre foto · loza y sol</span></div>`;
+  // patrón
+  $("#pat").innerHTML=Array.from({length:16},()=>`<span class="chispa">${C}</span>`).join("");
+  // color
+  const cols=[["Burgundy","burgundy","#6B1A2B","7421 C","El color principal. Portadas, firma y la pieza que importa."],["Navy","cobalto","#1B2A5C","2767 C","Fondo de día. Serio sin ser frío."],["Verde militar","pasto","#4B5A2E","5747 C","Fondo de calma y piezas de viaje."],["Rojo","tomate","#C8202C","485 C","La palabra que importa, una por pieza."],["Rosado clarito","rosa","#F4BFCB","182 C","El rosado en su punto. Acento sobre burgundy y navy."],["Baby blue","sol","#A9CFF0","278 C","Etiquetas, stickers y resaltado sobre oscuro."],["Beige","beige","#E2D2B8","468 C","Superficies cálidas, tarjetas y merch."],["Plateado","lila","#C5C9D1","877 C (metálico)","Brillo de cierre. En gradiente se vuelve plata."],["Tinta","tinta","#1E0F16","Black 4 C","Negro burgundy. Texto y fondo de noche."],["Papel","loza","#F3EBDF","Papel natural","El fondo de los pliegos y el respiro."]];
+  const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  const cmyk=([r,g,b])=>{r/=255;g/=255;b/=255;const k=1-Math.max(r,g,b);if(k>=1)return[0,0,0,100];return[(1-r-k)/(1-k),(1-g-k)/(1-k),(1-b-k)/(1-k),k].map(x=>Math.round(x*100))};
+  $("#platos").innerHTML=cols.map(([n,t,h,p,u])=>{const c=rgb(h);return `<button type="button" data-hex="${h}" aria-label="Copiar ${n} ${h}"><span class="disco"><i style="--sw:var(--${t})"></i></span><span class="inf"><b>${n}</b><code>HEX ${h}<br>RGB ${c.join(" ")}<br>CMYK ${cmyk(c).join(" ")}<br>PMS ${p}</code><em>${u}</em></span></button>`}).join("");
+  const toast=$("#toast");let tt;const show=m=>{toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1600)};
+  $("#platos").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const h=b.dataset.hex;try{navigator.clipboard.writeText(h).then(()=>show(h+" copiado"),()=>show(h))}catch(_){show(h)}});
+  const prop=[["burgundy",30,"BURGUNDY 30"],["loza",24,"PAPEL 24"],["cobalto",18,"NAVY 18"],["rosa",10,"ROSADO 10"],["pasto",8,"MILITAR 8"],["tomate",5,"ROJO 5"],["lila",5,"PLATA 5"]];
+  $("#prop").innerHTML=prop.map(([t,p,l])=>`<span style="flex:${p};background:var(--${t});color:${["cobalto","tinta","burgundy","pasto","tomate"].includes(t)?"var(--loza)":"var(--tinta)"}">${l}</span>`).join("");
   // referentes
-  const FAM={color:["Color y cerámica","Los fondos a sangre, los platos y el Matisse.","Paleta y objetos"],
-    letra:["Letra y frases","El grito en letra gorda y la nota a mano.","Tipografía y voz"],
-    noche:["Noche y fiesta","Neón, bola disco y pose. Es Sofisticashion.","Registro de noche"],
-    luz:["Luz y lugares","Hora dorada, cielos y viaje. Es la dirección de foto.","Fotografía"],
-    vida:["Vida y antojos","Detalles de estilo para los stickers.","Stickers y detalles"]};
-  const B=[
-   ["ART","art",182,"color","Afiches de color sin miedo y el sol pintado en ondas."],
-   ["BEDROOM","bedroom",99,"color","El Matisse en rosa y cobalto, y el neón ondulado."],
-   ["HOME","home",44,"color","Los platos de cerámica pintada. De ahí sale toda la paleta."],
-   ["WALLPAPER","wallpaper",229,"color","\"You are exactly where\": letra de colores sobre loza."],
-   ["NICE","nice",49,"color","El Jenga pintado y \"Every thought multiplies\"."],
-   ["QUOTES","quotes",316,"letra","\"Que Cosas Bonitas\" y \"+1000 AURA\": el grito y la etiqueta pixel."],
-   ["INSPO","inspo",80,"letra","\"Claro que puedo con todo\" en una taza: la voz que se arenga."],
-   ["HELPY IG","helpy-ig",72,"letra","Personajes simples y planos de color, como Mr. Messy."],
-   ["SCHOOL NOTES","school-notes",12,"letra","La nota a mano al margen."],
-   ["Story Template Flashy","story-template-flashy",35,"letra","Plantillas de story. Tomamos el formato, no el rosa pastel."],
-   ["REDES","redes",14,"letra","El humor de \"Me / Also me\" para el registro de noche."],
-   ["PARTY","party",39,"noche","Bola disco, \"Entry fee 1 shot\" y el vinilo de fiesta."],
-   ["FESTIVALES","festivales",18,"noche","Pose y negro con brillo."],
-   ["DISFRACES","disfraces",36,"noche","El permiso de exagerar."],
-   ["DRESS","dress",36,"noche","El sombrero de bola disco y el rosa fuerte."],
-   ["MAKEUP","makeup",90,"noche","El delineado naranja: un acento que se nota."],
-   ["Monza Quantum","monza-quantum",14,"noche","Eventos con luz baja y de noche, para el escenario."],
-   ["PLACES","places",94,"luz","Atardeceres y cielos para el fondo con aire."],
-   ["GOALS","goals",351,"luz","La mano contra el cielo y el corazón de nubes."],
-   ["MANIFEST","manifest",34,"luz","Montañas y lagos azules para las piezas de viaje."],
-   ["Vision board 2026","vision-board-2026",14,"luz","\"Everything I imagine will be my reality soon\" y Girl Boss."],
-   ["Urban Spot","urban-spot",13,"luz","El espejo con neón y los vinilos en la pared."],
-   ["WANT","want",208,"vida","Los tenis de colores y el suéter tejido."],
-   ["CRAFTS","crafts",17,"vida","Lo hecho a mano: cartas, frascos y collage."],
-   ["HAIR","hair",122,"vida","Tonos cobre y caramelo para la ropa en tierras."],
-   ["TATTOO","tattoo",27,"vida","La balanza: equilibrio, como símbolo secundario."],
-   ["Tote Bags","tote-bags",2,"vida","Llamas sobre lona: merch posible."],
-   ["WORKOUTS","workouts",32,"vida","Energía física, sin estética de gym."],
-   ["YUMMY","yummy",291,"vida","Comida de colores para los stickers de fresa."],
-   ["COWGIRL","",13,"noche","El sombrero de los stickers.",1],
-   ["B I C H O T A S","",26,"noche","Privado: no se ve en el RSS.",1],
-   ["Collage Item Pins","",16,"vida","Privado: no se ve en el RSS.",1],
-   ["Crookies","",3,"vida","Privado: no se ve en el RSS.",1],
-   ["Bride","bride",1,"vida","Un solo pin, no entra."],
-   ["Quick Saves","_quick_saves",1,"vida","Un solo pin, no entra."]];
-  const PINS={art:[0,1,7,6,9],bedroom:[2,4,10,5],crafts:[3,7],disfraces:[5,10],dress:[1,6],festivales:[0,6],goals:[5,9],hair:[11],"helpy-ig":[3,5,6,11],home:[0,1,6,10],inspo:[7,11,5],makeup:[3,7],manifest:[2],"monza-quantum":[6,9],nice:[0,3,7,9],party:[1,6,8,11],places:[5,0],quotes:[0,3,6,11,10],redes:[0,9],"school-notes":[1],"story-template-flashy":[0],tattoo:[6],"tote-bags":[0],"urban-spot":[2,5],"vision-board-2026":[2,6,10],wallpaper:[4,9,11,10],want:[0,6],workouts:[4],yummy:[8]};
-  const total=B.reduce((a,b)=>a+b[2],0);
-  const pins=[];B.forEach(b=>{(PINS[b[1]]||[]).forEach(i=>pins.push({b:b[0],s:b[1],f:b[3],i}))});
-  // intercalar por tablero para que el muro no salga en bloques
-  pins.sort((a,b)=>(a.i*7+a.s.length)%13-(b.i*7+b.s.length)%13);
-  $("#cuenta").innerHTML=`<span class="tag">${B.length} tableros</span><span class="tag">${total.toLocaleString("es-CO")} pines</span><span class="tag">${pins.length} en el muro</span><span class="tag">4 casos de Behance</span>`;
-  $("#tabla").innerHTML=B.map(b=>`<tr><td>${b[0]} ${b[5]?'<span class="priv">privado</span>':""}</td><td class="n">${b[2]}</td><td><span class="bar-mini" style="width:${Math.max(2,b[2]/351*100)}%"></span></td><td>${FAM[b[3]][0]}</td><td>${b[4]}</td></tr>`).join("");
-  $("#familias").innerHTML=Object.entries(FAM).map(([k,v])=>`<div class="fam" data-f="${k}"><span class="pix">${v[2]}</span><b>${v[0]}</b><p>${v[1]}</p></div>`).join("");
-  $("#muro").innerHTML=pins.map(p=>`<figure class="pin" data-f="${p.f}"><img loading="lazy" src="img/pin-${p.s}-${String(p.i).padStart(2,"0")}.jpg" alt="Pin del tablero ${p.b}"><figcaption>${p.b}</figcaption></figure>`).join("");
-  const opts=[["todo","Todo"]].concat(Object.entries(FAM).map(([k,v])=>[k,v[0]]));
-  let cur="todo";try{cur=localStorage.getItem("refs-f")||"todo"}catch(_){}
-  const apply=()=>{document.querySelectorAll("#filtros button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===cur));
-    document.querySelectorAll("#muro .pin").forEach(p=>p.hidden=!(cur==="todo"||p.dataset.f===cur));
-    document.querySelectorAll(".fam").forEach(f=>f.classList.toggle("on",f.dataset.f===cur));};
-  $("#filtros").innerHTML=opts.map(([k,l])=>`<button type="button" id="f-${k}" data-f="${k}">${l}</button>`).join("");
-  $("#filtros").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cur=b.dataset.f;try{localStorage.setItem("refs-f",cur)}catch(_){}apply()});
-  $("#familias").addEventListener("click",e=>{const f=e.target.closest(".fam");if(!f)return;cur=f.dataset.f;apply()});
-  if(!opts.some(o=>o[0]===cur))cur="todo";
-  apply();
+  const B=[["ART",182],["BEDROOM",99],["HOME",44],["WALLPAPER",229],["NICE",49],["QUOTES",316],["INSPO",80],["HELPY IG",72],["SCHOOL NOTES",12],["Story Template Flashy",35],["REDES",14],["PARTY",39],["FESTIVALES",18],["DISFRACES",36],["DRESS",36],["MAKEUP",90],["Monza Quantum",14],["PLACES",94],["GOALS",351],["MANIFEST",34],["Vision board 2026",14],["Urban Spot",13],["WANT",208],["CRAFTS",17],["HAIR",122],["TATTOO",27],["Tote Bags",2],["WORKOUTS",32],["YUMMY",291],["COWGIRL",13,1],["B I C H O T A S",26,1],["Collage Item Pins",16,1],["Crookies",3,1],["Bride",1],["Quick Saves",1]];
+  $("#tabla").innerHTML=B.map(b=>`<div><span>${b[0]}${b[2]?"<em>privado</em>":""}</span><span>${b[1]}</span></div>`).join("");
+  const M=[["art",0],["home",0],["quotes",3],["bedroom",2],["wallpaper",9],["urban-spot",2],["quotes",0],["party",6],["art",7],["inspo",11],["home",6],["nice",3],["helpy-ig",3],["dress",6],["goals",9],["bedroom",10],["wallpaper",11],["party",11],["art",1],["vision-board-2026",10],["makeup",3],["quotes",11],["home",10],["inspo",5]];
+  $("#muro").innerHTML=M.map(([s,i])=>`<figure><img loading="lazy" src="img/pin-${s}-${String(i).padStart(2,"0")}.jpg" alt="Pin de ${s}"><figcaption>${s}</figcaption></figure>`).join("");
 })();
 </script>
 
